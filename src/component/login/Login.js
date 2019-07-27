@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import history from '../component/History'
+// import history from '../History' 
 
 export default class IsLogin extends Component {
     render() {
@@ -7,7 +7,7 @@ export default class IsLogin extends Component {
         console.log('user', user)
         if(user.token.status) {
             alert('successfully Inserted')
-            history.push('/')
+            // history.push('/')
         }
         return (
             <input type="submit" name="login" value="Log In" />

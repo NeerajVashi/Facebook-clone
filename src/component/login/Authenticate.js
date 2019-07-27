@@ -1,10 +1,10 @@
-import '../authenticate.css';
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
-import { Login, Registration } from '../actions/userLogin'
+import { Login, Registration } from '../../actions/userLogin'
 import IsLogin from './Login.js'
 import Register from './Register';
-
+import {Link} from 'react-router-dom'
+import '../../css/authenticate.css'
 class Authenticate extends Component {
   constructor(props) {
     super(props)
@@ -70,24 +70,18 @@ class Authenticate extends Component {
       password:this.state.password
     }
     this.props.dispatch(Login(user))
-    const token = this.props.user.token;
-    console.log('token msg', token.msg, 'token', token,'user', this.props.user);
-    this.setState({
-      isFormSubmit:true
-    })
   }
   
-
   render() {
     return (
       <div className="auth">
         <div className="body">
           <div className="header_wrapper">
             <div className="header">
-              <li className="sitename"><a href="#">facebook</a></li>
+              <li className="sitename"><Link to = '/'>facebook</Link></li>
               <form onSubmit={this.login}>
                 <li>Email or Phone<br /><input required id="user" value={this.state.username} type="text" onChange={e => this.saveUser(e)} /></li>
-                <li>Password<br /><input required id="password" value={this.state.password} type="password" onChange={e => this.saveUser(e)} /><br /><a href="">Forgotten account?</a></li>
+                <li>Password<br /><input required id="password" value={this.state.password} type="password" onChange={e => this.saveUser(e)} /><br /><Link to = ''>Forgotten account?</Link></li>
                 {/* <li><input type="submit" name="login" value="Log In" /></li> */}
                 <li> <IsLogin user = {this.props.user}/> </li>
               </form>
@@ -117,11 +111,11 @@ class Authenticate extends Component {
                 <br />
                 <p>Gender</p>
                 <li><input id='gender' name="gender" value='female' onChange={this.saveUser} type="radio" required />Female <input id='gender' value='male' name="gender" onChange={this.saveUser} type="radio" />Male <input id='gender' name="gender" value='other' onChange={this.saveUser} type="radio" />Other</li>
-                <li id="terms">By clicking Create an account, you agree to our <a href="">Terms</a> and that <br />you have read our <a href="">Data Policy</a>, including our <a href="">Cookie Use</a>.</li>
+                <li id="terms">By clicking Create an account, you agree to our <Link to=''>Terms</Link>and that <br />you have read our <Link to =''>Data Policy</Link>, including our <Link to=''>Cookie Use</Link>.</li>
                 {/* <li><input type="submit" value="Create an account" /></li> */}
                 <li> <Register /> </li>
               </form>
-              <li id="create_page"><a href="">Create a Page</a> for a celebrity, band or business.</li>
+              <li id="create_page"><Link to=''>Create a Page</Link> for a celebrity, band or business.</li>
             </div>
           </div>
           {/* <div className="footer_wrapper">
