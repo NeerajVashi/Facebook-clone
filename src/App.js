@@ -23,8 +23,8 @@ export default class App extends Component {
         } else {
             return (
                 <Router history={history}>
-                {/* <Authenticate /> */}
-                <Homepage />
+                <Authenticate />
+                {/* <Homepage /> */}
                 </Router>
             )
         }
