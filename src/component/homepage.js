@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import '../css/styles.css'
-import EnterPost from './newsfeed/EnterPost';
-import Post from './newsfeed/Post';
+import FriendCards from './friends/FriendCards';
+import  { sendRequest, deleteRequest } from '../actions/friends'
 
 class Homepage extends Component {
 
@@ -17,19 +17,20 @@ class Homepage extends Component {
     onSubmit = (e) => {
         e.preventDefault();
     }
+    add = (senderId, sender) => {
+        console.log('inside add', sender, senderId);
+       this.props.dispatch(sendRequest(senderId, sender))
+    }
+
+    delete = (friendId, userId) => {
+        this.props.dispatch(deleteRequest(friendId, userId))
+    }
     render() {
+        const friendRequest = this.props.user.friendRequest;
+        console.log('in home friendRequest', friendRequest);
         return (
             <div>
-                <EnterPost />
-{/* 
-                <div class="dropdown">
-                    <button onClick={this.myFunction} >Dropdown</button>
-                    <div id="myDropdown" class="dropdown-content">
-                        <div>hello</div>
-                    </div>
-                </div> */}
-                <Post post={this.props.user.newPost} />
-                {/* <div className="mainpage-container">
+                <div className="mainpage-container">
                     <div className="flex-item1"></div>
                     <div className="flex-item2">
                         <div class="container">
@@ -110,9 +111,26 @@ class Homepage extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="flex-item3"></div>
+                    <div className="flex-item3">
+                        <div>
+                        {
+                            friendRequest.map((friend, i) => (
+                            <FriendCards singleuser={friend} id={i} onclick={this.add} onclickdelete={this.delete} />
+                            ))
+                        }
+                        </div>
+                        {/* <div class="card w-50 p-3">
+                            <div class="card-footer">
+                                <div className="createfooter">
+                                    <div className="footer pd-2"> <img className="round-img" src="/images/bean.jpg" alt="Avatar" />Neeraj</div>
+                                    <div className="footer"> <button type="button" class="btn">Add Friend</button></div>
+                                    <div><button type="button" class="btn">Delete</button></div>
+                                </div>
+                            </div>
+                        </div> */}
+                    </div>
                 </div>
-          */}
+
             </div>
         )
     }

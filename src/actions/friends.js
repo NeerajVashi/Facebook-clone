@@ -41,7 +41,6 @@ export  function sendRequest(friendId, sender) {
                 .then((user) => {
                     dispatch({type:'sendRequest', payload:user})
                 })
-
  }
 }
 

@@ -13,9 +13,9 @@ export default class App extends Component {
             return (
                 <Router history={history}>
                     <Navigation />
-                    <Homepage />
+                    {/* <Homepage /> */}
                         <Switch>
-                        {/* <Route path='/' exact component={HomePage} /> */}
+                        <Route path='/' exact component={Homepage} />
                         <Route path='/login' exact component={Authenticate} />
                         
                         </Switch>
