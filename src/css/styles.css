@@ -32,6 +32,16 @@ img {
     height: 75.5px;
     width: 75.5px;
 }
+.round-img-cmnts {
+    border-radius: 50%;
+    border: 2px solid black;
+    height: 40.5px;
+    width: 40.5px;
+    margin-top: -10px;
+}
+.cmnts {
+    margin-top: 4px;
+}
 .searchl {
     width: 350px;
 }
@@ -44,7 +54,6 @@ img {
 }
 .flex-item1 {
     flex-grow: 1.8;
-    
 }
 .flex-item2 {
     border-color: transparent;
@@ -53,18 +62,21 @@ img {
 .flex-item3 {
     flex-grow: 4.5;
 }
-.flex-item4 {
-    border-color: transparent;
-    background-color: black;
-    margin-top: 10px;
-    margin-left:15%;
-    
-}
 a:visited {
     color: white;
 }
+.display {
+    display: none;
+}
+.delbtn {
+    float: right;
+    margin-top: -45px;
+}
 a:hover {
     text-decoration: none;
+}
+.cmnt {
+    margin-bottom: 5px;
 }
 .createPost {
   height: 30px;
@@ -89,6 +101,24 @@ a:hover {
     color: white;
     height: 40px;
     width: 280px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 /* .navbtn {
     background-repeat: no-repeat;
