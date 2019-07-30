@@ -9,7 +9,7 @@ export default class App extends Component {
     render() {
         const token = this.props.token;
         console.log('inroutes', token);
-        if( Object.keys(token).length > 0 ) {
+        if( token) {
             return (
                 <Router history={history}>
                     <Navigation />
@@ -17,6 +17,7 @@ export default class App extends Component {
                         <Switch>
                         {/* <Route path='/' exact component={HomePage} /> */}
                         <Route path='/login' exact component={Authenticate} />
+                        
                         </Switch>
                 </Router>
             )

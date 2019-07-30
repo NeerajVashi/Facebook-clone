@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import '../css/styles.css'
 import EnterPost from './newsfeed/EnterPost';
 import Post from './newsfeed/Post';
 
 class Homepage extends Component {
+
     state = {
         postData: ''
     }
@@ -19,8 +20,15 @@ class Homepage extends Component {
     render() {
         return (
             <div>
-            <EnterPost />
-            <Post post = {this.props.user.newPost} />
+                <EnterPost />
+{/* 
+                <div class="dropdown">
+                    <button onClick={this.myFunction} >Dropdown</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <div>hello</div>
+                    </div>
+                </div> */}
+                <Post post={this.props.user.newPost} />
                 {/* <div className="mainpage-container">
                     <div className="flex-item1"></div>
                     <div className="flex-item2">
@@ -112,9 +120,8 @@ class Homepage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      user: state.user,
+        user: state.user,
     };
-  }
-  
+}
+
 export default connect(mapStateToProps)(Homepage);
-  
