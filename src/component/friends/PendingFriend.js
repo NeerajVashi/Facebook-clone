@@ -16,8 +16,16 @@ class PendingFriend extends Component {
         this.props.onclick(this.props.singleFriend.senderId, sender);
     }
     deleteRequest = () => {
+        const user = this.props.user.user;
+        const sender = {
+            senderFirstName:this.props.singleFriend.senderFirstName,
+            senderSurname:this.props.singleFriend.senderFirstName,
+            receiverFirstName:user[0].firstName,
+            receiverSurname:user[0].surName,
+            receiverId:user[0].id,
+        }
         console.log('delete Request');
-        this.props.onclickdelete();
+        this.props.onclickdelete(this.props.user.user[0].id, sender);
     }
     render() {
         return (

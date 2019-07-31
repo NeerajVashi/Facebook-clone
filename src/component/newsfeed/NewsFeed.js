@@ -63,8 +63,6 @@ class NewsFeed extends Component {
             }
     }
     render() {
-        console.log('typeof is');
-        console.log(typeof this.state.comments);
         return (
             <div>
                 <div class="card">              

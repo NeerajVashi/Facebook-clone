@@ -1,6 +1,21 @@
+.friends-images{
+    margin:12px;
+   
+}
+.friends-name{
+     padding-top: 18px;
+}
+.status-button{
+    margin-right:10px
+}
+
+.friend-Name{
+    padding-bottom: 40%;
+}
 .navbar{
     display: flex;
-    background-color: #3b5998;
+    background-color:rgb(22, 88, 175);
+/* border:1px solid #08298A; */
     height: 45px;
     flex-grow: 1;
     justify-content: flex-start;

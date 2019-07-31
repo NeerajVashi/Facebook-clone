@@ -1,4 +1,26 @@
-
+.friends-card{
+   position:fixed;
+   top:8%;
+   right:23%;
+   width: 22rem;
+  }
+.left{
+  position:fixed;
+  top:7%
+}
+.mid-first{
+  position: absolute;
+  left:12%;
+  top:7%;
+}
+.mid-second{
+  position: relative;
+}
+.navbar{
+  position: fixed;;
+  width:100%;
+  z-index:1; 
+}
 .dropbtn {
     background-color: #3498DB;
     color: white;

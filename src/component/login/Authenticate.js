@@ -90,7 +90,6 @@ class Authenticate extends Component {
           <div className="wrapper">
             <div className="div1">
               <p> helps you connect and share with the <br />people in your life.</p>
-              {/* <img src="img1.png" ></img> */}
             </div>
             <div className="div2">
               <h1>Create an account</h1>
@@ -118,18 +117,6 @@ class Authenticate extends Component {
               <li id="create_page"><Link to=''>Create a Page</Link> for a celebrity, band or business.</li>
             </div>
           </div>
-          {/* <div className="footer_wrapper">
-        <div className="footer1">
-          English (UK) <a href="">हिन्दी</a><a href="">ਪੰਜਾਬੀ</a><a href=""> اردو</a><a href="">தமிழ்</a><a href="">বাংলা</a><a href="">मराठी</a><a href="">తెలుగు</a><a href="">ગુજરાતી</a><a href="">ಕನ್ನಡ</a><a href="">മലയാളം</a>
-        </div>
-        <br></br>
-            state = {...state , isFormSubmit:true}
-        <div className="footer2">
-            state = {...state , isFormSubmit:true}
-          <a href="">Sign Up</a><a href="">Log In</a><a href="">Messenger</a><a href="">Talkerscode</a><a href="">Mobile</a><a href="">Find Friends</a><a href="">Badges</a><a href="">People</a><a href="">Pages</a><a href="">Places</a><a href="">Games</a><a href="">Locations</a><a href="">Celebrities</a><a href="">Groups</a><a href="">Moments</a><a href="">About</a><a href="">Create Advert</a><a href="">Create Page</a><a href="">Developers</a><a href="">Careers</a><a href="">Privacy</a><a href="">Cookies</a><a href="">Ads</a><a href="">Terms</a><a href="">Help</a>
-        </div>
-      </div> */}
-
         </div>
 
       </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Friend from './Friend';
 import PendingFriend from  './PendingFriend'
-import {sendRequest, deleteRequest, pendingRequest, confirmRequest} from '../../actions/friends'
+import {sendRequest, deleteRequest, pendingRequest, confirmRequest, deletePendingRequest} from '../../actions/friends'
 
 class Friends extends Component {
     add = (senderId, sender) => {
@@ -37,8 +37,9 @@ class Friends extends Component {
         this.props.dispatch(confirmRequest(id, sender))
     }
 
-    deletePendingRequest = () => {
+    deletePendingRequest = (friendId, sender) => {
         console.log('deleteRequest');
+        this.props.dispatch(deletePendingRequest(friendId,sender))
     }
     
     render() {

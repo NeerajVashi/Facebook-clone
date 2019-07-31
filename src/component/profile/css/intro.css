@@ -1,0 +1,71 @@
+.first{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.textintro{
+    text-align: center;
+    font-size: 12px;
+    color: brown;
+    margin-top: 10px;
+}
+.textintro1 {
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        cursor:pointer;
+        overflow: hidden;
+        outline:none;
+        color: blue;
+        size: 10px;
+}
+.textintro1:hover{
+    text-decoration: underline;
+
+}
+.textintro2 {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: blue;
+}
+.line :hover{
+    text-decoration: underline;
+}
+.line{
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, .25);
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    
+}
+.introbullet{
+    list-style-type:none;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-left: -20px;
+}
+.sidegap{
+    margin-left: 20px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+.sidegap2{
+    margin-left: 160px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    overflow: hidden;
+    outline:none;
+    margin-top: -50px;
+}
+
+.sidegap :hover{
+    background-color: blueviolet;
+}

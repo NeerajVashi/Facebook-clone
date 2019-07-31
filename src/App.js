@@ -3,6 +3,7 @@ import {Router, Switch, Route } from 'react-router-dom'
 import history from './component/History'
 import Navigation from './component/navbar'
 import Authenticate from './component/login/Authenticate';
+import Profile from './component/profile/profile';
 import Homepage from './component/homepage';
 
 export default class App extends Component {
@@ -17,7 +18,7 @@ export default class App extends Component {
                         <Switch>
                         <Route path='/' exact component={Homepage} />
                         <Route path='/login' exact component={Authenticate} />
-                        
+                        <Route path='/profile' component = {Profile} />
                         </Switch>
                 </Router>
             )
@@ -25,7 +26,6 @@ export default class App extends Component {
             return (
                 <Router history={history}>
                 <Authenticate />
-                {/* <Homepage /> */}
                 </Router>
             )
         }
