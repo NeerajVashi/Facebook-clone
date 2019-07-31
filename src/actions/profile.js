@@ -9,7 +9,10 @@ export function editIntro(data)
             'Content-Type': 'application/json'
                 }
             }).then(response => response.json())
-            .then(dispatch({type:'introupdated', payload:data}))
+            .then(res=>{
+                dispatch({type:'introupdated', payload:res})
+            }
+        )
     }   
 }
 

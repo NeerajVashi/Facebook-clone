@@ -10,6 +10,7 @@ export function fetchImages(id){
         fetch(`http://localhost:8000/image/${id}`)
                     .then(res => res.json())
                     .then(json => {
+                        console.log(json)
                     dispatch(setImages(json))                   
         })
     };
@@ -22,8 +23,9 @@ export function saveImage(data){
             body: data
         })
         .then((response) => response.json())
-        .then((data)=>{
-        console.log(data);    
+        .then((data)=>{    
+            console.log(data);
+            dispatch(setImages(data))
         })
     };
 }

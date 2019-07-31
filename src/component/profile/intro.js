@@ -18,6 +18,7 @@ class intro extends Component {
     handleSubmit = (event) =>{
         event.preventDefault();
         this.props.editIntro(this.state);
+
     }
     render() {
         const user = this.props.user.user;
@@ -45,10 +46,10 @@ class intro extends Component {
                     <div id="myModal" class="modal fade" role="dialog">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
-                                <form onSubmit={this.handleSubmit}>
+                                <form method="post" onSubmit={this.handleSubmit}>
                                 <div class="modal-header">
                                     <h4 class="modal-title">Customize Your Intro  </h4> 
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <button type="button" className="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <div class="modal-body">
                                 <div class="form-group">
@@ -70,7 +71,7 @@ class intro extends Component {
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                     <button type="submit" class="btn btn-primary">Save changes</button>
+                                     <button type="submit" class="btn btn-primary" >Save changes</button>
                                 </div>
                                 </form>
                             </div>
