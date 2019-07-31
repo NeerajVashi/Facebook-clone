@@ -47,13 +47,14 @@ class home extends Component {
                          <input type="file" defaultValue={this.state.Cover_pic} onChange={this.handleChange} name="Cover_pic"/>
                     </div>
                 </div>
-                <input type="file" id="my_file" className="imagebuttonform" />
                 
                 <div className="profilepic"></div>
+                <div className="container3">
                 <div className="profilepicx"><img src={user[0].Profile_pic} alt="Profile_pic" /></div>
                 <div class="imagebutton1 buttonwrapper1">
                         <button><i class="fa fa-camera" ></i>Update </button>
                          <input type="file" defaultValue={this.state.Profile_pic} onChange={this.handleChangeProfile} name="Profile_pic"/>
+                </div>
                 </div>
                 
 
@@ -85,7 +86,7 @@ class home extends Component {
                     </div>
                 </div>
                 </TabPanel>
-                <div id="imageModal" className="modal fade" role="dialog">
+                <div id="imageModal" className="modal fade " role="dialog">
                         <div className="modal-dialog ">
                             <div className="modal-content">
                                 <div className="modal-header">

@@ -1,4 +1,4 @@
-export default function user(state ={user:{}, token:{}, status: '', newPost:{}, images:[],intro:{}}, action) {
+export default function user(state ={user:{}, token:{}, status: '', newPost:{}, images:[]}, action) {
     switch(action.type) {
         case "isRegister": {
             state = {...state, user:action.payload}
@@ -18,35 +18,25 @@ export default function user(state ={user:{}, token:{}, status: '', newPost:{}, 
             break;
         }
         case 'SetImage':{
+            console.log(action.images)
             state ={...state , images:action.images}
             break;
         }
         case 'introupdated':{
+            console.log(action.payload)
             state={...state,user:action.payload}
             break;
         }
         case 'coverupdated':{
-            state.user.map(item=>{
-                if(item.id===action.payload.id){
-                    return {
-                        ...item,
-                        ...action.payload
-                      }
-                }
-                return item;
-            })
+            console.log(state.user)
+            console.log(action.payload);
+            state={...state,user:action.payload}
             break;
         }
         case 'profileupdated':{
-            state.user.map(item=>{
-                if(item.id===action.payload.id){
-                    return {
-                        ...item,
-                        ...action.payload
-                      }
-                }
-                return item;
-            })
+            console.log(state.user)
+            console.log(action.payload);
+            state={...state,user:action.payload}
             break;
         }
         default : {

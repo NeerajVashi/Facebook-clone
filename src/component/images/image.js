@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {  Tab,Tabs, TabList,TabPanel } from 'react-tabs';
 import {fetchImages,saveImage} from '../../actions/fetchimage';
 import ShowAlbums from './album';
+import Gallery from './gallery';
 
 require('./css/image.css');
 
@@ -32,7 +33,7 @@ class ShowImages extends Component {
                  <div className="coverpad1"></div>
                 
                  <div className="coverpadx1">
-                  <i class="far fa-images fontstyle1"></i>
+                  <i className="far fa-images fontstyle1"></i>
                   <h3 className="namephoto"> Photos</h3>
                    
                  <div class="buttonwrapper1 imagebutton3"> 
@@ -41,30 +42,22 @@ class ShowImages extends Component {
                 </div>
   
                 <Tabs className="listremove">
-                <TabList className="listremove">
-                <Tab><div className="box111">Photos</div></Tab>
-                <Tab><div className="box122">albums</div></Tab>
-                </TabList>
-                <TabPanel>
+                
+                    <TabList className="listremove">
+                        <Tab><div className="box111">Photos</div></Tab>
+                        <Tab><div className="box122">albums</div></Tab>
+                    </TabList>
+                    
+                    <TabPanel>
+                        <Gallery images={this.props.images} />
+                    </TabPanel>
 
-                    <div className="grid">
-                            {this.props.images.map(item =>(
-                                <img src={item.path}  alt="your pic" height="50%"/> 
-                            ))} 
-                </div>
-                </TabPanel>
-
-                <TabPanel>
-                <ShowAlbums/>
-                </TabPanel>
+                    <TabPanel>
+                        <ShowAlbums/>
+                    </TabPanel>
 
                 </Tabs>
-  
-
                 </div>
-               
-                
-                     
             </div>
         )
     }

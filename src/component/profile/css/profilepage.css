@@ -128,9 +128,7 @@ text-align: center;
     flex-grow: 2;
     margin-top:250px;
 }
-.container1 {
-    position: relative;
-}
+
 .imagebutton {
     position: absolute;
     width: 500px;
@@ -190,9 +188,7 @@ text-align: center;
  font-weight:800;
  text-align: center;
 }
-.imagebuttonform{
-    display: none
-}
+
 
 .profilepic{
     width:180px;
@@ -231,12 +227,12 @@ text-align: center;
     position: absolute;
     width: 100px;
     left:450px;
-    top: 220px;
+    top: 230px;
     text-align: center;
     transition: opacity .35s ease;
   }
 .imagebutton1 button {
-    padding: 6px 18px;
+    padding: 7px 19px;
     padding-left: 10px;
     padding-right: 10px; 
     text-align: center;
@@ -244,7 +240,7 @@ text-align: center;
     z-index: 1;
     font-size: 18px;
     border-radius: 50%;
-
+    background-color: transparent;
 }
 .buttonwrapper1{
     position: relative;
@@ -258,7 +254,7 @@ text-align: center;
     opacity: 0;
     padding: 8px;
   }
-  .profilepic:hover .imagebutton1 {
+.profilepicx:hover .imagebutton1 {
     opacity: 1;
 }
 .listremove{
