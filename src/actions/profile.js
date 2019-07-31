@@ -2,7 +2,7 @@
 export function editIntro(data)
 {
     return dispatch =>{
-        return fetch(`http://localhost:8080/auth/signup/`, {
+        return fetch(`http://localhost:8000/auth/signup/`, {
             method: 'PUT',
             body: JSON.stringify(data), 
              headers:{
@@ -15,7 +15,7 @@ export function editIntro(data)
 
 export function updateCover(data){
     return dispatch =>{
-        fetch(`http://localhost:8080/auth/signup/updatecoverpic/`, {
+        fetch(`http://localhost:8000/auth/signup/updatecoverpic/`, {
             method: 'PUT',
             body: data, 
             }).then(response => response.json())
@@ -27,7 +27,7 @@ export function updateCover(data){
 export function updateProfile(data){
     console.log(data)
     return dispatch =>{
-        fetch(`http://localhost:8080/auth/signup/updateprofilepic/`, {
+        fetch(`http://localhost:8000/auth/signup/updateprofilepic/`, {
             method: 'PUT',
             body: data, 
             }).then(response => response.json())

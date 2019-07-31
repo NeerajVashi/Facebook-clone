@@ -7,7 +7,7 @@ export function setImages(images){
 }
 export function fetchImages(id){
     return dispatch =>{
-        fetch(`http://localhost:8000/image/${id}`)
+        fetch(`http://localhost:8007/image/${id}`)
                     .then(res => res.json())
                     .then(json => {
                     dispatch(setImages(json))                   
@@ -17,7 +17,7 @@ export function fetchImages(id){
 
 export function saveImage(data){
     return dispatch =>{
-        fetch(`http://localhost:8000/image/`, {
+        fetch(`http://localhost:8007/image/`, {
             method: 'POST',
             body: data
         })
