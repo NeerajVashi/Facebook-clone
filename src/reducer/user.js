@@ -1,4 +1,4 @@
-export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[] }, action) {
+export default function user(state ={ allUsers:[], user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[] }, action) {
     switch(action.type) { 
         case "isRegister": {
             state = {...state, user:action.payload}
@@ -43,6 +43,10 @@ export default function user(state ={user:{}, token: false, status: '', newPost:
         }
         case 'deletePendingRequest': {
             state = {...state, pendingRequest:action.payload}
+            break;
+        }
+        case 'allUsers' : {
+            state = {...state, allUsers:action.payload}
             break;
         }
         default : {

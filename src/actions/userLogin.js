@@ -33,4 +33,16 @@ export  function Registration(user) {
                 dispatch({type:'isRegister', payload:user})
             })
  }
+
 }
+export  function allUsers() {
+    return function(dispatch) {
+        const registerRequest = 'http://localhost:8000/auth/users';
+        fetch(registerRequest)
+        .then(response => response.json())
+            .then((user) => {
+                dispatch({type:'allUsers', payload:user})
+            })
+ }
+}
+

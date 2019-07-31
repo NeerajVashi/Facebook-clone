@@ -5,24 +5,33 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Friends from './friends/Friends'
 import {getFriends} from  '../actions/friends'
+import {allUsers} from '../actions/userLogin'
 
 class Navigation extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
             search: '',
+            users: [],
+            
         }
+        
+    }
+    componentDidMount() {
+        this.props.dispatch(allUsers());
         const user = this.props.user.user;
         this.props.dispatch(getFriends(user[0].id))
     }
-    // componentDidMount() {
-    //     const user = this.props.user.user;
-    //     this.props.dispatch(getFriends(user[0].id))
-    // }
     searchText = (e) => {
         this.setState({
-            [e.target.id]:e.target.value
-        })
+            users:this.props.user.allUsers.filter((value) => {
+                if(e.target.value === '') {
+                    return ''
+                } else {
+                return value.firstName.toLowerCase().indexOf(e.target.value) !== -1;
+                }
+        }) })
+        console.log('searching', this.state, e.target.value, 'allUsers', this.props.user.allUsers);
     }
 
     searching = (e) => {
@@ -76,6 +85,12 @@ class Navigation extends React.Component {
                         </div>
                     </div>
                 </div>      {/* navbar ends */}
+                {
+                    this.state.users.map((value) => (
+                <ul><li>{value.firstName}</li></ul>
+                    ) )
+                }
+                {/* <input type='text' id='search' value = {this.state.users} /> */}
             </div>
         );
     }
