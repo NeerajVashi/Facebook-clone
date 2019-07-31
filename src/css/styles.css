@@ -53,7 +53,7 @@ img {
     background-color: #DCDCDC;
 }
 .flex-item1 {
-    flex-grow: 1.8;
+    flex-grow: 0.9;
 }
 .flex-item2 {
     border-color: transparent;
@@ -119,6 +119,11 @@ a:hover {
   
 .dropdown:hover .dropdown-content {
     display: block;
+}
+.left-panel {
+    list-style-type:none;
+    font-weight: 430;
+    margin-top: 10px;
 }
 /* .navbtn {
     background-repeat: no-repeat;

@@ -36,7 +36,33 @@ class Homepage extends Component {
             <div>
                 <div className = "mainpage-container">       {/* main page starts */}
                     <div className = "flex-item1">
-
+                        <ul className = "left-panel">
+                            <li><i class="fas fa-user"></i> Aakarshit Handa</li>
+                            <li><i class="far fa-newspaper" style={{color:'blue'}}> </i>
+                            <> News Feed </></li>
+                            <li><i class="fab fa-facebook-messenger" style={{color:'blue'}}></i>
+                            <> Messanger</></li>
+                            <li><i class="fas fa-tv" style={{color:'blue'}}></i>
+                            <> Watch</></li>
+                        </ul>
+                        <ul className = "left-panel">
+                            <li><b>Shortcuts</b></li>
+                            <li><i class="fab fa-battle-net fa-lg" style={{color:"red"}}></i>
+                            <> Battle Net</></li>
+                        </ul>
+                        <ul className = "left-panel">
+                            <li><b>Shortcuts</b></li>
+                            <li><i class="fas fa-users" style={{color:'blue'}}>
+                            <> Groups</></i></li>
+                            <li><i class="fas fa-flag" style={{color:'orange'}}></i>
+                            <> Pages</></li>
+                            <li><i class="fas fa-calendar-check" style={{color:'red'}}></i>
+                            <> Events</></li>
+                            <li><i class="fas fa-database" style={{color:'red'}}></i>
+                            <> Fundraisers</></li>
+                            <li><i class="fas fa-user-friends" style={{color:'blue'}}></i>
+                            <> Friend List</></li>
+                        </ul>
                     </div>
 
 
