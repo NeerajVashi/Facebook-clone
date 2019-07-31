@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-export default function user(state ={ allUsers:[], user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[] }, action) {
-    switch(action.type) { 
-=======
 export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [] }, action) {
     switch(action.type) {
         case 'fetchPost' :
@@ -27,7 +23,6 @@ export default function user(state ={user:{}, token: false, status: '', newPost:
                 ...state,
                 posts: postState
         }
->>>>>>> aakarshit-fb-clone
         case "isRegister": {
             state = {...state, user:action.payload}
             break;

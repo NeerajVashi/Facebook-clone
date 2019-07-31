@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 
 import '../css/styles.css'
-<<<<<<< HEAD
 import FriendCards from './friends/FriendCards';
 import  { sendRequest, deleteRequest } from '../actions/friends'
-=======
->>>>>>> aakarshit-fb-clone
 
 import NewsFeed from './newsfeed/NewsFeed'
 
@@ -38,22 +35,17 @@ class Homepage extends Component {
     }
     add = (senderId, sender) => {
         console.log('inside add', sender, senderId);
-       this.props.dispatch(sendRequest(senderId, sender))
+       this.props.sendRequest(senderId, sender)
     }
 
     delete = (friendId, userId) => {
-        this.props.dispatch(deleteRequest(friendId, userId))
+        this.props.deleteRequest(friendId, userId)
     }
     render() {
         const friendRequest = this.props.user.friendRequest;
         console.log('in home friendRequest', friendRequest);
         return (
             <div>
-<<<<<<< HEAD
-                <div className="mainpage-container">
-                    <div className="flex-item1"></div>
-                    <div className="flex-item2">
-=======
                 <div className = "mainpage-container">       {/* main page starts */}
                     <div className = "flex-item1">
                         <ul className = "left-panel">
@@ -88,7 +80,6 @@ class Homepage extends Component {
 
 
                     <div className = "flex-item2">
->>>>>>> aakarshit-fb-clone
                         <div class="container">
                             <div class="card">               {/* create post */}
                                 <div class="card-header">Create Post</div>
@@ -114,7 +105,6 @@ class Homepage extends Component {
 
                         </div>
                     </div>
-<<<<<<< HEAD
                     <div className="flex-item3">
                         <div>
                         {
@@ -135,12 +125,6 @@ class Homepage extends Component {
                     </div>
                 </div>
 
-=======
-                    <div className = "flex-item3">
-                        
-                    </div>
-                </div>  
->>>>>>> aakarshit-fb-clone
             </div>
         )
     }
@@ -151,6 +135,7 @@ fetchPosts: propTypes.func.isRequired,
 addPost: propTypes.func.isRequired,
 }
 const mapStateToProps = state => ({
-    postData: state.user.posts
+    postData: state.user.posts,
+    user:state.user
 })
-export default connect(mapStateToProps, { fetchPosts, addPost })(Homepage);
+export default connect(mapStateToProps, { fetchPosts, addPost, sendRequest, deleteRequest})(Homepage);
