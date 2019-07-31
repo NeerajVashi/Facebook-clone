@@ -1,0 +1,15 @@
+.createfooter {
+    margin-left: auto;
+    justify-content:space-around;
+ }
+
+ .postbtn {
+    background-color: #3b5998;
+    margin-left: auto;
+    color: white;
+    height: 40px;
+    width: 130px;
+ }
+ .postcss{
+     width:430px;
+ }

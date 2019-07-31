@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 class Navigation extends React.Component {
     render() {
-        console.log('in navbar', this.props.user)
         const user = this.props.user.user;
         return (
             <div>
@@ -27,7 +26,7 @@ class Navigation extends React.Component {
                                 <p className="navtxt">|</p>
                             </div>
                             <div ><Link to ='addFriends' > <i className="fas fa-user-friends fa-lg"></i></Link> </div>
-                            <div ><Link to ='login' > <i className="fab fa-facebook-messenger fa-lg"></i></Link> </div>
+                            <div ><Link to ='profile' > <i className="fab fa-facebook-messenger fa-lg"></i></Link> </div>
                             <div ><Link to = 'notification' > <i className="fas fa-bell fa-lg"></i></Link> </div>
                             <div ><i className="fas fa-question-circle fa-lg"></i></div>
                             <div > <i className="fas fa-caret-down fa-lg"></i></div>

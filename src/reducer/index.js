@@ -12,5 +12,4 @@ const reducers = combineReducers({
 const middleWare = applyMiddleware(promise, thunk, logger)
 
 const  store = createStore(reducers,{},composeWithDevTools(middleWare));
-console.log('Index');
 export default store

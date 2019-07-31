@@ -3,20 +3,18 @@ import {Router, Switch, Route } from 'react-router-dom'
 import history from './component/History'
 import Navigation from './component/navbar'
 import Authenticate from './component/login/Authenticate';
-import Homepage from './component/homepage';
+import Profile from './component/profile/profile';
 
 export default class App extends Component {
     render() {
         const token = this.props.token;
-        console.log('inroutes', token);
         if( Object.keys(token).length > 0 ) {
             return (
                 <Router history={history}>
                     <Navigation />
-                    <Homepage />
+                    
                         <Switch>
-                        {/* <Route path='/' exact component={HomePage} /> */}
-                        <Route path='/login' exact component={Authenticate} />
+                        <Route path='/profile' component={Profile} />
                         </Switch>
                 </Router>
             )
@@ -24,7 +22,6 @@ export default class App extends Component {
             return (
                 <Router history={history}>
                 <Authenticate />
-                {/* <Homepage /> */}
                 </Router>
             )
         }
