@@ -1,5 +1,33 @@
+<<<<<<< HEAD
 export default function user(state ={ allUsers:[], user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[] }, action) {
     switch(action.type) { 
+=======
+export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [] }, action) {
+    switch(action.type) {
+        case 'fetchPost' :
+            console.log('here');
+            console.log(action.payload);
+            return {
+                ...state,
+                posts: action.payload
+        }
+        case 'addPost' :
+            let newPost = JSON.parse(JSON.stringify(state.posts));            
+            newPost.push(action.payload);
+            console.log('added post');
+            console.log(newPost);
+            return {
+                ...state,
+                posts: newPost
+        }
+        case 'delPost' :
+            let postState = JSON.parse(JSON.stringify(state.posts));
+            postState = postState.filter(posts => posts.postId !== action.payload)
+            return {
+                ...state,
+                posts: postState
+        }
+>>>>>>> aakarshit-fb-clone
         case "isRegister": {
             state = {...state, user:action.payload}
             break;

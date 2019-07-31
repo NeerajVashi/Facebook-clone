@@ -1,13 +1,31 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
+
 import '../css/styles.css'
+<<<<<<< HEAD
 import FriendCards from './friends/FriendCards';
 import  { sendRequest, deleteRequest } from '../actions/friends'
+=======
+>>>>>>> aakarshit-fb-clone
+
+import NewsFeed from './newsfeed/NewsFeed'
+
+import propTypes from 'prop-types'
+
+import { connect } from 'react-redux';
+
+import { fetchPosts } from '../actions/postAction'
+
+import { addPost } from '../actions/postAction'
 
 class Homepage extends Component {
-
+    componentWillMount() {
+        this.props.fetchPosts();
+    }
     state = {
-        postData: ''
+        userId: 1,
+        postData: '',
+        mainImg: '/images/matalmain.jpg',
+        likes: 0,
     }
     change = (e) => {
         this.setState({
@@ -16,6 +34,7 @@ class Homepage extends Component {
     }
     onSubmit = (e) => {
         e.preventDefault();
+        this.props.addPost(this.state);
     }
     add = (senderId, sender) => {
         console.log('inside add', sender, senderId);
@@ -30,87 +49,72 @@ class Homepage extends Component {
         console.log('in home friendRequest', friendRequest);
         return (
             <div>
+<<<<<<< HEAD
                 <div className="mainpage-container">
                     <div className="flex-item1"></div>
                     <div className="flex-item2">
+=======
+                <div className = "mainpage-container">       {/* main page starts */}
+                    <div className = "flex-item1">
+                        <ul className = "left-panel">
+                            <li><i class="fas fa-user"></i> Aakarshit Handa</li>
+                            <li><i class="far fa-newspaper" style={{color:'blue'}}> </i>
+                            <> News Feed </></li>
+                            <li><i class="fab fa-facebook-messenger" style={{color:'blue'}}></i>
+                            <> Messanger</></li>
+                            <li><i class="fas fa-tv" style={{color:'blue'}}></i>
+                            <> Watch</></li>
+                        </ul>
+                        <ul className = "left-panel">
+                            <li><b>Shortcuts</b></li>
+                            <li><i class="fab fa-battle-net fa-lg" style={{color:"red"}}></i>
+                            <> Battle Net</></li>
+                        </ul>
+                        <ul className = "left-panel">
+                            <li><b>Shortcuts</b></li>
+                            <li><i class="fas fa-users" style={{color:'blue'}}>
+                            <> Groups</></i></li>
+                            <li><i class="fas fa-flag" style={{color:'orange'}}></i>
+                            <> Pages</></li>
+                            <li><i class="fas fa-calendar-check" style={{color:'red'}}></i>
+                            <> Events</></li>
+                            <li><i class="fas fa-database" style={{color:'red'}}></i>
+                            <> Fundraisers</></li>
+                            <li><i class="fas fa-user-friends" style={{color:'blue'}}></i>
+                            <> Friend List</></li>
+                        </ul>
+                    </div>
+
+
+
+                    <div className = "flex-item2">
+>>>>>>> aakarshit-fb-clone
                         <div class="container">
-                            <div class="card">
+                            <div class="card">               {/* create post */}
                                 <div class="card-header">Create Post</div>
-                                <div class="card-body"><textarea name="post"
-                                    rows="5" cols="55" placeholder="Write Something here..."
-                                    onChange={e => this.change(e)}></textarea></div>
+                                <div class="card-body"><textarea name = "postData"
+                                 rows="5" cols="55" placeholder = "What's on your mind, Aakarshit"
+                                 onChange = {e => this.change(e)}></textarea></div> 
                                 <div class="card-footer">
-                                    <div className="createfooter">
+                                    <div className = "createfooter">
                                         <div className="footer"><i class="fas fa-photo-video fa-lg"></i></div>
                                         <div className="footer"><i class="fas fa-user-tag fa-lg"></i></div>
                                         <div className="footer"><i class="far fa-grin-hearts fa-lg"></i></div>
                                         <div className="footer"><i class="fas fa-ellipsis-h fa-lg"></i></div>
-                                        <div className="footer"><button onclick={e => this.onSubmit(e)} className="postbtn">Post</button></div>
+                                        <div className="footer"><button onClick = {e => this.onSubmit(e)}className="postbtn">Post</button></div>
                                     </div>
                                 </div>
-                            </div><br />
-                            <div class="card">
-                                <div class="card-header">
-                                    <img className="round-img" src="/images/metal.jpg" alt="Avatar" />
-                                    <div>Metallica</div>
-                                </div>
-                                <div class="card-body"><img src="/images/metalmain.jpg" alt="img" /></div>
-                                <div class="card-footer">
-                                    <div className="createfooter">
-                                        <div className="footer"><i class="far fa-thumbs-up"> Like</i></div>
-                                        <div className="footer"><i class="far fa-comment-alt"> Comment</i></div>
-                                        <div><i class="fas fa-share"> Share</i></div>
-                                    </div>
-                                </div>
+                            </div><br />                    {/* create post ends */}
+                            
+                            {this.props.postData.map((post) => 
+                            <div key={post.postId}>                           
+                            <NewsFeed  post={post}/>
                             </div>
-                            <br />
+                            )}       
 
-                            <div class="card">
-                                <div class="card-header">
-                                    <img className="round-img" src="/images/riverdale.jpg" alt="Avatar" />
-                                    <div>Riverdale</div>
-                                </div>
-                                <div class="card-body"><img src="/images/riverdale.jpg" alt="img" /></div>
-                                <div class="card-footer">
-                                    <div className="createfooter">
-                                        <div className="footer"><i class="far fa-thumbs-up"> Like</i></div>
-                                        <div className="footer"><i class="far fa-comment-alt"> Comment</i></div>
-                                        <div><i class="fas fa-share"> Share</i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br />
-                            <div class="card">
-                                <div class="card-header">
-                                    <img className="round-img" src="/images/riverdale.jpg" alt="Avatar" />
-                                    <div>Riverdale</div>
-                                </div>
-                                <div class="card-body">Feeling on the top of cloud 9!!!</div>
-                                <div class="card-footer">
-                                    <div className="createfooter">
-                                        <div className="footer"><i class="far fa-thumbs-up"> Like</i></div>
-                                        <div className="footer"><i class="far fa-comment-alt"> Comment</i></div>
-                                        <div><i class="fas fa-share"> Share</i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br />
-                            <div class="card">
-                                <div class="card-header">
-                                    <img className="round-img" src="/images/bean.jpg" alt="Avatar" />
-                                    <div>Mr. Bean</div>
-                                </div>
-                                <div class="card-body"><img src="/images/bean.jpg" alt="img" /></div>
-                                <div class="card-footer">
-                                    <div className="createfooter">
-                                        <div className="footer"><i class="far fa-thumbs-up"> Like</i></div>
-                                        <div className="footer"><i class="far fa-comment-alt"> Comment</i></div>
-                                        <div><i class="fas fa-share"> Share</i></div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div className="flex-item3">
                         <div>
                         {
@@ -131,15 +135,22 @@ class Homepage extends Component {
                     </div>
                 </div>
 
+=======
+                    <div className = "flex-item3">
+                        
+                    </div>
+                </div>  
+>>>>>>> aakarshit-fb-clone
             </div>
         )
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
-        user: state.user,
-    };
+Homepage.propTypes = {
+postData: propTypes.array.isRequired,
+fetchPosts: propTypes.func.isRequired,
+addPost: propTypes.func.isRequired,
 }
-
-export default connect(mapStateToProps)(Homepage);
+const mapStateToProps = state => ({
+    postData: state.user.posts
+})
+export default connect(mapStateToProps, { fetchPosts, addPost })(Homepage);
