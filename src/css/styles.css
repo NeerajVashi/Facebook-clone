@@ -225,6 +225,9 @@ ul {
 }
 .buttonwrapper1{
     overflow: hidden;
+    position: relative;
+    display: inline-block;
+    border:none;
    }
 .postbtn {
     background-color: transparent;
