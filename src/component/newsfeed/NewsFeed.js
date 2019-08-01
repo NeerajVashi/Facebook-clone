@@ -18,8 +18,6 @@ class NewsFeed extends Component {
         fetch(`http://localhost:4000/fetchLikes/${this.props.post.postId}`)
         .then(res => res.json())
         .then((response) => {
-            console.log(response);
-            
             this.setState({
                 counter: response,
             })
@@ -49,7 +47,6 @@ class NewsFeed extends Component {
                 comments: response,
                 flag:1    
             })
-            console.log(this.state.comments);
         });
     }
     countIncrease = (postId) => {
@@ -63,23 +60,22 @@ class NewsFeed extends Component {
             }
     }
     render() {
-        console.log('typeof is');
-        console.log(typeof this.state.comments);
+        console.log('images');
+        console.log(this.props.img.img)
+           
         return (
             <div>
                 <div class="card">              
                     <div class="card-header">
-                        <img className="round-img" src = {this.props.post.mainImg} alt="Avatar" />
+                        <img className="round-img" src ="abc.jpg" alt="Avatar" />
                         <div>Metallica</div>
-                        <button onClick = {e => this.props.delPost(this.props.post.postId)} className = "delbtn">Delete</button>
+                        <Button variant = "danger" onClick = {e => this.props.delPost(this.props.post.postId)} className = "delbtn">Delete</Button>
                     </div>
-                    {(this.props.post.postData.includes('jpg') === true || this.props.post.postData.includes('jpeg') === true || this.props.post.postData.includes('png') === true) ?
-                    <div class="card-body"><img src = {this.props.post.postData} alt="img" /></div>
-                    : <div class="card-body">{this.props.post.postData}</div>}
+                    <div class="card-body"><img className="pic" src = {this.props.img.img} alt="img" /></div>
                     <div class="card-footer">
 
                         <div className = "createfooter">
-                            <div className="footer"><i class="far fa-thumbs-up"><Button variant="info" onClick = {e => this.countIncrease(this.props.post.postId)}>{this.state.counter}</Button></i></div>
+                            <div className="footer"><i class="far fa-thumbs-up" style={{color:'blue'}}><Button className = "likebtn" variant="info" onClick = {e => this.countIncrease(this.props.post.postId)}>{this.state.counter}</Button></i></div>
                             <div className="footer"><i class="far fa-comment-alt"> Comment</i></div>
                             <div><i class="fas fa-share"> Share</i></div>
                         </div>
@@ -92,8 +88,8 @@ class NewsFeed extends Component {
                     </div>
                     :<div className = "display"><textarea cols="60" rows="1"></textarea></div>
                     }
-                    <div>
-                        <img className="round-img-cmnts"src={this.props.post.mainImg} alt=""/><textarea className = "cmnts" name="comments" placeholder="Write a comment..." rows="1" cols="60" onChange = {e => this.change(e)}/><button onClick = {e => this.commentPost(this.props.post.postId)} className="cmnt">Comment</button>
+                    <div className = "cmnts">
+                        <img className="round-img-cmnts"src="/images/riverdale.jpg" alt=""/><textarea className = "comments" name="comments" placeholder="Write a comment..." rows="1" cols="50" onChange = {e => this.change(e)}/>
                     </div>
                 </div>
                 <br /> 
