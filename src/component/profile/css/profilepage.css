@@ -1,13 +1,18 @@
 /* .container1{
     position: relative;
 } */
+
+/* 
 .cover-first{
     position: absolute;
     top:8%;
   }
   .cover-second{
     position: relative;
-  }
+  } */
+
+
+
 /* .option-first{
 position: absolute;
 top:3%;
@@ -132,26 +137,16 @@ text-align: center;
 .item1{
     flex-grow: 1;
     margin-top:250px;
-<<<<<<< HEAD
     width: 130px;
     margin-left: 400px;
-=======
-    width: 80px;
-    margin-left: 30px;
->>>>>>> profile
     background: white;
     margin-top:25%;
 }
    
 .item2{
    flex-grow: 2;
-<<<<<<< HEAD
    margin-top:440px;
    width:22px;
-=======
-   margin-top:240px;
-   width: 320px;
->>>>>>> profile
    margin-left: 10px;
 
 }

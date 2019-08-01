@@ -86,14 +86,10 @@ class home extends Component {
                   <div className="item1">
                         <Intro/>
                     </div>
-<<<<<<< HEAD
                   {/* </div> */}
 
                   {/* <div className="intro-second"> */}
                   <div className="item2">    
-=======
-                    <div className="item2">    
->>>>>>> profile
                     <Createpost/>
                     </div>
                   {/* </div> */}

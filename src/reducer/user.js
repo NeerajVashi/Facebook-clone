@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[] }, action) {
-=======
-export default function user(state ={user:{}, token:{}, status: '', newPost:{}, images:[],album:[]}, action) {
->>>>>>> profile
+export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[] ,album:[]}, action) {
     switch(action.type) {
         case 'fetchPost' :
             console.log('here');
