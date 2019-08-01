@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 
 import '../css/styles.css'
+
 import FriendCards from './friends/FriendCards';
+
 import { sendRequest, deleteRequest } from '../actions/friends'
 
 import NewsFeed from './newsfeed/NewsFeed'
@@ -50,7 +52,7 @@ class Homepage extends Component {
                 <div className="mainpage-container">       {/* main page starts */}
                     <div className="flex-item1 left">
                         <ul className="left-panel">
-                            <li><Link to='/profile'><i class="fas fa-user"></i> {this.props.user.user[0].firstName}</Link></li>
+                            <li className="profile"><Link to='/profile'><i class="fas fa-user"></i> {this.props.user.user[0].firstName}</Link></li>
                             <li><Link to='/'><i class="far fa-newspaper" style={{ color: 'blue' }}> </i>
                                 <> News Feed </></Link></li>
                             <li><i class="fab fa-facebook-messenger" style={{ color: 'blue' }}></i>
@@ -108,28 +110,56 @@ class Homepage extends Component {
                     </div>
                     <div className="flex-item3">
                         <div>
-                            {
+                            {/* {
                                 friendRequest.map((friend, i) => (
                                     <FriendCards singleuser={friend} id={i} onclick={this.add} onclickdelete={this.delete} />
                                 ))
-                            }
+                            } */}
                             <div class="card friends-card">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <img className=" friends-images round-img" src="./images/bean.jpg" alt="Card image cap" />
+                                <div className="top-container">
+                                    <div className="top-flex">
+                                        <div className="top-friend-text">People You May Know</div>
+                                        <div className="show-all">Show all</div>
                                     </div>
-                                    <div class="col-sm-9">
-                                        <h5 class="card-title friends-name">Special title treatment</h5>
-                                        <a href="#" class="btn btn-primary status-button">Go somewhere</a>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <img className=" friends-images " src="./images/bean.jpg" alt="Card image cap" />
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <ul className="friend-card-container">
+                                                <li><div class="friends-name">Special title treatment</div></li>
+                                                <li><div className="mutual-friend">13 Friend</div></li>
+                                                <li><div className="friends-request-response"><div className="add-button"><img className="add-button-icon" src="./images/addIcon.png" /> Add Friend</div><div className="delete-button">Delete</div></div></li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-3">
-                                        <img className="round-img" src="./images/bean.jpg" alt="Card image cap" />
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <img className=" friends-images " src="./images/bean.jpg" alt="Card image cap" />
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <ul className="friend-card-container">
+                                                <li><div class="friends-name">Special title treatment</div></li>
+                                                <li><div className="mutual-friend">13 Friend</div></li>
+                                                <li><div className="friends-request-response"><div className="add-button"><img className="add-button-icon" src="./images/addIcon.png" /> Add Friend</div><div className="delete-button">Delete</div></div></li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-9">
-                                        <h5 class="card-title">Special title treatment</h5>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <img className=" friends-images " src="./images/bean.jpg" alt="Card image cap" />
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <ul className="friend-card-container">
+                                                <li><div class="friends-name">Special title treatment</div></li>
+                                                <li><div className="mutual-friend">13 Friend</div></li>
+                                                <li><div className="friends-request-response"><div className="add-button"><img className="add-button-icon" src="./images/addIcon.png" /> Add Friend</div><div className="delete-button">Delete</div></div></li>
+                                            </ul>
+                                        </div>
                                     </div>
+                                    
                                 </div>
+                                
                                 {/* <div class="card-header">
                                     <img className="round-img" src="./images/bean.jpg" alt="Card image cap" />
                                     <div>Neeraj</div>

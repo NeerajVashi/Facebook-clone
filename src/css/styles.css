@@ -1,9 +1,69 @@
 .friends-images{
-    margin:12px;
-   
+   height: 56px;
+   width:56px;
+   border-radius:50%; 
+}
+.mutual-friend{
+    color: #90949c
+}
+.add-button-icon{
+    height: 25px;
+    width:25px;
+}
+.add-button{
+    background:#F5F6F7;
+    color:#4B4F56;
+    font-weight: 600;
+    padding:0px 8px;
+}
+.row{
+    padding: 10px;
+}
+.delete-button{
+    background:#F5F6F7;
+    color:#4B4F56;
+    margin: 0px 0px 0px 4px;
+    padding: 0px 8px;
+}
+.friends-request-response{
+
+    display:inline-flex;
+}
+.top-flex{
+    list-style-type: none;
+    display: flex;
+    padding: 10px 0px 3px 12px;
+    justify-content: space-between;
+}
+.friends-button{
+    padding: 0px 8px;
+    
+}
+.show-all{
+    color:#4647b2;
+    padding:0px 0px 0px 5px; 
+}
+.top-friend-text{
+    color: #616770;
+    /* padding: 20px  12px 0px ; */
+    font-weight: 600;
+    
+}
+.friend-card-container{
+    list-style-type: none;
+    padding:0px;
+    color: #616770;
+}
+.top-container{
+    height: 489px;
+    width: 308px;
+    background: #FFFFFF;
 }
 .friends-name{
-     padding-top: 18px;
+
+     color: #385898;
+     font : 17px Helvetica, Arial, sans-serif;
+     font-weight: 600;
 }
 .status-button{
     margin-right:10px
@@ -117,16 +177,17 @@ a:hover {
     height: 40px;
     width: 280px;
 }
+
 .dropdown {
     position: relative;
     display: inline-block;
 }
-  
+
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 0px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     z-index: 1;

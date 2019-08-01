@@ -5,6 +5,7 @@ import Navigation from './component/navbar'
 import Authenticate from './component/login/Authenticate';
 import Profile from './component/profile/profile';
 import Homepage from './component/homepage';
+import Image from './rough/Image'
 
 export default class App extends Component {
     render() {
@@ -26,6 +27,7 @@ export default class App extends Component {
             return (
                 <Router history={history}>
                 <Authenticate />
+                {/* <Image /> */}
                 </Router>
             )
         }
