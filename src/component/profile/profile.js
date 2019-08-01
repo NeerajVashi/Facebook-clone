@@ -52,7 +52,7 @@ class home extends Component {
                 </div>
                 
                 <div className="profilepic"></div>
-                <div className="container3">
+                <div className="container">
                 <div className="profilepicx"><img src={user[0].Profile_pic} alt="Profile_pic" /></div>
                 <div class="imagebutton1 buttonwrapper1">
                         <button><i class="fa fa-camera" ></i>Update </button>

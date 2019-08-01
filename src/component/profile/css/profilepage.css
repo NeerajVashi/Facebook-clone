@@ -136,16 +136,15 @@ text-align: center;
 }
 .item1{
     flex-grow: 1;
-    margin-top:250px;
+    margin-top:290px;
     width: 130px;
     margin-left: 400px;
     background: white;
-    margin-top:25%;
 }
    
 .item2{
    flex-grow: 2;
-   margin-top:440px;
+   margin-top:290px;
    width:22px;
    margin-left: 10px;
 
@@ -256,8 +255,9 @@ text-align: center;
     width: 100px;
     top: 230px;
     text-align: center;
-    margin-left: -40px;
+    margin-left: 30px;
     transition: opacity .35s ease;
+    margin-left: 160px;
   }
 .imagebutton1 button {
     padding: 7px 19px;

@@ -15,7 +15,7 @@ class smallimagepanel extends Component {
 
     
     <section class="profile">
-    <div class="container">
+    <div class="container9">
       <div class="profile-body">
         <aside class="sidebar">
           <div class="section photos">

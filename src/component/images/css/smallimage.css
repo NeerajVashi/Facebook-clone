@@ -14,9 +14,8 @@
 
 
 
-.container3 {
-  width: 860px;
-  margin: 0 auto;
+.container9 {
+  margin-left: 400px;
 }
 
 a {
@@ -32,7 +31,6 @@ a:hover {
 section.profile .profile-body {
   width: 100%;
   background-color: transparent;
-  margin-left: 30px;
 }
 
 section.profile .profile-body::after {
@@ -46,9 +44,8 @@ section.profile .profile-body aside.sidebar {
   position: sticky;
   top: 15px;
   float: left;
-  width: 36%;
   margin-top: 15px;
-  width: 300px;
+  width: 355px;
 }
 
 section.profile .profile-body aside.sidebar .section {
@@ -99,7 +96,7 @@ section.profile .profile-body aside.sidebar .section header a[href]:hover {
 
 section.profile .profile-body aside.sidebar .section.photos .row {
   width: 100%;
-  margin-bottom: 6px;
+  margin-bottom: -6px;
   margin-left: -12px;
 }
 
@@ -110,7 +107,7 @@ section.profile .profile-body aside.sidebar .section.photos .row .col {
 
 section.profile .profile-body aside.sidebar .section.photos img {
   display: block;    height: 106px;
-  width: 88px;
+  width: 100px;
 }
 
 section.profile .profile-body aside.sidebar .section.languages .content {
