@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
+import {saveAlbum,fetchAlbum} from '../../actions/album';
 require('./css/album.css');
 
 
@@ -12,61 +13,37 @@ class album extends Component {
             image:''
         }
       }
-      handleChange1 = (event)=>{
-        this.setState({
-            [event.target.name] :event.target.files[0]   
-        })    
+    componentDidMount(){
+        this.props.fetchAlbum(this.props.user.user[0].id);
     }
-    handleChange = (event)=>{
-        this.setState({
-            [event.target.name] :event.target.value   
-        })    
-    }
-    handleSubmit = (event) =>{
-        event.preventDefault();
-        console.log(this.state.image);
-        const data = new FormData();
-        data.append('userId',this.props.user.user[0].id );
-        data.append('albumname',this.state.albumname );
-        data.append('image', this.state.image);
-        //this.props.saveImage(data);
-        console.log(data);
-    }
+    
+    
     render() {
+        const result = [];
+        const map = new Map();
+        for (const item of this.props.album) {
+            if(!map.has(item.albumname)){
+                map.set(item.albumname, true);    // set any value to Map
+                result.push({
+                    albumname: item.albumname,
+                    path: item.path,
+                });
+            }
+        }
          return (
             <div>
-                <button data-toggle="modal" data-target="#albumModal">Add album</button>
+         
 
-                <div id="albumModal" class="modal fade" role="dialog">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <form onSubmit={this.handleSubmit}>
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Create your Album  </h4> 
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-                                <div class="modal-body">
-                                <div class="form-group">
-                                    <label >Album name :</label>
-                                    <input type="text" class="form-control" id="albumname" defaultValue={this.state.albumname} placeholder="Enter album name " onChange={this.handleChange} name="albumname"/>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label >images :</label>
-                                    <input type="file" class="form-control" id="image"  onChange={this.handleChange1} defaultValue={this.state.image} name="image"/>
-                                </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                     <button type="submit" class="btn btn-primary">Save changes</button>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+            {result[0]?(<div className="grid1">
+                            {result.map(item =>(   
+                                <div>
+                                      <button className="imageplace buttonimg6"><img src={item.path}  alt="your pic" /></button>
+                                        <a href=" "><h2 className="imagetext">{item.albumname}</h2></a>
+                                 </div>
+                            ))} 
+                    </div>):null}
 
-
-                
+                    
             </div>
         )
     }
@@ -75,7 +52,8 @@ class album extends Component {
 function mapStateToProps(state)
 {
     return {
+        album:state.user.album,
         user: state.user
     }
 }
-export default connect(mapStateToProps)(album)
+export default connect(mapStateToProps,{saveAlbum,fetchAlbum})(album)

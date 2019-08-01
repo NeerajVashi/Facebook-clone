@@ -1,0 +1,195 @@
+.headerimagesmall{
+        padding-top: 20px;
+        margin-left: 30px;
+}
+.headerimagesmall a{
+    font-size: 22px;
+    color: #02a726
+}
+.stylephoto{
+    font-size: 1.5rem;
+    margin-right: 5px; 
+    color: #02a726;
+}
+
+
+
+.container3 {
+  width: 860px;
+  margin: 0 auto;
+}
+
+a {
+  color: #0b69c0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+section.profile .profile-body {
+  width: 100%;
+  background-color: transparent;
+  margin-left: 30px;
+}
+
+section.profile .profile-body::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+section.profile .profile-body aside.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 15px;
+  float: left;
+  width: 36%;
+  margin-top: 15px;
+  width: 300px;
+}
+
+section.profile .profile-body aside.sidebar .section {
+  margin-bottom: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}
+
+section.profile .profile-body aside.sidebar .section header {
+  position: relative;
+  background-color: transparent;
+  padding: 15px 20px;
+  height: 54px;
+}
+
+section.profile .profile-body aside.sidebar .section header .badge {
+  font-size: 1.5rem;
+  margin-right: 5px;
+}
+
+section.profile .profile-body aside.sidebar .section header .badge.badge-intro {
+  color: #0b69c0;
+}
+
+section.profile .profile-body aside.sidebar .section header .badge.badge-photos {
+  padding-left: 400px;
+  color: black;
+}
+
+section.profile .profile-body aside.sidebar .section header  {
+  position: relative;
+  top: -3px;
+  font-weight: 600;
+}
+section.profile .profile-body aside.sidebar .section header a {
+  color: blue;
+}
+
+section.profile .profile-body aside.sidebar .section header a:hover {
+  text-decoration: none;
+}
+
+section.profile .profile-body aside.sidebar .section header a[href]:hover {
+  text-decoration: underline;
+}
+
+
+section.profile .profile-body aside.sidebar .section.photos .row {
+  width: 100%;
+  margin-bottom: 6px;
+  margin-left: -12px;
+}
+
+section.profile .profile-body aside.sidebar .section.photos .row .col {
+  padding-right: 1px;
+  width: 33.3333%;
+}
+
+section.profile .profile-body aside.sidebar .section.photos img {
+  display: block;    height: 106px;
+  width: 88px;
+}
+
+section.profile .profile-body aside.sidebar .section.languages .content {
+  color: #aaa;
+  padding: 10px;
+}
+
+section.profile .profile-body aside.sidebar .section.languages .content::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+section.profile .profile-body aside.sidebar .section.languages .content .row .col {
+  float: left;
+  width: 85%;
+}
+
+section.profile .profile-body aside.sidebar .section.languages .content .row .col.plus-box {
+  line-height: 36.8px;
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid #dfdfdf;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+section.profile .profile-body aside.sidebar .section.languages .content .row .col.plus-box:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+section.profile .profile-body aside.sidebar .section.languages .content .row a {
+  display: inline-block;
+  color: #999;
+}
+
+
+section.profile .profile-body aside.sidebar .section.languages .content .row a[href] {
+  font-size: 12px;
+  color: #0b69c0;
+}
+
+section.profile .profile-body aside.sidebar .section.languages .content .row a[href]:hover {
+  text-decoration: underline;
+}
+
+section.profile .profile-body aside.sidebar .section.main.footer {
+  font-size: 0.8rem;
+  color: #aaa;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+section.profile .profile-body aside.sidebar .section.main.footer .content {
+  padding: 0 8px;
+}
+
+section.profile .profile-body aside.sidebar .section.main.footer a {
+  color: #777;
+}
+
+section.profile .profile-body aside.sidebar .section.main.footer .row {
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  color: #444;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  outline: 0 !important;
+ -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.achange{
+  margin-left: 80px;
+  color: #0b69c0;
+}

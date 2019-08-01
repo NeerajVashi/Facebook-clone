@@ -6,7 +6,7 @@
     text-align: center;
     font-size: 12px;
     color: brown;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 .textintro1 {
         background-color: Transparent;
@@ -30,6 +30,8 @@
     overflow: hidden;
     outline:none;
     color: blue;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 .line :hover{
     text-decoration: underline;
@@ -45,10 +47,10 @@
     list-style-type:none;
     margin-right: 10px;
     margin-top: 20px;
-    margin-left: -20px;
+    margin-left: 20px;
 }
 .sidegap{
-    margin-left: 20px;
+    margin-left: 60px;
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
@@ -68,4 +70,10 @@
 
 .sidegap :hover{
     background-color: blueviolet;
+}
+.margintop{
+    margin-top: 6px;
+}
+.commentimg{
+    margin-left: 140px;
 }

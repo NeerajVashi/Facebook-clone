@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[] }, action) {
+=======
+export default function user(state ={user:{}, token:{}, status: '', newPost:{}, images:[],album:[]}, action) {
+>>>>>>> profile
     switch(action.type) {
         case 'fetchPost' :
             console.log('here');
@@ -74,24 +78,23 @@ export default function user(state ={user:{}, token: false, status: '', newPost:
             break;
         }
         case 'SetImage':{
-            console.log(action.images)
             state ={...state , images:action.images}
             break;
         }
+
+        case 'setAlbum':{
+            state ={...state , album:action.images}
+            break;
+        }
         case 'introupdated':{
-            console.log(action.payload)
             state={...state,user:action.payload}
             break;
         }
         case 'coverupdated':{
-            console.log(state.user)
-            console.log(action.payload);
             state={...state,user:action.payload}
             break;
         }
         case 'profileupdated':{
-            console.log(state.user)
-            console.log(action.payload);
             state={...state,user:action.payload}
             break;
         }

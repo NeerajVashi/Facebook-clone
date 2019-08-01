@@ -132,16 +132,26 @@ text-align: center;
 .item1{
     flex-grow: 1;
     margin-top:250px;
+<<<<<<< HEAD
     width: 130px;
     margin-left: 400px;
+=======
+    width: 80px;
+    margin-left: 30px;
+>>>>>>> profile
     background: white;
     margin-top:25%;
 }
    
 .item2{
    flex-grow: 2;
+<<<<<<< HEAD
    margin-top:440px;
    width:22px;
+=======
+   margin-top:240px;
+   width: 320px;
+>>>>>>> profile
    margin-left: 10px;
 
 }
@@ -150,6 +160,8 @@ text-align: center;
     margin-top:250px;
 }
 
+
+   
 .imagebutton {
     position: absolute;
     width: 500px;
@@ -247,9 +259,9 @@ text-align: center;
 .imagebutton1 {
     position: absolute;
     width: 100px;
-    left:450px;
     top: 230px;
     text-align: center;
+    margin-left: -40px;
     transition: opacity .35s ease;
   }
 .imagebutton1 button {
@@ -280,4 +292,13 @@ text-align: center;
 }
 .listremove{
     list-style-type: none;
+}
+.styleglobe{
+  font-size: 1.5rem;
+  margin-right: 5px;
+  color: #0b69c0;
+}
+.first h4{
+  margin-top: -28px;
+  margin-left: 40px; 
 }

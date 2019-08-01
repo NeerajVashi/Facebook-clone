@@ -23,11 +23,14 @@ class intro extends Component {
     render() {
         const user = this.props.user.user;
         return (
-            <div className="second">
+            <div>
                 <div className="first">
+                <i className="fa fa-globe-americas styleglobe"></i>
                 <h4>Intro</h4>
                 </div>
-                <i class="far fa-comment-alt sidegap2"></i>
+                <div>
+                    <i class="far fa-comment-alt commentimg"></i>
+                    </div>
                 <div className="textintro">
                     Add a short bio to tell people more about yourself.
                 </div>
@@ -36,13 +39,15 @@ class intro extends Component {
                 </div>
                 <div>
                     <ul className="introbullet">
-                        <li>Worked at  <button className="textintro1">{user[0].Workedat}</button><button className="sidegap" data-toggle="modal" data-target="#myModal"><i class="far fa-edit"></i></button></li>
-                        <li>Went to  <button className="textintro1">{user[0].Wentto}</button> </li>
-                        <li>Lives in  <button className="textintro1">{user[0].Livesin}</button></li>
-                        <li>Address  <button className="textintro1">{user[0].Address}</button></li>
-                        <li>Followed by  <button className="textintro1">48 people</button></li>  
+                        <li className="margintop"><i className="fa fa-suitcase"/> Worked at  <button className="textintro1">{user[0].Workedat}</button><button className="sidegap" data-toggle="modal" data-target="#myModal"><i class="far fa-edit"></i></button></li>
+                        <li className="margintop"><i className="fa fa-suitcase"/> Went to  <button className="textintro1">{user[0].Wentto}</button> </li>
+                        <li className="margintop"><i className="fa fa-graduation-cap"/> Lives in  <button className="textintro1">{user[0].Livesin}</button></li>
+                        <li className="margintop"><i className="fa fa-graduation-cap"/> Address  <button className="textintro1">{user[0].Address}</button></li>
+                        <li className="margintop"><i className="fa fa-rss"/> Followed by  <button className="textintro1">48 people</button></li>  
                     </ul>
                 </div>
+                
+               
                     <div id="myModal" class="modal fade" role="dialog">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
