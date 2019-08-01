@@ -24,7 +24,7 @@ class smallimagepanel extends Component {
               Photos
               <a href=" " className="achange">Add Photos</a>
             </header>
-            {this.props.images[0]?(<div class="content">              
+            {this.props.images[0] ?(<div class="content">              
               
               <div class="row">
                 <div class="col"><a href=" "><img src={this.props.images[0].path}  alt=" " /></a></div>

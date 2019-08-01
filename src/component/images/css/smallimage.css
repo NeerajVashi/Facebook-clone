@@ -109,8 +109,8 @@ section.profile .profile-body aside.sidebar .section.photos .row .col {
 }
 
 section.profile .profile-body aside.sidebar .section.photos img {
-  display: block;
-  height: 124px;
+  display: block;    height: 106px;
+  width: 88px;
 }
 
 section.profile .profile-body aside.sidebar .section.languages .content {
