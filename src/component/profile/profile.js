@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import {updateCover,updateProfile} from '../../actions/profile';
 import ShowImages from '../images/image';
 import SmallImagePanel from '../images/smallimagepanel';
+import About from '../about/about';
 
 
 class home extends Component {
@@ -102,7 +103,9 @@ class home extends Component {
 
                         </div>
                 </div>
-                <TabPanel></TabPanel>
+                <TabPanel>
+                    <About/>
+                </TabPanel>
                 <TabPanel></TabPanel>
                 
                 <TabPanel>

@@ -1,6 +1,6 @@
 export  function Login(user) {
     return function(dispatch) {
-        const loginRequest = 'http://localhost:8000/auth/login';
+        const loginRequest = 'http://localhost:8080/auth/login';
         fetch(loginRequest, {
             headers: {
                 Accept:'application/json',
@@ -18,7 +18,7 @@ export  function Login(user) {
 
 export  function Registration(user) {
     return function(dispatch) {
-        const registerRequest = 'http://localhost:8000/auth/signup';
+        const registerRequest = 'http://localhost:8080/auth/signup';
         fetch(registerRequest,
             {
                 headers: {
