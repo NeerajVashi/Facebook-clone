@@ -121,7 +121,24 @@ class Homepage extends Component {
                                         <div className="top-friend-text">People You May Know</div>
                                         <div className="show-all">Show all</div>
                                     </div>
-                                    <div class="row">
+                                    {
+                                        friendRequest.map((friend, i) => (
+                                            <FriendCards singleuser={friend} id={i} onclick={this.add} onclickdelete={this.delete} />
+                                        ))
+                                    }
+                                    {/* <div class="row">
+                                        <div class="col-sm-3">
+                                            <img className=" friends-images " src="./images/bean.jpg" alt="Card image cap" />
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <ul className="friend-card-container">
+                                                <li><div class="friends-name">Special title treatment</div></li>
+                                                <li><div className="mutual-friend">13 Friend</div></li>
+                                                <li><div className="friends-request-response"><div className="add-button"><img className="add-button-icon" src="./images/addIcon.png" /> Add Friend</div><div className="delete-button">Delete</div></div></li>
+                                            </ul>
+                                        </div>
+                                    </div> */}
+                                    {/* <div class="row">
                                         <div class="col-sm-3">
                                             <img className=" friends-images " src="./images/bean.jpg" alt="Card image cap" />
                                         </div>
@@ -144,22 +161,10 @@ class Homepage extends Component {
                                                 <li><div className="friends-request-response"><div className="add-button"><img className="add-button-icon" src="./images/addIcon.png" /> Add Friend</div><div className="delete-button">Delete</div></div></li>
                                             </ul>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <img className=" friends-images " src="./images/bean.jpg" alt="Card image cap" />
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <ul className="friend-card-container">
-                                                <li><div class="friends-name">Special title treatment</div></li>
-                                                <li><div className="mutual-friend">13 Friend</div></li>
-                                                <li><div className="friends-request-response"><div className="add-button"><img className="add-button-icon" src="./images/addIcon.png" /> Add Friend</div><div className="delete-button">Delete</div></div></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    
+                                    </div> */}
+
                                 </div>
-                                
+
                                 {/* <div class="card-header">
                                     <img className="round-img" src="./images/bean.jpg" alt="Card image cap" />
                                     <div>Neeraj</div>
