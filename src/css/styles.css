@@ -145,13 +145,13 @@ a:hover {
     text-decoration: none;
 }
 .fk {
-    width: 122%;
+    width: 150%;
     font-family: inherit;
     font-weight: 650;
     color: #4b4f56;
     font-size: 14px;
     padding-top: 0px;
-    padding-right: 15px;
+    padding-right: 22px;/* width and padding-right */
     padding-bottom: 0px;
     padding-left: 35px;
     overflow: hidden;
@@ -224,15 +224,13 @@ ul {
     font-size: 14px;
 }
 .buttonwrapper1{
-    position: relative;
-    border: none;
-    display: inline-block;
     overflow: hidden;
    }
 .postbtn {
     background-color: transparent;
     color: white;
     border-color: transparent;
+    width: -10px;
 }
 .dropdown {
     position: relative;
