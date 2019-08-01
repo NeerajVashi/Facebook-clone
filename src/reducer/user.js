@@ -1,4 +1,4 @@
-export default function user(state ={user:{}, token:{}, status: '', newPost:{}, images:[]}, action) {
+export default function user(state ={user:{}, token:{}, status: '', newPost:{}, images:[],album:[]}, action) {
     switch(action.type) {
         case "isRegister": {
             state = {...state, user:action.payload}
@@ -18,24 +18,23 @@ export default function user(state ={user:{}, token:{}, status: '', newPost:{}, 
             break;
         }
         case 'SetImage':{
-            console.log(action.images)
             state ={...state , images:action.images}
             break;
         }
+
+        case 'setAlbum':{
+            state ={...state , album:action.images}
+            break;
+        }
         case 'introupdated':{
-            console.log(action.payload)
             state={...state,user:action.payload}
             break;
         }
         case 'coverupdated':{
-            console.log(state.user)
-            console.log(action.payload);
             state={...state,user:action.payload}
             break;
         }
         case 'profileupdated':{
-            console.log(state.user)
-            console.log(action.payload);
             state={...state,user:action.payload}
             break;
         }

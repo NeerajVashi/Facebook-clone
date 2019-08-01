@@ -21,11 +21,6 @@
     padding-top: 30px;
     padding-bottom: 1px;
 }
-img {
-    height: 400px;
-    width: 530px;
-
-}
 .round-img {
     border-radius: 50%;
     border: 3px solid black;
