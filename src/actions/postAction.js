@@ -26,7 +26,6 @@ export function addPost(obj1, data) {
     })
     .then((response) => {
         obj1.postId = response
-        
         data.append('postId',response)
         fetch('http://localhost:8007/image/post',{
             method:'POST',

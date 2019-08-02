@@ -29,11 +29,13 @@ class PendingFriend extends Component {
         this.props.onclickdelete(this.props.user.user[0].id, sender);
     }
     render() {
+        console.log('------------pending---------', this.props.singleFriend);
         return (
             <div id="fb">
+              
                 <div className="confirm-ul-1">
                     <div>
-                        <img src="/images/bean.jpg" alt="Image of woman" className="friend-request-image" />
+                        <img src={this.props.singleFriend.senderImage} alt="Image of woman" className="friend-request-image" />
                     </div>
                     <div className="li-1">
                         <div>

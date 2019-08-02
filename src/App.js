@@ -6,6 +6,7 @@ import Authenticate from './component/login/Authenticate';
 import Profile from './component/profile/profile';
 import Homepage from './component/homepage';
 import Image from './rough/Image'
+import Showalbum from './component/images/showalbum';
 
 export default class App extends Component {
     render() {
@@ -20,6 +21,7 @@ export default class App extends Component {
                         <Route path='/' exact component={Homepage} />
                         <Route path='/login' exact component={Authenticate} />
                         <Route path='/profile' component = {Profile} />
+                        <Route path='/displayalbum' component ={Showalbum} />
                         </Switch>
                 </Router>
             )

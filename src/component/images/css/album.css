@@ -1,3 +1,6 @@
+#album-display {
+  display:none;
+}
 
 .grid1 { 
     display: grid;

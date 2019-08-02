@@ -50,7 +50,7 @@ class Friends extends Component {
         // friendRequest.map((friend) => {
         //     console.log("------")
         //     console.log(friend)
-        //     console.log("------")
+        //     console.log("------")w
         // })
         return (
             // <>
@@ -62,6 +62,8 @@ class Friends extends Component {
             //     <this.HomePage val={1} />
             // </div>
             <div>
+            
+            <div className="top-friend-text1">Friend Requests</div>
             <div>
             {
                 pendingRequest.map((friend, i) => (
@@ -69,6 +71,7 @@ class Friends extends Component {
                 ))
             }
             </div>
+            <div className="top-friend-text1">People You May Knows</div>
             <div>
             { friendRequest.map((friend, i) => (
                 <Friend singleuser = {friend} key= {i} onclick = {this.add} onclickdelete = {this.delete}/>

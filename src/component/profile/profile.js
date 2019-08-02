@@ -37,6 +37,14 @@ class home extends Component {
         data1.append('Profile_pic', event.target.files[0]);
         this.props.updateProfile(data1);
     }
+    myFunction = () => {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
     render() {
         const user = this.props.user.user;
         return (

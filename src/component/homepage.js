@@ -64,7 +64,7 @@ class Homepage extends Component {
                 <div className="mainpage-container">       {/* main page starts */}
                     <div className="flex-item1 left">
                         <ul className="left-panel">
-                            <li className="profile"><Link to='/profile'><img src="./images/bean.jpg" className="left-user-image" /> {this.props.user.user[0].firstName}</Link></li>
+                            <li className="profile"><Link to='/profile'><img src={this.props.user.user[0].Profile_pic} className="left-user-image" /> {this.props.user.user[0].firstName}</Link></li>
                             <li><Link to='/'><i class="far fa-newspaper" style={{ color: 'blue' }}> </i>
                                 <> News Feed </></Link></li>
                             <li><i class="fab fa-facebook-messenger" style={{ color: 'blue' }}></i>
@@ -99,7 +99,7 @@ class Homepage extends Component {
                             <div class="card">               {/* create post */}
                                 <div class="card-header">Create Post</div>
                                 <div className="post-and-image">
-                                <img src="./images/bean.jpg" className="post-user-image"/>
+                                <img src={this.props.user.user[0].Profile_pic}  className="post-user-image"/>
                                 <textarea className = "postdata" name="postData"
                                 placeholder = "Write something here..."
                                  onChange = {e => this.change(e)}>
@@ -111,7 +111,7 @@ class Homepage extends Component {
                                                 <div>
                                                     <div className = "fk">
                                                     <div className="space buttonwrapper1"><button className="addimg"><i class="fas fa-photo-video fa-lg" style={{color:'blue'}}></i> Photo</button> <input name="img" type="file" defaultValue={this.state.img} onChange={e => this.Imgsub(e)}/></div>
-                                                    <div className="space"><i class="fas fa-user-tag fa-lg" style={{color:'blue'}}></i><> Tag Friends</></div>
+                                                    <div className="space1"><i class="fas fa-user-tag fa-lg" style={{color:'blue'}}></i><> Tag Friends</></div>
                                                     <div className="space"><i class="far fa-grin fa-lg" style={{color:'orange'}}></i><> Feeling</></div>
                                                     <div className="space _clr"><button onClick = {e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
                                                     </div>

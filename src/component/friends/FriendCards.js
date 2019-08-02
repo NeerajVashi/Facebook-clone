@@ -27,6 +27,7 @@ class FriendCards extends Component {
     }
     render() {
         const user = this.props.singleuser;
+        console.log('user------>', user);
         // if(user.status === 'Add Friend') {
         //     return (
         //         <div class="card w-50 p-3">
@@ -50,12 +51,12 @@ class FriendCards extends Component {
             return (
                 <div class="row">
                 <div class="col-sm-3">
-                    <img className=" friends-images " src="./images/bean.jpg" alt="Card image cap" />
+                    <img className=" friends-images " src={user.Profile_pic} alt="Card image cap" />
                 </div>
                 <div class="col-sm-9">
                     <ul className="friend-card-container">
                         <li><div class="friends-name">{user.firstName} {user.surname}</div></li>
-                        <li><div className="mutual-friend">13 Friends</div></li>
+                        <li><div className="mutual-friend"></div></li>
                         <li><div className="friends-request-response"><div onClick ={this.addFriend} className="add-button"><img className="add-button-icon" src="./images/addIcon.png" /> Add Friend</div><div onClick = {this.deleteRequest}  className="delete-button">Delete</div></div></li>
                     </ul>
                 </div>

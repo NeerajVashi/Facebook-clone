@@ -41,7 +41,7 @@ class Friend extends Component {
     }
     render() {
         // const user = this.props.singleuser;
-        console.log('user', this.state);
+        console.log('---------user-----------------', this.state);
         return (
             <div id="fb">
                 {/* <ul className="ul-1">
@@ -60,7 +60,7 @@ class Friend extends Component {
             </ul> */}
                 <div className="confirm-ul-1">
                     <div>
-                        <img src="/images/bean.jpg" alt="Image of woman" className="friend-request-image" />
+                        <img src={this.props.singleuser.Profile_pic} alt="Image of woman" className="friend-request-image" />
                     </div>
                     <div className="li-1">
                     <div>

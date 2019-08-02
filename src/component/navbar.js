@@ -59,7 +59,7 @@ class Navigation extends React.Component {
                         </div>
 
                         <div className="navright">
-                        <div> <img src="/images/bean.jpg" alt="Image of woman" className="nav-user-image" /></div>
+                        <div> <img src={this.props.user.user[0].Profile_pic}  alt="Image of woman" className="nav-user-image" /></div>
                             {/* <div ><i class="fas fa-user-circle fa-lg"></i></div> */}
                             <div className="color">
                                 <Link to='/profile' > <p className="navtxt">{user[0].firstName} {user[0].surName} </p> </Link>
