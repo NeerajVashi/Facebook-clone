@@ -12,6 +12,8 @@ import { fetchPosts } from '../actions/postAction'
 
 import { addPost } from '../actions/postAction'
 
+import { onlyData } from '../actions/postAction'
+
 class Homepage extends Component {
     componentWillMount() {
         this.props.fetchPosts();
@@ -35,6 +37,7 @@ class Homepage extends Component {
     onSubmit = (e) => {
         const obj1 = {};
         const data= new FormData();
+        console.log(this.state.postData);
         data.append('userId',this.state.userId);
         data.append('image',this.state.img);
         obj1.userId = this.state.userId;
@@ -108,7 +111,7 @@ class Homepage extends Component {
                             
                             {this.props.postData.map((post) => 
                             <div key={post.postId}>                           
-                            <NewsFeed  post={post} img={this.props.image} />
+                            <NewsFeed  post={post} />
                             </div>
                             )}       
 
@@ -126,10 +129,9 @@ Homepage.propTypes = {
 postData: propTypes.array.isRequired,
 fetchPosts: propTypes.func.isRequired,
 addPost: propTypes.func.isRequired,
-image: propTypes.array.isRequired
+onlyData: propTypes.func.isRequired,
 }
 const mapStateToProps = state => ({
     postData: state.user.posts,
-    image: state.user.img,
 })
-export default connect(mapStateToProps, { fetchPosts, addPost })(Homepage);
+export default connect(mapStateToProps, { fetchPosts, addPost, onlyData })(Homepage);

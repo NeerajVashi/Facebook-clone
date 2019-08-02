@@ -1,4 +1,4 @@
-export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], img: [] }, action) {
+export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: []}, action) {
     switch(action.type) {
         case 'fetchPost' :
             return {
@@ -6,12 +6,13 @@ export default function user(state ={user:{}, token: false, status: '', newPost:
                 posts: action.payload
         }
         case 'addPost' :
+            console.log(action.payload);
             let newPost = JSON.parse(JSON.stringify(state.posts));            
             newPost.push(action.payload);
+            console.log(newPost);
             return {
                 ...state,
-                posts: newPost,
-                img: action.payload
+                posts: action.payload,
         }
         case 'delPost' :
             let postState = JSON.parse(JSON.stringify(state.posts));

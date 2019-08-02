@@ -62,6 +62,7 @@ class NewsFeed extends Component {
             }
     }
     render() {
+        console.log(this.props.post)
         return (
             <div>
                 <div class="card">              
@@ -75,9 +76,9 @@ class NewsFeed extends Component {
                     : <div className = "card-body" >{this.props.post.postData}</div>} */}
                     {(this.props.post.postData !== ' ') ?
                     <div className = "card-body" >{this.props.post.postData}</div>
-                    :<div class="card-body"><img className="pic" src = {this.props.img.img} alt="img" /></div>
+                    :<div class="card-body"><img className="pic" src = {this.props.post.image} alt="img" /></div>
                     }
-                    <div class="card-body"><img className="pic" src = {this.props.img.img} alt="img" /></div>
+                    <div class="card-body"><img className="pic" src = {this.props.post.image} alt="img" /></div>
                     <div class="card-footer">
                         <button className = "likebtn"><i class="far fa-thumbs-up fa-lg" style={{color:'white'}}></i></button><> {this.state.counter}</>
                         <div className = "createfooter">
