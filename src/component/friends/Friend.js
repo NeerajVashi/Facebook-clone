@@ -15,7 +15,7 @@ class Friend extends Component {
         }
     }
     addFriend = () => {
-        console.log('add');
+        console.log('**************single User*************');
         console.log('add', this.state);
         const user = this.props.user.user;
         console.log('username', user[0].firstName, user[0].surName)
@@ -25,8 +25,12 @@ class Friend extends Component {
             surName: this.props.singleuser.surname,
             senderId: this.props.singleuser.userId,
             senderFirstName: user[0].firstName,
-            senderSurName: user[0].surName
+            senderSurName: user[0].surName,
+            senderImage:user[0].Profile_pic,
+            receiverImage:this.props.singleuser.Profile_pic
+
         }
+        console.log('sender', sender);
         // this.props.dispatch(sendRequest(this.state.senderId, sender))
         this.props.onclick(this.props.singleuser.friendId, sender);
     }

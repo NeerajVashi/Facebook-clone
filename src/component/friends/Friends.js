@@ -65,13 +65,13 @@ class Friends extends Component {
             <div>
             {
                 pendingRequest.map((friend, i) => (
-                    <PendingFriend singleFriend = {friend} id ={i} onclick = {this.confirm} onclickdelete = {this.deletePendingRequest}/>
+                    <PendingFriend singleFriend = {friend} key ={i} onclick = {this.confirm} onclickdelete = {this.deletePendingRequest}/>
                 ))
             }
             </div>
             <div>
             { friendRequest.map((friend, i) => (
-                <Friend singleuser = {friend} id = {i} onclick = {this.add} onclickdelete = {this.delete}/>
+                <Friend singleuser = {friend} key= {i} onclick = {this.add} onclickdelete = {this.delete}/>
             ))
             }
         </div> 

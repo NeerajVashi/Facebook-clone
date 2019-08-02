@@ -1,15 +1,4 @@
-export  function getFriends(userId) {
-    return function(dispatch) {
-        console.log('inside getFunction', userId);
-        const loginRequest = `http://localhost:8002/friends/display/${userId}`;
-        fetch(loginRequest)
-        .then(response => response.json())
-            .then((user) => {
-                console.log('inside fetch', user);
-                dispatch({type:'friendRequest', payload:user})
-            })
- }
-}
+
 
 export  function pendingRequest(ReceiverId) {
     return function(dispatch) {
@@ -108,5 +97,23 @@ export  function deletePendingRequest(friendId, sender) {
                     dispatch({type:'deletePendingRequest', payload:user})
                 })
 
+ }
+}
+export  function getFriends(userId) {
+    return function(dispatch) {
+        console.log('inside getFunction', userId);
+        const Request = `http://localhost:8002/friends/${userId}`;
+        fetch(Request)
+        .then(response => response.json())
+            .then((user) => {
+                console.log('inside fetch', user);
+            })
+        const loginRequest = `http://localhost:8002/friends/display/${userId}`;
+        fetch(loginRequest)
+        .then(response => response.json())
+            .then((user) => {
+                console.log('inside fetch', user);
+                dispatch({type:'friendRequest', payload:user})
+            })
  }
 }

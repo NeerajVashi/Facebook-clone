@@ -14,7 +14,9 @@ class FriendCards extends Component {
             surName:this.props.singleuser.surname,
             senderId:this.props.singleuser.userId,
             senderFirstName:user[0].firstName,
-            senderSurName:user[0].surName
+            senderSurName:user[0].surName,
+            senderImage:user[0].Profile_pic,
+            receiverImage:this.props.singleuser.Profile_pic
         }
         this.props.onclick(this.props.singleuser.friendId, sender);
     }
@@ -53,8 +55,8 @@ class FriendCards extends Component {
                 <div class="col-sm-9">
                     <ul className="friend-card-container">
                         <li><div class="friends-name">{user.firstName} {user.surname}</div></li>
-                        <li><div className="mutual-friend">13 Friend</div></li>
-                        <li><div onClick = {this.deleteRequest} className="friends-request-response"><div className="add-button"><img className="add-button-icon" src="./images/addIcon.png" /> Add Friend</div><div className="delete-button">Delete</div></div></li>
+                        <li><div className="mutual-friend">13 Friends</div></li>
+                        <li><div className="friends-request-response"><div onClick ={this.addFriend} className="add-button"><img className="add-button-icon" src="./images/addIcon.png" /> Add Friend</div><div onClick = {this.deleteRequest}  className="delete-button">Delete</div></div></li>
                     </ul>
                 </div>
             </div>

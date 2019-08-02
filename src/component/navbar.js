@@ -14,13 +14,13 @@ class Navigation extends React.Component {
         this.state = {
             search: '',
             users: [],
-
         }
 
     }
     componentDidMount() {
         this.props.dispatch(allUsers());
         const user = this.props.user.user;
+        console.log('user id', user);
         this.props.dispatch(getFriends(user[0].id))
     }
     searchText = (e) => {

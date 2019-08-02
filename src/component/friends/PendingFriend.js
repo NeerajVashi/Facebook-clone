@@ -1,28 +1,29 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class PendingFriend extends Component {
     addFriend = () => {
         const user = this.props.user.user;
         const sender = {
-            senderFirstName:this.props.singleFriend.senderFirstName,
-            senderSurname:this.props.singleFriend.senderFirstName,
-            receiverFirstName:user[0].firstName,
-            receiverSurname:user[0].surName,
-            receiverId:user[0].id,
+            senderFirstName: this.props.singleFriend.senderFirstName,
+            senderSurname: this.props.singleFriend.senderFirstName,
+            receiverFirstName: user[0].firstName,
+            receiverSurname: user[0].surName,
+            receiverId: user[0].id,
         }
         console.log('user', user, 'sender', sender);
-        console.log('addFriend', this.props.singleFriend);
+        console.log('************addFriend***************', this.props.singleFriend);
         this.props.onclick(this.props.singleFriend.senderId, sender);
     }
     deleteRequest = () => {
         const user = this.props.user.user;
         const sender = {
-            senderFirstName:this.props.singleFriend.senderFirstName,
-            senderSurname:this.props.singleFriend.senderFirstName,
-            receiverFirstName:user[0].firstName,
-            receiverSurname:user[0].surName,
-            receiverId:user[0].id,
+            senderFirstName: this.props.singleFriend.senderFirstName,
+            senderSurname: this.props.singleFriend.senderFirstName,
+            receiverFirstName: user[0].firstName,
+            receiverSurname: user[0].surName,
+            receiverId: user[0].id,
+
         }
         console.log('delete Request');
         this.props.onclickdelete(this.props.user.user[0].id, sender);
@@ -30,13 +31,28 @@ class PendingFriend extends Component {
     render() {
         return (
             <div id="fb">
-            <img src="/images/bean1.jpg" alt="Image of woman" />
+                <div className="confirm-ul-1">
+                    <div>
+                        <img src="/images/bean.jpg" alt="Image of woman" className="friend-request-image" />
+                    </div>
+                    <div className="li-1">
+                        <div>
+                            <p id="info"><b>{this.props.singleFriend.senderFirstName} {this.props.singleFriend.senderSurname}</b> <br /> <span>14 mutual friends</span></p>
+                        </div>
+                        <div id="button-block">
+                            <div onClick={this.addFriend} id="confirm">Confirm</div>
+                            <div onClick={this.deleteRequest} id="delete">Delete Request</div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* <img src="/images/bean1.jpg" alt="Image of woman" />
             <p id="info"><b>{this.props.singleFriend.senderFirstName} {this.props.singleFriend.senderSurname}</b> <br /> <span>14 mutual friends</span></p>
             <div id="button-block">
                 <div onClick = {this.addFriend} id="confirm">Confirm</div>
                 <div onClick = {this.deleteRequest} id="delete">Delete Request</div>
+            </div> */}
             </div>
-        </div>
         )
     }
 }
