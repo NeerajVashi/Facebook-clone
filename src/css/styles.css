@@ -288,6 +288,9 @@ ul {
     border: none;
     display: inline-block;
     overflow: hidden;
+    position: relative;
+    display: inline-block;
+    border:none;
    }
 .postbtn {
     background-color: transparent;
