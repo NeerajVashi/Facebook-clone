@@ -9,6 +9,7 @@ import {updateCover,updateProfile} from '../../actions/profile';
 import ShowImages from '../images/image';
 import SmallImagePanel from '../images/smallimagepanel';
 import About from '../about/about';
+import FriendsProfile from '../friendsProfile/friendsProfile';
 
 
 class home extends Component {
@@ -106,7 +107,9 @@ class home extends Component {
                 <TabPanel>
                     <About/>
                 </TabPanel>
-                <TabPanel></TabPanel>
+                <TabPanel>
+                    <FriendsProfile/>
+                </TabPanel>
                 
                 <TabPanel>
                 <div className="shiftphoto">

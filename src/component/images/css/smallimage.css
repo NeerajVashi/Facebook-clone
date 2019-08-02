@@ -192,4 +192,24 @@ section.profile .profile-body aside.sidebar .section.main.footer .row {
 .achange{
   margin-left: 80px;
   color: #0b69c0;
+  border: none;
+  background-color: transparent;  
+}
+
+.buttonwrapper5{
+  position: relative;
+  overflow: hidden;
+  display: inline-block;  
+
+}
+.buttonwrapper5 input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.imagebutton6{
+  left: 0px;
+  top:5px;
 }

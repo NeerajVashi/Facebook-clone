@@ -1,9 +1,23 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
-import {fetchImages} from '../../actions/fetchimage'
+import {fetchImages,saveImage} from '../../actions/fetchimage'
 
 require('./css/smallimage.css');
 class smallimagepanel extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       image:''
+    }
+  }
+  handleChange = (event)=>{
+    event.preventDefault();
+    const data = new FormData();
+    data.append('userId',this.props.user.user[0].id );
+    data.append('image', event.target.files[0]);
+    this.props.saveImage(data); 
+    }
     componentDidMount(){
         const user = this.props.user.user;
         this.props.fetchImages(user[0].id);
@@ -22,7 +36,11 @@ class smallimagepanel extends Component {
             <header>
               <i class="fa fa-images stylephoto"></i>
               Photos
-              <a href=" " className="achange">Add Photos</a>
+              <div class="buttonwrapper5 imagebutton6"> 
+                     <button  className="achange">Add Photos</button>
+                     <input type="file" defaultValue={this.state.image} onChange={this.handleChange} name="image"/>
+                </div>
+            
             </header>
             {this.props.images[0] ?(<div class="content">              
               
@@ -93,4 +111,4 @@ function mapStateToProps(state)
         user: state.user
     }
 }
-export default connect(mapStateToProps ,{fetchImages})(smallimagepanel)
+export default connect(mapStateToProps ,{fetchImages,saveImage})(smallimagepanel)
