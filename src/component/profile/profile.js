@@ -109,7 +109,7 @@ class home extends Component {
                 <TabPanel></TabPanel>
                 
                 <TabPanel>
-                <div>
+                <div className="shiftphoto">
                     <ShowImages/>
                 </div>
                 </TabPanel>
