@@ -12,6 +12,9 @@ export function fetchPosts() {
         })
     }
 }
+export function addData(obj1) {
+    
+}
 export function addPost(obj1, data) {
     return dispatch => {
     fetch(`http://localhost:4000/postdata`,{
@@ -34,10 +37,21 @@ export function addPost(obj1, data) {
         .then(res=>res.json())
         .then( (response) => {
             obj1.img = response[0].path;
-            dispatch({
-                type: 'addPost',
-                payload: obj1
+            console.log(JSON.stringify(obj1));
+            fetch('http://localhost:4000/addimage', {
+                method: 'PUT',
+                body: JSON.stringify(obj1),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             })
+            .then(res => res.json())
+            .then((response) => {
+                dispatch({
+                    type: 'addPost',
+                    payload: response
+                })
+            });
         })
     });
     }

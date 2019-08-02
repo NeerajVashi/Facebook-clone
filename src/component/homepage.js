@@ -16,6 +16,7 @@ import { fetchPosts } from '../actions/postAction'
 
 import { addPost } from '../actions/postAction'
 import { Link } from 'react-router-dom'
+import { addData } from '../actions/postAction';
 
 class Homepage extends Component {
     componentWillMount() {
@@ -40,13 +41,19 @@ class Homepage extends Component {
     onSubmit = (e) => {
         const obj1 = {};
         const data= new FormData();
+        console.log(this.state.postData);
         data.append('userId',this.state.userId);
         data.append('image',this.state.img);
         obj1.userId = this.state.userId;
         obj1.postData = this.state.postData;
         obj1.likes = this.state.likes;
         e.preventDefault();
-        this.props.addPost(obj1, data);
+        if(typeof this.state.img === undefined) {
+            this.props.addData(obj1);
+        } else {
+            this.props.addPost(obj1, data);
+        }
+        
     }
     add = (senderId, sender) => {
         console.log('inside add', sender, senderId);
@@ -124,7 +131,7 @@ class Homepage extends Component {
                             
                             {this.props.postData.map((post) => 
                             <div key={post.postId}>                           
-                            <NewsFeed  post={post} img={this.props.image} />
+                            <NewsFeed  post={post} />
                             </div>
                             )}       
 
@@ -234,11 +241,12 @@ Homepage.propTypes = {
 postData: propTypes.array.isRequired,
 fetchPosts: propTypes.func.isRequired,
 addPost: propTypes.func.isRequired,
-image: propTypes.array.isRequired
+addData: propTypes.func.isRequired
 }
 const mapStateToProps = state => ({
     postData: state.user.posts,
     image: state.user.img,
     user:state.user,
 })
-export default connect(mapStateToProps, { fetchPosts, addPost, sendRequest, deleteRequest })(Homepage);
+export default connect(mapStateToProps, { fetchPosts, addPost, sendRequest, deleteRequest, addData })(Homepage);
+
