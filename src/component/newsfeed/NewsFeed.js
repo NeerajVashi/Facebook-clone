@@ -29,6 +29,8 @@ class NewsFeed extends Component {
         })
     }
     commentPost = (id) => {
+        console.log('id');
+        console.log(id);
         const obj = {};
         obj.comments = this.state.comments;
         obj.id = id;
@@ -60,36 +62,42 @@ class NewsFeed extends Component {
             }
     }
     render() {
-        console.log('images');
-        console.log(this.props.img.img)
-           
         return (
             <div>
                 <div class="card">              
                     <div class="card-header">
                         <img className="round-img" src ="abc.jpg" alt="Avatar" />
                         <div>Metallica</div>
-                        <Button variant = "danger" onClick = {e => this.props.delPost(this.props.post.postId)} className = "delbtn">Delete</Button>
+                        <Button variant = "light" onClick = {e => this.props.delPost(this.props.post.postId)} className = "delbtn">Delete</Button>
                     </div>
+                    {/* {(this.props.img.img.includes('JPEG') || (this.props.img.img.includes('jpeg')) || (this.props.img.img.includes('png')) || (this.props.img.img.includes('PNG')) || (this.props.img.img.includes('JPG')) || (this.props.img.img.includes('JPG')) ) ? 
+                    <div class="card-body"><img className="pic" src = {this.props.img.img} alt="img" /></div>
+                    : <div className = "card-body" >{this.props.post.postData}</div>} */}
+                    {(this.props.post.postData !== ' ') ?
+                    <div className = "card-body" >{this.props.post.postData}</div>
+                    :<div class="card-body"><img className="pic" src = {this.props.img.img} alt="img" /></div>
+                    }
                     <div class="card-body"><img className="pic" src = {this.props.img.img} alt="img" /></div>
                     <div class="card-footer">
-
+                        <button className = "likebtn"><i class="far fa-thumbs-up fa-lg" style={{color:'white'}}></i></button><> {this.state.counter}</>
                         <div className = "createfooter">
-                            <div className="footer"><i class="far fa-thumbs-up" style={{color:'blue'}}><Button className = "likebtn" variant="info" onClick = {e => this.countIncrease(this.props.post.postId)}>{this.state.counter}</Button></i></div>
-                            <div className="footer"><i class="far fa-comment-alt"> Comment</i></div>
-                            <div><i class="fas fa-share"> Share</i></div>
+                            <ul className = "pst">
+                                <li><i class="far fa-thumbs-up"></i><button onClick = {e => this.countIncrease(this.props.post.postId)} className = "likebtn1"> Like</button></li>
+                                <li><i class="far fa-comment-alt" style={{color:'#606770'}}></i> Comment</li>
+                                <li><i class="fas fa-share"style={{color:'#606770'}}></i> Share</li>
+                            </ul>
                         </div>
                     </div>
                     {((this.state.comments.length > 0) && (this.state.flag === 1)) ?
-                    <div>
+                    <div className="cmnts">
                         { this.state.comments.map((cmnts) => 
-                            <div><textarea cols="60" rows="1">{cmnts.comments}</textarea></div>
+                            <div><img className="round-img-cmnts"src="/images/riverdale.jpg" alt=""/><textarea className = "comments" cols="50" rows="1">{cmnts.comments}</textarea></div>
                         )}
                     </div>
-                    :<div className = "display"><textarea cols="60" rows="1"></textarea></div>
+                    :<div></div>
                     }
                     <div className = "cmnts">
-                        <img className="round-img-cmnts"src="/images/riverdale.jpg" alt=""/><textarea className = "comments" name="comments" placeholder="Write a comment..." rows="1" cols="50" onChange = {e => this.change(e)}/>
+                        <img className="round-img-cmnts"src="/images/riverdale.jpg" alt=""/><textarea className = "comments" name="comments" placeholder="Write a comment..." rows="1" cols="50" onChange = {e => this.change(e)}/><button className="btn btn-primary btn-xs _btnsize" onClick = {e => this.commentPost(this.props.post.postId)}>Post</button>
                     </div>
                 </div>
                 <br /> 
