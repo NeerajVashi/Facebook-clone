@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-
+import {connect} from 'react-redux';
 import Image from '../images/image'
 
 class firstabout extends Component {
     render() {
+      const user = this.props.user.user;
+       
         return (
             <div>
                 <div className="plussign"><i class="far fa-plus-square"><p>Add a workplace</p></i></div>
@@ -11,11 +13,11 @@ class firstabout extends Component {
                 <i class="fas fa-mobile"><p>074042 40967</p></i>
                 </div>
                 <div className="overviewcake">
-                <i class="fas fa-birthday-cake"><p>November 23 1997</p></i>
+                <i class="fas fa-birthday-cake"><p>{user[0].DOB}</p></i>
                 </div>
 
       <div class=" marginleftabout">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+      <i class="fas fa-graduation-cap"><h2>Education</h2></i>
         <div class="w3-container">
           <p>Web Development! All I need to know in one place</p>
           <hr/>
@@ -23,18 +25,18 @@ class firstabout extends Component {
     </div>
     
     <div class="w3-container w3-card w3-white marginleftabout">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Lives in</h2>
+    <i class="fas fa-bed"><h2>Lives in</h2></i>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Karnal</b></h5>
+          <p>{user[0].Livesin}</p>
           <hr/>
         </div>
     </div>
     
 
     <div class="w3-container w3-card w3-white marginleftabout">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Address</h2>
+    <i class="fas fa-address-card"><h2>Address</h2></i>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Karnal</b></h5>
+          <p>{user[0].Address}</p>
           <hr/>
         </div>
     </div>
@@ -44,5 +46,10 @@ class firstabout extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+}
 
-export default firstabout
+export default connect(mapStateToProps)(firstabout)

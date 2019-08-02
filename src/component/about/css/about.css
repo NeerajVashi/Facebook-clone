@@ -62,3 +62,14 @@
     margin-left: -500px;
     margin-top: 400px;
   }
+
+  .marginleftabout i{
+    font-size: 30px; 
+    color: chocolate;
+  }
+
+  .marginleftabout i h2{
+    margin-left: 60px;
+    margin-top: -35px;
+    color: black;
+  }
