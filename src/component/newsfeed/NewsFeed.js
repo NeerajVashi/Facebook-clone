@@ -2,12 +2,7 @@ import React, { Component } from 'react'
 
 import { Button } from 'react-bootstrap'
 
-import { delPost } from '../../actions/postAction';
-
-import propTypes from 'prop-types'
-
 import { connect } from 'react-redux';
-import { conditionalExpression } from '@babel/types';
 
 class NewsFeed extends Component {
     state = {

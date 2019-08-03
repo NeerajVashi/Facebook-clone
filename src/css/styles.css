@@ -254,6 +254,11 @@
     background-color: #DCDCDC;
     padding:10px;
 }
+
+.mainpage-container {
+    display: flex;
+    padding:10px;
+}
 .flex-item1 {
     flex-grow: 0.1;
     padding-left:63px;
