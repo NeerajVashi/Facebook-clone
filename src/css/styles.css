@@ -65,6 +65,9 @@
     padding: 0px 8px;
     
 }
+.left-panel>li>a {
+    color: black;
+}
 .show-all{
     color:#4647b2;
     padding:0px 0px 0px 5px; 
