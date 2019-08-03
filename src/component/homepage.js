@@ -26,12 +26,20 @@ class Homepage extends Component {
         userId: 1,
         postData: '',
         likes: 0,
-        img: ''
+        img: '',
+        privacy:''
     }
     change = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
+    }
+    handleChange = (event)=>{
+        console.log('dasd')
+        console.log(event.target.value)
+        this.setState({
+            privacy :event.target.value   
+        })    
     }
     Imgsub = (e) => {
         this.setState({
@@ -69,6 +77,10 @@ class Homepage extends Component {
         console.log('id---->', id);
         this.props.delPost(id);
     }
+    handleSubmit = (event) =>{
+        event.preventDefault();
+        console.log(this.state)
+    }
     render() {
         var clonedArray = JSON.parse(JSON.stringify(this.props.postData))
         const postData = clonedArray.reverse();
@@ -79,7 +91,7 @@ class Homepage extends Component {
                 <div className="mainpage-container">       {/* main page starts */}
                     <div className="flex-item1 left">
                         <ul className="left-panel">
-                            <li className="profile"><Link to='/profile'><img src={this.props.user.user[0].Profile_pic} className="left-user-image" /> {this.props.user.user[0].firstName}</Link></li>
+                            <li className="profile"><Link to='/profile'><img src={this.props.user.user[0].Profile_pic} alt=" "className="left-user-image" /> {this.props.user.user[0].firstName}</Link></li>
                             <li><Link to='/'><i class="far fa-newspaper" style={{ color: 'blue' }}> </i>
                                 <> News Feed </></Link></li>
                             <li><i class="fab fa-facebook-messenger" style={{ color: 'blue' }}></i>
@@ -88,7 +100,7 @@ class Homepage extends Component {
                                 <> Watch</></li>
                         </ul>
                         <ul className="left-panel">
-                            <li><b>Shortcuts</b></li>
+                            <li><b>SonChange={this.handleChange}hortcuts</b></li>
                             <li><i class="fab fa-battle-net fa-lg" style={{ color: "red" }}></i>
                                 <> Battle Net</></li>
                         </ul>
@@ -114,8 +126,8 @@ class Homepage extends Component {
                             <div class="card">               {/* create post */}
                                 <div class="card-header">Create Post</div>
                                 <div className="post-and-image">
-                                <img src={this.props.user.user[0].Profile_pic}  className="post-user-image"/>
-                                <textarea className = "postdata" name="postData"
+                                <img src={this.props.user.user[0].Profile_pic} alt="" className="post-user-image"/>
+                                <textarea data-toggle="modal" data-target="#textModal" className = "postdata" name="postData"
                                 placeholder = "Write something here..."
                                  onChange = {e => this.change(e)}>
                                 </textarea></div>
@@ -240,6 +252,51 @@ class Homepage extends Component {
                         </div> */}
                     </div>
                 </div>
+
+                <div id="textModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-dialog">
+                            <div class="modal-content">
+                                <form method="post" onSubmit={this.handleSubmit}>
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Create Post  </h4> 
+                                    <button type="button" className="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                <img src={this.props.user.user[0].Profile_pic} alt="" className="post-user-image"/>
+                                
+                                <div class="form-group">
+                                    <textarea  class="form-control" placeholder="Write something here ... "  name="Address" defaultValue={this.state.Address}  onChange={this.handleChange}></textarea>
+                                </div>
+
+                                <select class="form-control"  onChange={this.handleChange} value={this.state.value}>
+                                    <option  >Public</option>
+                                    <option  >Private</option>
+                                    <option  >Friends</option>
+                                </select>
+                               
+
+                                </div>
+                                <div class="modal-footer">
+                                <div class="card-footer">
+                                    <div className = "createfooter1">
+                                        <ul className = "post-footer" >
+                                            <li className = "li">
+                                                <div>
+                                                    <div className = "fk">
+                                                    <div className="space buttonwrapper1"><button className="addimg"><i class="fas fa-photo-video fa-lg" style={{color:'blue'}}></i> Photo</button> <input name="img" type="file" defaultValue={this.state.img} onChange={e => this.Imgsub(e)}/></div>
+                                                    <div className="space"><i class="fas fa-user-tag fa-lg" style={{color:'blue'}}></i><> Tag Friends</></div>
+                                                    <div className="space"><i class="far fa-grin fa-lg" style={{color:'orange'}}></i><> Feeling</></div>
+                                                    <div className="space _clr"><button onClick = {e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
             </div>
         )
