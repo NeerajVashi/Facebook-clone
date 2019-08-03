@@ -16,17 +16,18 @@ import { fetchPosts, delPost } from '../actions/postAction'
 
 import { addPost } from '../actions/postAction'
 import { Link } from 'react-router-dom'
-import { addData } from '../actions/postAction';
+import { addData} from '../actions/postAction';
 
 class Homepage extends Component {
     componentWillMount() {
         this.props.fetchPosts();
     }
     state = {
-        userId: 1,
+        userId: this.props.user.user[0].id,
         postData: '',
         likes: 0,
-        img: ''
+        img: '',
+        status: 0,
     }
     change = (e) => {
         this.setState({
@@ -47,6 +48,8 @@ class Homepage extends Component {
         obj1.userId = this.state.userId;
         obj1.postData = this.state.postData;
         obj1.likes = this.state.likes;
+        obj1.status = this.state.status;
+
         e.preventDefault();
         const image = this.state.img;
         if(image.length === 0) {
@@ -73,6 +76,7 @@ class Homepage extends Component {
         var clonedArray = JSON.parse(JSON.stringify(this.props.postData))
         const postData = clonedArray.reverse();
         const friendRequest = this.props.user.friendRequest;
+        const comments = this.props.user.comments;
         console.log('in home friendRequest', friendRequest);
         return (
             <div>
@@ -139,7 +143,7 @@ class Homepage extends Component {
                             
                             {postData.map((post) => 
                             <div key={post.postId}>                           
-                            <NewsFeed  post={post} onclick={this.deletePost}/>
+                            <NewsFeed  post={post} onclick={this.deletePost} comments = {comments} />
                             </div>
                             )}       
 
@@ -256,5 +260,5 @@ const mapStateToProps = state => ({
     image: state.user.img,
     user:state.user,
 })
-export default connect(mapStateToProps, { fetchPosts, addPost, sendRequest, deleteRequest, addData, delPost })(Homepage);
+export default connect(mapStateToProps, { fetchPosts, addPost, sendRequest, deleteRequest, addData, delPost})(Homepage);
 

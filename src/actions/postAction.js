@@ -72,28 +72,25 @@ export function addPost(obj1, data) {
 export function delPost(id) {
     console.log("id", id);
     return dispatch => {
-        fetch(`http://localhost:4000/comments/${id}`, {
-            method: 'DELETE',
-            headers: {
-              'Content-Type': 'application/text',
-            }
+        fetch(`http://localhost:4000/deletePost/${id}`, { method: 'delete' },)
+        .then(function (res) {
+            return res.json()
         })
-        .then(res => res.json())
-         .then((data) => {
-             console.log('data', data)
-                dispatch({
-                    type: 'delPost',
-                    payload: data
-                })
+        .then((postdata) => {
+            dispatch({
+                type: 'deletePost',
+                payload: postdata
             })
+        })
     }
 }
 
-// export function comments(id) {
-//     console.log("id", id);
+// export function comments(comment) {
 //     return dispatch => {
-//         fetch(`http://localhost:4000/comments/${id}`, {
-//             method: 'DELETE',
+//     console.log("inside comment action", comment);
+
+//         fetch(`http://localhost:4000/addComments`, {
+//             method: 'Post',
 //             headers: {
 //               'Content-Type': 'application/text',
 //             }
@@ -108,3 +105,31 @@ export function delPost(id) {
 //             })
 //     }
 // }
+
+export  function addComment(comment) {
+    return function(dispatch) {
+        console.log('inside comment action', comment);
+        fetch(`http://localhost:4000/addComments`,{
+    method: 'POST',
+    body: JSON.stringify(comment),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(response => response.json())
+            .then((comments) => {
+                dispatch({type:'addComment', payload:comments})
+            })
+ }
+}
+
+export  function Comments(postId) {
+    return function(dispatch) {
+        console.log('inside comments postId', postId)
+        const registerRequest = `http://localhost:4000/comment/${postId}`;
+        fetch(registerRequest)
+        .then(response => response.json())
+            .then((comments) => {
+                dispatch({type:'addComment', payload:comments})
+            })
+ }
+}

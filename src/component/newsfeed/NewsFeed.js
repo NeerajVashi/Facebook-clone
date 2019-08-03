@@ -2,18 +2,24 @@ import React, { Component } from 'react'
 
 import { Button } from 'react-bootstrap'
 
-import { delPost } from '../../actions/postAction';
-
+import { addComment, Comments } from '../../actions/postAction';
+import PostComments from './Comments'
 import propTypes from 'prop-types'
 
 import { connect } from 'react-redux';
 import { conditionalExpression } from '@babel/types';
+import Posts from './Posts';
 
 class NewsFeed extends Component {
     state = {
+        commentToggle:0,
         counter: 0,
         comments: '',
-        flag: 0
+        flag: 0,
+        likeComment:0,
+        userImage:this.props.user.user[0].Profile_pic,
+        userId:this.props.user.user[0].id,
+        likePost:0,
     }
     componentDidMount() {
         fetch(`http://localhost:4000/fetchLikes/${this.props.post.postId}`)
@@ -30,7 +36,21 @@ class NewsFeed extends Component {
         })
     }
     commentPost = (id) => {
+        this.setState({
+            commentToggle:1,
+        })
         console.log('id', id, 'comment', this.state.comments);
+        const comment = {
+            commentToggle:0,
+            id:id,
+            comments:this.state.comments,
+            likePost:this.state.likePost,
+            likeComment:this.state.likeComment,
+            userImage:this.state.userImage,
+            userId:this.state.userId
+        }
+        console.log('comment', comment);
+        this.props.dispatch(addComment(comment));
         // const obj = {};
         // obj.comments = this.state.comments;
         // obj.id = id;
@@ -68,6 +88,8 @@ class NewsFeed extends Component {
     render() {
         const image = this.props.post.image;
         const postdata = this.props.post.postData;
+        const comments = this.props.user.comments;
+        console.log('comments', comments);
         // eslint-disable-next-line no-undef
         console.log('this.props.post.image', image, 'length', typeof image, 'length', image.length);
         if (image.length === 1) {
@@ -97,8 +119,10 @@ class NewsFeed extends Component {
                             <div key='1'>body</div>
                         ]
                     } */}
+                    <Posts imageLength = {image.length} postDataLength = {postdata.length} image ={image} postData = {this.props.post.postData}/>
 
-                    {(image.length === 1) ?
+
+                    {/* {(image.length === 1) ?
                         <div className="card-body" >{this.props.post.postData}</div>
                         : [((postdata.length === 0) ? <div class="card-body"><img className="pic" src={image} alt="img" /></div>
                             : <div>
@@ -108,7 +132,9 @@ class NewsFeed extends Component {
                         ),
 
                         ]
-                    }
+                    } */}
+
+
                     {/* <div class="card-body"><img className="pic" src={image} alt="img" /></div> */}
                     <div class="card-footer">
                         <button className="likebtn"><i class="far fa-thumbs-up fa-lg" style={{ color: 'white' }}></i></button><> {this.state.counter}</>
@@ -120,16 +146,15 @@ class NewsFeed extends Component {
                             </ul>
                         </div>
                     </div>
-                    {((this.state.comments.length > 0) && (this.state.flag === 1)) ?
-                        <div className="cmnts">
-                            {this.state.comments.map((cmnts) =>
-                                <div><img className="round-img-cmnts" src={this.props.user.user[0].Profile_pic} alt="" /><textarea className="comments" cols="50" rows="1">{cmnts.comments}</textarea></div>
-                            )}
-                        </div>
-                        : <div></div>
-                    }
+                    {/* {(this.state.toggle === 1)?
+                        comments.map((comment) => 
+                            <div><img className="round-img-cmnts" src={comment.userImage} alt="" /><textarea className="comments" cols="50" rows="1">{comment.comments}</textarea></div>
+                        )
+                        :<></>
+                    } */}
+                    <PostComments comments = {comments} toggle = {this.state.commentToggle} />
                     <div className="cmnts">
-                        <img className="round-img-cmnts" src={this.props.user.user[0].Profile_pic} alt="" /><textarea className="comments" name="comments" value={ this.state.comments } placeholder="Write a comment..." rows="1" cols="50" onChange={e => this.change(e)} /><button className="btn btn-primary btn-xs _btnsize" onClick={e => this.commentPost(this.props.post.postId)}>Post</button>
+                        <img className="nav-user-image"  src={this.props.user.user[0].Profile_pic} alt="" /><textarea className="comments" name="comments" value={ this.state.comments } placeholder="Write a comment..." rows="1" cols="50" onChange={e => this.change(e)} /><button className="btn btn-primary btn-xs _btnsize" onClick={e => this.commentPost(this.props.post.postId)}>Post</button>
                     </div>
                 </div>
                 <br />
