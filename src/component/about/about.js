@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Firstabout from './firstabout';
 import {connect} from 'react-redux';
 
+import Image from '../images/image'
 require('./css/about.css');
 class about extends Component {
     render() {
@@ -17,7 +18,9 @@ class about extends Component {
                         <Firstabout/>
                 </div>
             </div>
-        
+            <div className="setimagediv">
+                <Image/>
+            </div>
             
        </div>
         )
