@@ -13,7 +13,20 @@ export function fetchPosts() {
     }
 }
 export function addData(obj1) {
-    
+    console.log('addData', obj1)
+    return dispatch => {
+        fetch(`http://localhost:4000/posttext`,{
+          method: 'POST',
+          body: JSON.stringify(obj1),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .then(response => response.json())
+        .then((user) => {
+            dispatch({type:'addPost', payload:user})
+        })
+    }
 }
 export function addPost(obj1, data) {
     return dispatch => {
@@ -57,7 +70,7 @@ export function addPost(obj1, data) {
     }
 }
 export function delPost(id) {
-    console.log(id);
+    console.log("id", id);
     return dispatch => {
         fetch(`http://localhost:4000/comments/${id}`, {
             method: 'DELETE',
@@ -66,11 +79,32 @@ export function delPost(id) {
             }
         })
         .then(res => res.json())
-        .then(
-            dispatch({
-                type: 'delPost',
-                payload: id
+         .then((data) => {
+             console.log('data', data)
+                dispatch({
+                    type: 'delPost',
+                    payload: data
+                })
             })
-        )
     }
 }
+
+// export function comments(id) {
+//     console.log("id", id);
+//     return dispatch => {
+//         fetch(`http://localhost:4000/comments/${id}`, {
+//             method: 'DELETE',
+//             headers: {
+//               'Content-Type': 'application/text',
+//             }
+//         })
+//         .then(res => res.json())
+//          .then((data) => {
+//              console.log('data', data)
+//                 dispatch({
+//                     type: 'delPost',
+//                     payload: data
+//                 })
+//             })
+//     }
+// }

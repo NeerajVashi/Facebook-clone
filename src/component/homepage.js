@@ -12,7 +12,7 @@ import propTypes from 'prop-types'
 
 import { connect } from 'react-redux';
 
-import { fetchPosts } from '../actions/postAction'
+import { fetchPosts, delPost } from '../actions/postAction'
 
 import { addPost } from '../actions/postAction'
 import { Link } from 'react-router-dom'
@@ -48,8 +48,9 @@ class Homepage extends Component {
         obj1.postData = this.state.postData;
         obj1.likes = this.state.likes;
         e.preventDefault();
-        if(typeof this.state.img === undefined) {
-            this.props.addData(obj1);
+        const image = this.state.img;
+        if(image.length === 0) {
+            this.props.addData(this.state);
         } else {
             this.props.addPost(obj1, data);
         }
@@ -63,7 +64,14 @@ class Homepage extends Component {
     delete = (friendId, userId) => {
         this.props.deleteRequest(friendId, userId)
     }
+    
+    deletePost = (id) => {
+        console.log('id---->', id);
+        this.props.delPost(id);
+    }
     render() {
+        var clonedArray = JSON.parse(JSON.stringify(this.props.postData))
+        const postData = clonedArray.reverse();
         const friendRequest = this.props.user.friendRequest;
         console.log('in home friendRequest', friendRequest);
         return (
@@ -129,9 +137,9 @@ class Homepage extends Component {
                                 </div>
                             </div><br />                    {/* create post ends */}
                             
-                            {this.props.postData.map((post) => 
+                            {postData.map((post) => 
                             <div key={post.postId}>                           
-                            <NewsFeed  post={post} />
+                            <NewsFeed  post={post} onclick={this.deletePost}/>
                             </div>
                             )}       
 
@@ -248,5 +256,5 @@ const mapStateToProps = state => ({
     image: state.user.img,
     user:state.user,
 })
-export default connect(mapStateToProps, { fetchPosts, addPost, sendRequest, deleteRequest, addData })(Homepage);
+export default connect(mapStateToProps, { fetchPosts, addPost, sendRequest, deleteRequest, addData, delPost })(Homepage);
 

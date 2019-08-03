@@ -14,12 +14,10 @@ export default function user(state ={user:{}, token: false, status: '', newPost:
                 ...state,
                 posts: action.payload,
         }
-        case 'delPost' :
-            let postState = JSON.parse(JSON.stringify(state.posts));
-            postState = postState.filter(posts => posts.postId !== action.payload)
-            return {
-                ...state,
-                posts: postState
+        case 'delPost' : {
+            console.log('action.payload', action.payload)
+           state = {...state, posts:action.payload}
+          break;
         }
         case "isRegister": {
             state = {...state, user:action.payload}
