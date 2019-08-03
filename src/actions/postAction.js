@@ -50,7 +50,6 @@ export function addPost(obj1, data) {
         .then(res=>res.json())
         .then( (response) => {
             obj1.img = response[0].path;
-            console.log(JSON.stringify(obj1));
             fetch('http://localhost:4000/addimage', {
                 method: 'PUT',
                 body: JSON.stringify(obj1),
