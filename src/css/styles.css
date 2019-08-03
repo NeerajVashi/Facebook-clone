@@ -406,9 +406,10 @@ ul {
    }
 .postbtn {
     background-color: transparent;
-    color: white;
     border-color: transparent;
-    width: 10px;
+    color:#3b5998;
+    margin-left: 20px;
+    font-size: 16px;
 }
 
 .dropdown {

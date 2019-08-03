@@ -7,7 +7,6 @@ import Createpost from './createpost';
 import {connect} from 'react-redux';
 import {updateCover,updateProfile} from '../../actions/profile';
 import ShowImages from '../images/image';
-import SmallImagePanel from '../images/smallimagepanel';
 import About from '../about/about';
 import FriendsProfile from '../friendsProfile/friendsProfile';
 
@@ -107,9 +106,7 @@ class home extends Component {
                     <div className="item3">
                     </div>
                 </div>
-                <div className="item4">
-                <SmallImagePanel/>
-                </div>
+                
                 </TabPanel>
                     </div>
                 </div>

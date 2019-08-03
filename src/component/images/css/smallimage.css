@@ -15,6 +15,7 @@
 
 
 .container9 {
+  display: flex;
   margin-left: 400px;
 }
 
@@ -28,10 +29,6 @@ a:hover {
 }
 
 
-section.profile .profile-body {
-  width: 100%;
-  background-color: transparent;
-}
 
 section.profile .profile-body::after {
   content: "";
@@ -40,12 +37,7 @@ section.profile .profile-body::after {
 }
 
 section.profile .profile-body aside.sidebar {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 15px;
-  float: left;
-  margin-top: 15px;
-  width: 355px;
+  width: 326px;
 }
 
 section.profile .profile-body aside.sidebar .section {
@@ -56,10 +48,8 @@ section.profile .profile-body aside.sidebar .section {
 }
 
 section.profile .profile-body aside.sidebar .section header {
-  position: relative;
   background-color: transparent;
   padding: 15px 20px;
-  height: 54px;
 }
 
 section.profile .profile-body aside.sidebar .section header .badge {
@@ -123,7 +113,6 @@ section.profile .profile-body aside.sidebar .section.languages .content::after {
 
 section.profile .profile-body aside.sidebar .section.languages .content .row .col {
   float: left;
-  width: 85%;
 }
 
 section.profile .profile-body aside.sidebar .section.languages .content .row .col.plus-box {
@@ -176,15 +165,7 @@ section.profile .profile-body aside.sidebar .section.main.footer .row {
   padding: 0;
   color: #444;
 }
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  outline: 0 !important;
- -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+
 
 .achange{
   margin-left: 80px;
@@ -209,4 +190,9 @@ section.profile .profile-body aside.sidebar .section.main.footer .row {
 .imagebutton6{
   left: 0px;
   top:5px;
+}
+
+.profile{
+  margin-top: 100px;
+  margin-left:-400px ;
 }

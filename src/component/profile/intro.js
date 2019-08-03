@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import {editIntro} from '../../actions/profile';
 import {connect} from 'react-redux';
+
+import SmallImagePanel from '../images/smallimagepanel';
 require('./css/intro.css');
+
 
 class intro extends Component {
     constructor(props) {
@@ -30,7 +33,7 @@ class intro extends Component {
                 </div>
                 <div>
                     <i class="far fa-comment-alt commentimg"></i>
-                    </div>
+                </div>
                 <div className="textintro">
                     Add a short bio to tell people more about yourself.
                 </div>
@@ -46,8 +49,10 @@ class intro extends Component {
                         <li className="margintop"><i className="fa fa-rss"/> Followed by  <button className="textintro1">48 people</button></li>  
                     </ul>
                 </div>
+                <div>
+                    <SmallImagePanel/>
+                </div>
                 
-               
                     <div id="myModal" class="modal fade" role="dialog">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
