@@ -12,23 +12,29 @@ import propTypes from 'prop-types'
 
 import { connect } from 'react-redux';
 
-import { fetchPosts, delPost } from '../actions/postAction'
+import { fetchPosts, delPost,} from '../actions/postAction'
 
 import { addPost } from '../actions/postAction'
 import { Link } from 'react-router-dom'
 import { addData} from '../actions/postAction';
 
 class Homepage extends Component {
+    constructor (props) {
+        super(props)
+        this.state = {
+            userId: this.props.user.user[0].id,
+            postData: '',
+            likes: 0,
+            img: '',
+            status: 0,
+        }
+        
+    }
     componentWillMount() {
         this.props.fetchPosts();
+
     }
-    state = {
-        userId: this.props.user.user[0].id,
-        postData: '',
-        likes: 0,
-        img: '',
-        status: 0,
-    }
+    
     change = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -83,7 +89,7 @@ class Homepage extends Component {
                 <div className="mainpage-container">       {/* main page starts */}
                     <div className="flex-item1 left">
                         <ul className="left-panel">
-                            <li className="profile"><Link to='/profile'><img src={this.props.user.user[0].Profile_pic} className="left-user-image" /> {this.props.user.user[0].firstName}</Link></li>
+                            <li className="profile1"><Link to='/profile'><img src={this.props.user.user[0].Profile_pic} className="left-user-image" /> {this.props.user.user[0].firstName}</Link></li>
                             <li><Link to='/'><i class="far fa-newspaper" style={{ color: 'blue' }}> </i>
                                 <> News Feed </></Link></li>
                             <li><i class="fab fa-facebook-messenger" style={{ color: 'blue' }}></i>
@@ -130,7 +136,7 @@ class Homepage extends Component {
                                                 <div>
                                                     <div className = "fk">
                                                     <div className="space buttonwrapper1"><button className="addimg"><i class="fas fa-photo-video fa-lg" style={{color:'blue'}}></i> Photo</button> <input name="img" type="file" defaultValue={this.state.img} onChange={e => this.Imgsub(e)}/></div>
-                                                    <div className="space1"><i class="fas fa-user-tag fa-lg" style={{color:'blue'}}></i><> Tag Friends</></div>
+                                                    <div className="space"><i class="fas fa-user-tag fa-lg" style={{color:'blue'}}></i><> Tag Friends</></div>
                                                     <div className="space"><i class="far fa-grin fa-lg" style={{color:'orange'}}></i><> Feeling</></div>
                                                     <div className="space _clr"><button onClick = {e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
                                                     </div>
@@ -260,5 +266,5 @@ const mapStateToProps = state => ({
     image: state.user.img,
     user:state.user,
 })
-export default connect(mapStateToProps, { fetchPosts, addPost, sendRequest, deleteRequest, addData, delPost})(Homepage);
+export default connect(mapStateToProps, { fetchPosts, addPost, sendRequest, deleteRequest, addData, delPost,})(Homepage);
 

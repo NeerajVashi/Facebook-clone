@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { conditionalExpression } from '@babel/types';
 import Posts from './Posts';
 
+
 class NewsFeed extends Component {
     state = {
         commentToggle:0,

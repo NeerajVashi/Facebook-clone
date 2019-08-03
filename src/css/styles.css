@@ -7,6 +7,9 @@
 .post-and-image{
     display: flex;
 }
+.profile1 {
+    margin-top: -2px;
+}
 .left-user-image{
     height: 28px;
     width:28px;
@@ -184,6 +187,7 @@
 }
 .likebtn1 {
     font-weight: 600;
+    background-color: transparent;
     color: #606770;
     font-size: 15px;
     border:none;
@@ -252,6 +256,11 @@
 .mainpage-container {
     display: flex;
     background-color: #DCDCDC;
+    padding:10px;
+}
+
+.mainpage-container {
+    display: flex;
     padding:10px;
 }
 .flex-item1 {
@@ -401,9 +410,10 @@ ul {
    }
 .postbtn {
     background-color: transparent;
-    color: white;
     border-color: transparent;
-    width: 10px;
+    color:#3b5998;
+    margin-left: 20px;
+    font-size: 16px;
 }
 
 .dropdown {
