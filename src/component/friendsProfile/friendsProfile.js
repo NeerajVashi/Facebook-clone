@@ -5,6 +5,10 @@ import Friends from './friends';
 require('./css/friendsprofile.css');
 class friendsProfile extends Component {
     componentDidMount() {
+        // const userId = {
+        //     senderId:,
+        //     receiverId:,
+        // }
         this.props.dispatch(friends(this.props.user.user[0].id));
     }
     render() {

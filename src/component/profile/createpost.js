@@ -6,12 +6,12 @@ import NewsFeed from '../newsfeed/NewsFeed'
 
 import { connect } from 'react-redux';
 
-import { addPost ,addData,fetchPosts, delPost } from '../../actions/postAction'
+import { addPost ,addData,fetchPosts, delPost ,userPosts} from '../../actions/postAction'
 
 
 class Homepage extends Component {
     componentWillMount() {
-        this.props.fetchPosts();
+        this.props.userPosts(this.props.user.user[0].id);
     }
     state = {
         userId: this.props.user.user[0].id,
@@ -53,7 +53,7 @@ class Homepage extends Component {
     
     deletePost = (id) => {
         console.log('id---->', id);
-        this.props.delPost(id);
+        this.props.delPost(id, this.props.user.user[0].id);
     }
     render() {
         var clonedArray = JSON.parse(JSON.stringify(this.props.postData))
@@ -61,8 +61,6 @@ class Homepage extends Component {
         return (
             <div>
                 <div className="mainpage-container1">       {/* main page starts */}
-
-
 
                     <div className="flex-item2 mid-first">
                         <div class="container mid-second">
@@ -108,9 +106,9 @@ class Homepage extends Component {
     }
 }
 const mapStateToProps = state => ({
-    postData: state.user.posts,
+    postData: state.user.userPosts,
     image: state.user.img,
     user:state.user,
 })
-export default connect(mapStateToProps, { fetchPosts, addPost ,addData, delPost })(Homepage);
+export default connect(mapStateToProps, { fetchPosts, addPost ,addData, delPost ,userPosts})(Homepage);
 

@@ -92,11 +92,17 @@ class Homepage extends Component {
         }
         
     }
-    add = (senderId, sender) => {
-        console.log('inside add', sender, senderId);
-        this.props.sendRequest(senderId, sender)
+//-----------------------------------------------------------------------------
+    // add = (senderId, sender) => {
+    //     console.log('inside add', sender, senderId);
+    //     this.props.sendRequest(senderId, sender)
+    // }
+    add = (request) => {
+        console.log('inside add',request);
+        this.props.sendRequest(request);
     }
-
+//----------------------------------------------------
+    
     delete = (friendId, userId) => {
         this.props.deleteRequest(friendId, userId)
     }
@@ -205,7 +211,7 @@ class Homepage extends Component {
                                     </div>
                                     {
                                         friendRequest.map((friend, i) => (
-                                            <FriendCards singleuser={friend} id={i} onclick={this.add} onclickdelete={this.delete} />
+                                            <FriendCards singleuser={friend}  key ={i} onclick={this.add} onclickdelete={this.delete} />
                                         ))
                                     }
                                     {/* <div class="row">

@@ -5,13 +5,12 @@ import PendingFriend from  './PendingFriend'
 import {sendRequest, deleteRequest, pendingRequest, confirmRequest, deletePendingRequest} from '../../actions/friends'
 
 class Friends extends Component {
-    add = (senderId, sender) => {
-        console.log('inside add', sender, senderId);
-       this.props.dispatch(sendRequest(senderId, sender))
+    add = (friend) => {
+       this.props.dispatch(sendRequest(friend))
     }
 
-    delete = (friendId, userId) => {
-        this.props.dispatch(deleteRequest(friendId, userId))
+    delete = (friend) => {
+        this.props.dispatch(deleteRequest(friend))
     }
     myFunction = () => {
         this.props.onclick();
@@ -31,12 +30,16 @@ class Friends extends Component {
             </div>
         </div>
     );
-
-    confirm = (id, sender) => {
-        console.log('confirm');
-        this.props.dispatch(confirmRequest(id, sender))
-    }
-
+//---------------------------------------------------------------------------
+confirm = (userId) => {
+    console.log('^^^^^^^^^^^^^^^^^^^^userI^^^^^^^^^^^^^^^^^^^^^', userId);
+    this.props.dispatch(confirmRequest(userId))
+}
+    // confirm = (id, sender) => {
+    //     console.log('confirm');
+    //     this.props.dispatch(confirmRequest(id, sender))
+    // }
+//---------------------------------------------------------------------------------
     deletePendingRequest = (friendId, sender) => {
         console.log('deleteRequest');
         this.props.dispatch(deletePendingRequest(friendId,sender))

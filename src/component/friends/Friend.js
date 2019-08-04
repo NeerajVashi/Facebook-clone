@@ -19,25 +19,45 @@ class Friend extends Component {
         console.log('add', this.state);
         const user = this.props.user.user;
         console.log('username', user[0].firstName, user[0].surName)
-        const sender = {
-            status: 'sent',
-            firstName: this.props.singleuser.firstName,
-            surName: this.props.singleuser.surname,
-            senderId: this.props.singleuser.userId,
-            senderFirstName: user[0].firstName,
-            senderSurName: user[0].surName,
-            senderImage:user[0].Profile_pic,
-            receiverImage:this.props.singleuser.Profile_pic
+        // const sender = {
+        //     status: 'sent',
+        //     firstName: this.props.singleuser.firstName,
+        //     surName: this.props.singleuser.surname,
+        //     senderId: this.props.singleuser.userId,
+        //     senderFirstName: user[0].firstName,
+        //     senderSurName: user[0].surName,
+        //     senderImage:user[0].Profile_pic,
+        //     receiverImage:this.props.singleuser.Profile_pic
 
+        // }
+        const request = {
+            receiverId:this.props.user.user[0].id,
+            senderId:this.props.singleuser.id,
+            senderFirstName:this.props.user.user[0].firstName,
+            senderSurname:this.props.user.user[0].surName,
+            senderProfile_pic:this.props.user.user[0].Profile_pic,
+            receiverFirstName:this.props.singleuser.firstName,
+            receiverSurname:this.props.singleuser.surName,
+            receiverProfile_pic:this.props.singleuser.Profile_pic
         }
-        console.log('sender', sender);
-        // this.props.dispatch(sendRequest(this.state.senderId, sender))
-        this.props.onclick(this.props.singleuser.friendId, sender);
+        // console.log('sender', sender);
+        // // this.props.dispatch(sendRequest(this.state.senderId, sender))
+        this.props.onclick(request);
     }
 
     deleteRequest = () => {
         console.log('delete');
-        this.props.onclickdelete(this.props.singleuser.friendId, this.props.singleuser.userId)
+        const request = {
+            receiverId:this.props.user.user[0].id,
+            senderId:this.props.singleuser.id,
+            senderFirstName:this.props.user.user[0].firstName,
+            senderSurname:this.props.user.user[0].surName,
+            senderProfile_pic:this.props.user.user[0].Profile_pic,
+            receiverFirstName:this.props.singleuser.firstName,
+            receiverSurname:this.props.singleuser.surName,
+            receiverProfile_pic:this.props.singleuser.Profile_pic
+        }
+        this.props.onclickdelete(request)
     }
     render() {
         // const user = this.props.singleuser;

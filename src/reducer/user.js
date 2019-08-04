@@ -1,5 +1,11 @@
-export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[],img:[] ,album:[], comments:[], friends:[]}, action) {
+export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[],img:[] ,album:[], comments:[], friends:[], userPosts:[]}, action) {
     switch(action.type) {
+        case 'userPosts' : {
+            return {
+                ...state,
+                userPosts:action.payload
+            }
+        }
         case 'fetchPost' :
             return {
                 ...state,
@@ -8,7 +14,8 @@ export default function user(state ={user:{}, token: false, status: '', newPost:
         case 'deletePost' :
             return {
                 ...state,
-                posts: action.payload
+                posts: action.payload.allPosts,
+                userPosts:action.payload.userPosts
         }
         case 'addPost' :
             console.log(action.payload);

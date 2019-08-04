@@ -12,6 +12,23 @@ export function fetchPosts(id) {
         })
     }
 }
+
+export function userPosts(id) {
+    return dispatch => {
+    fetch(`http://localhost:4000/userPost/${id}`)
+        .then(function (res) {
+            return res.json()
+        })
+        .then((userPosts) => {
+            dispatch({
+                type: 'userPosts',
+                payload: userPosts
+            })
+        })
+    }
+}
+
+
 export function addData(obj1) {
     console.log('addData', obj1)
     return dispatch => {
@@ -69,10 +86,18 @@ export function addPost(obj1, data) {
     }
 }
 
-export function delPost(id) {
-    console.log("id", id);
+export function delPost(postId, userId) {
+    console.log("id", postId,'userId', userId);
+    const id = {
+        userId:userId
+    }
     return dispatch => {
-        fetch(`http://localhost:4000/deletePost/${id}`, { method: 'delete' },)
+        fetch(`http://localhost:4000/deletePost/${postId}`, {          
+        method: 'delete',
+        body: JSON.stringify(id),
+        headers: {
+          'Content-Type': 'application/json',
+        },},)
         .then(function (res) {
             return res.json()
         })

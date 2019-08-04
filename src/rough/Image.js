@@ -1,25 +1,23 @@
 import React, { Component } from 'react'
 import './image.css'
-export default class Image extends Component {
+
+export default class Images extends Component {
     render() {
         return (
-            <div class="card container-div">
-            <div className="heading-div">heading</div>
-            <div class="column1">
-                <div class="image-column">
-                    <img className="request-image" src="./images/bean.jpg" alt="Card image cap" />
+            <div>
+
+                <h2>Dropdown Image</h2>
+                <p>Move the mouse over the image below to open the dropdown content.</p>
+
+                <div class="dropdown">
+                    <img src="./images/bean.jpg" alt="Cinque Terre" width="100" height="50" />
+                    <div class="dropdown-content">
+                        <img src="./images/bean.jpg" alt="Cinque Terre" width="300" height="200" />
+                        <div class="desc">Beautiful Cinque Terre</div>
+                    </div>
                 </div>
             </div>
-            <div className="column2">
-                <ul>
-                    <li>list1</li>
-                    <li>list1</li>
-                    <li>list2</li>
-                </ul>
 
-            </div>
-            </div>
-            
         )
     }
 }

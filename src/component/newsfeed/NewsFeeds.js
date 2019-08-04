@@ -10,7 +10,7 @@ class NewsFeeds extends Component {
     }
 
     deletePost = (id) => {
-        this.props.dispatch(delPost(id));
+        this.props.dispatch(delPost(id, this.props.user.user[0].id));
     }
 
     postLike = (postId, user) => {

@@ -2,21 +2,33 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
 class PendingFriend extends Component {
-    addFriend = () => {
-        const user = this.props.user.user;
-        const sender = {
-            senderFirstName: this.props.singleFriend.senderFirstName,
-            senderSurname: this.props.singleFriend.senderFirstName,
-            receiverFirstName: user[0].firstName,
-            receiverSurname: user[0].surName,
-            receiverId: user[0].id,
-            senderImage:this.props.singleFriend.senderImage,
-            receiverImage:this.props.user.user[0].Profile_pic,
-        }
-        console.log('user', user, 'sender', sender);
-        console.log('************addFriend***************', this.props.singleFriend);
-        this.props.onclick(this.props.singleFriend.senderId, sender);
+
+//--------------------------------------------------------------
+addFriend = () => {
+    console.log('inside pwnding friend', this.props.singleFriend);
+    const user = this.props.user.user;
+    const userId = {
+        senderId:this.props.singleFriend.senderId,
+        receiverId:user[0].id
     }
+    this.props.onclick(userId);
+}
+    // addFriend = () => {
+    //     const user = this.props.user.user;
+    //     const sender = {
+    //         senderFirstName: this.props.singleFriend.senderFirstName,
+    //         senderSurname: this.props.singleFriend.senderFirstName,
+    //         receiverFirstName: user[0].firstName,
+    //         receiverSurname: user[0].surName,
+    //         receiverId: user[0].id,
+    //         senderImage:this.props.singleFriend.senderImage,
+    //         receiverImage:this.props.user.user[0].Profile_pic,
+    //     }
+    //     console.log('user', user, 'sender', sender);
+    //     console.log('************addFriend***************', this.props.singleFriend);
+    //     this.props.onclick(this.props.singleFriend.senderId, sender);
+    // }
+//-------------------------------------------------------------------------------
     deleteRequest = () => {
         const user = this.props.user.user;
         const sender = {
@@ -39,11 +51,11 @@ class PendingFriend extends Component {
               
                 <div className="confirm-ul-1">
                     <div>
-                        <img src={this.props.singleFriend.senderImage} alt="Image of woman" className="friend-request-image" />
+                        <img src={this.props.singleFriend.senderProfile_pic}  className="friend-request-image" />
                     </div>
                     <div className="li-1">
                         <div>
-                            <p id="info"><b>{this.props.singleFriend.senderFirstName} {this.props.singleFriend.senderSurname}</b> <br /> <span>14 mutual friends</span></p>
+                            <p id="info"><b>{this.props.singleFriend.senderfirstName} {this.props.singleFriend.senderSurname}</b> <br /> <span>14 mutual friends</span></p>
                         </div>
                         <div id="button-block">
                             <div onClick={this.addFriend} id="confirm">Confirm</div>
