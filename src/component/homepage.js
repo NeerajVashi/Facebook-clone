@@ -36,7 +36,7 @@ class Homepage extends Component {
         
     }
     componentWillMount() {
-        this.props.fetchPosts();
+        this.props.fetchPosts(this.state.userId);
 
     }
     

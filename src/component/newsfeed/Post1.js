@@ -69,12 +69,13 @@ class Post1 extends Component {
         const image = this.props.post.image;
         const postdata = this.props.post.postData;
         const comments = this.props.comments;
+        console.log('----------->post--------------->', this.props.post)
         return (
             <div>
                 <div class="card">
                     <div class="card-header">
-                        <img className="post-user-image" src={this.props.user.user[0].Profile_pic} alt="Avatar" />
-                        <div class="friends-name">{this.props.user.user[0].firstName} {this.props.user.user[0].surName}</div>
+                        <img className="post-user-image" src={this.props.post.userImage} alt="Avatar" />
+                        <div class="friends-name">{this.props.post.firstName} {this.props.post.surName}</div>
                         <Button variant="light" onClick={this.deletePost} className="delbtn">Delete</Button>
                     </div>
                     {(image.length === 1) ?

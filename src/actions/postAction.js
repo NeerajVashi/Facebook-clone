@@ -1,6 +1,6 @@
-export function fetchPosts() {
+export function fetchPosts(id) {
     return dispatch => {
-    fetch('http://localhost:4000/postdata')
+    fetch(`http://localhost:4000/allPosts/${id}`)
         .then(function (res) {
             return res.json()
         })
