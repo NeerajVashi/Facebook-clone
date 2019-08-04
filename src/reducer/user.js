@@ -1,4 +1,4 @@
-export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[],img:[] ,album:[], comments:[]}, action) {
+export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[],img:[] ,album:[], comments:[], friends:[]}, action) {
     switch(action.type) {
         case 'fetchPost' :
             return {
@@ -39,6 +39,10 @@ export default function user(state ={user:{}, token: false, status: '', newPost:
         }
         case 'newPost': {
             state= {...state, newPost:action.payload}
+            break;
+        }
+        case 'userFriends': {
+            state= {...state, friends:action.payload}
             break;
         }
         case 'friendRequest': {

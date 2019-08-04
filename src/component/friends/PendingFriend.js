@@ -10,6 +10,8 @@ class PendingFriend extends Component {
             receiverFirstName: user[0].firstName,
             receiverSurname: user[0].surName,
             receiverId: user[0].id,
+            senderImage:this.props.singleFriend.senderImage,
+            receiverImage:this.props.user.user[0].Profile_pic,
         }
         console.log('user', user, 'sender', sender);
         console.log('************addFriend***************', this.props.singleFriend);
@@ -23,6 +25,8 @@ class PendingFriend extends Component {
             receiverFirstName: user[0].firstName,
             receiverSurname: user[0].surName,
             receiverId: user[0].id,
+            senderImage:this.props.singleFriend.senderImage,
+            receiverImage:this.props.user.user[0].Profile_pic,
 
         }
         console.log('delete Request');

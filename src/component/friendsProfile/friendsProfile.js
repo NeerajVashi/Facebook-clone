@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {friends} from '../../actions/friends'
+import Friends from './friends';
 require('./css/friendsprofile.css');
 class friendsProfile extends Component {
+    componentDidMount() {
+        this.props.dispatch(friends(this.props.user.user[0].id));
+    }
     render() {
+        const friends = this.props.user.friends;
         return (
             <div>
                 <div className="coverpad10"></div>
@@ -15,7 +22,10 @@ class friendsProfile extends Component {
                 
 
                 <div className="grid5">
-                    <div>
+                    {
+                        friends.map((friend, index) => <Friends friend = {friend} key = {index} />)
+                    }
+                    {/* <div>
                         <a class=" _8t lfloat _ohe" href=" " data-hovercard-prefer-more-content-show="1">
                             <img class="img" alt="" src="/images/bean.jpg" width="200px" height="200px" role="img"/>
                         </a>
@@ -86,7 +96,7 @@ class friendsProfile extends Component {
                             <i class="fas fa-user-friends"></i>Friends
                             </button>                    
                         </div>                
-                    </div>                 
+                    </div>                  */}
 
                 </div>
             </div>
@@ -95,4 +105,11 @@ class friendsProfile extends Component {
         )
     }
 }
-export default friendsProfile
+
+const mapStateToProps = (state) => {
+    return {
+      user: state.user,
+    };
+  }
+  
+export default connect(mapStateToProps)(friendsProfile) 

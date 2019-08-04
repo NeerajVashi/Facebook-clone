@@ -1,10 +1,22 @@
 
+export  function friends(userId) {
+    return function(dispatch) {
+        console.log('inside getFunction', userId);
+        const Request = `http://localhost:8001/friends/friend/${userId}`;
+        fetch(Request)
+        .then(response => response.json())
+            .then((friends) => {
+                console.log('inside fetch', friends);
+                dispatch({type:'userFriends', payload:friends})
+            })
+ }
+}
 
 export  function pendingRequest(ReceiverId) {
     return function(dispatch) {
         console.log('inside getFunction', ReceiverId);
-        const loginRequest = `http://localhost:8003/request/display/${ReceiverId}`;
-        fetch(loginRequest)
+        const Request = `http://localhost:8003/request/display/${ReceiverId}`;
+        fetch(Request)
         .then(response => response.json())
             .then((user) => {
                 console.log('inside fetch', user);
