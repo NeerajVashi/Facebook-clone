@@ -26,7 +26,7 @@ class home extends Component {
         const data = new FormData();
         data.append('userId',this.props.user.user[0].id );
         data.append('Cover_pic', event.target.files[0]);
-        
+        console.log('profile', data);
         this.props.updateCover(data);
     }
     handleChangeProfile= (event)=>{
@@ -35,6 +35,8 @@ class home extends Component {
         const data1 = new FormData();
         data1.append('userId',this.props.user.user[0].id );
         data1.append('Profile_pic', event.target.files[0]);
+        console.log('----------------------------');
+        console.log('profile', data1);
         this.props.updateProfile(data1);
     }
     myFunction = () => {

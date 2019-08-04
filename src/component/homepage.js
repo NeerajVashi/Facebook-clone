@@ -5,8 +5,9 @@ import '../css/styles.css'
 import FriendCards from './friends/FriendCards';
 
 import { sendRequest, deleteRequest } from '../actions/friends'
+import NewsFeeds from './newsfeed/NewsFeeds'
 
-import NewsFeed from './newsfeed/NewsFeed'
+// import NewsFeed from './newsfeed/NewsFeed'
 
 import propTypes from 'prop-types'
 
@@ -27,6 +28,10 @@ class Homepage extends Component {
             likes: 0,
             img: '',
             status: 0,
+            firstName:this.props.user.user[0].firstName,
+            surName:this.props.user.user[0].surName,
+            time: new Date(),
+            userImage: this.props.user.user[0].Profile_pic
         }
         
     }
@@ -51,13 +56,19 @@ class Homepage extends Component {
         console.log(this.state.postData);
         data.append('userId',this.state.userId);
         data.append('image',this.state.img);
+        console.log('data', data);
         obj1.userId = this.state.userId;
         obj1.postData = this.state.postData;
         obj1.likes = this.state.likes;
         obj1.status = this.state.status;
+        obj1.firstName = this.props.user.user[0].firstName;
+        obj1.surName = this.props.user.user[0].surName;
+        obj1.userProfile = this.props.user.user[0].Profile_pic;
+        obj1.time = new Date()
 
         e.preventDefault();
         const image = this.state.img;
+        console.log('obj', obj1);
         if(image.length === 0) {
             this.props.addData(this.state);
         } else {
@@ -82,7 +93,7 @@ class Homepage extends Component {
         var clonedArray = JSON.parse(JSON.stringify(this.props.postData))
         const postData = clonedArray.reverse();
         const friendRequest = this.props.user.friendRequest;
-        const comments = this.props.user.comments;
+        // const comments = this.props.user.comments;
         console.log('in home friendRequest', friendRequest);
         return (
             <div>
@@ -147,11 +158,12 @@ class Homepage extends Component {
                                 </div>
                             </div><br />                    {/* create post ends */}
                             
-                            {postData.map((post) => 
+                            {/* {postData.map((post) => 
                             <div key={post.postId}>                           
                             <NewsFeed  post={post} onclick={this.deletePost} comments = {comments} />
                             </div>
-                            )}       
+                            )}        */}
+                            <NewsFeeds posts = {postData} />
 
                         </div>
                     </div>

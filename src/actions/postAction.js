@@ -68,6 +68,7 @@ export function addPost(obj1, data) {
     });
     }
 }
+
 export function delPost(id) {
     console.log("id", id);
     return dispatch => {
@@ -129,6 +130,22 @@ export  function Comments(postId) {
         .then(response => response.json())
             .then((comments) => {
                 dispatch({type:'addComment', payload:comments})
+            })
+ }
+}
+
+export  function like(postId,user) {
+    return function(dispatch) {
+        const registerRequest = `http://localhost:4000/like/${postId}`;
+        fetch(registerRequest, {
+            body: JSON.stringify(user),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+            .then((comments) => {
+                dispatch({type:'like', payload:comments})
             })
  }
 }

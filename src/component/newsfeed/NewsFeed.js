@@ -50,27 +50,10 @@ class NewsFeed extends Component {
             userImage:this.state.userImage,
             userId:this.state.userId
         }
+
         console.log('comment', comment);
         this.props.dispatch(addComment(comment));
-        // const obj = {};
-        // obj.comments = this.state.comments;
-        // obj.id = id;
-        // fetch(`http://localhost:4000/comment`, {
-        //     method: 'POST',
-        //     body: JSON.stringify(obj),
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        // })
-        //     .then(function (res) {
-        //         return res.json()
-        //     })
-        //     .then((response) => {
-        //         this.setState({
-        //             comments: response,
-        //             flag: 1
-        //         })
-        //     });
+
     }
     countIncrease = (postId) => {
         fetch(`http://localhost:4000/updLikes/${postId}`)

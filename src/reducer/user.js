@@ -106,6 +106,10 @@ export default function user(state ={user:{}, token: false, status: '', newPost:
             state={...state, comments:action.payload}
             break;
         }
+        case 'like' : {
+            state={...state, posts:action.payload}
+            break;
+        }
         default : {
             
         }
