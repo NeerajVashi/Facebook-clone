@@ -1,4 +1,4 @@
-export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[],img:[] ,album:[], comments:[], friends:[], userPosts:[], postNotification:[]}, action) {
+export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[],img:[] ,album:[], comments:[], friends:[], userPosts:[], postNotification:[],onlineuser:[]}, action) {
     switch(action.type) {
         case 'userPosts' : {
             return {
@@ -17,7 +17,10 @@ export default function user(state ={user:{}, token: false, status: '', newPost:
                 posts: action.payload.allPosts,
                 userPosts:action.payload.userPosts
         }
-
+        case 'getonlineuser' :{
+            state= {...state, onlineuser:action.payload}
+            break;
+        }
         case 'deletePersonalPost' :
             return {
                 ...state,

@@ -106,7 +106,7 @@ class Post1 extends Component {
                     </div>
                     {((comments.length > 0) && (comments[0].postId === this.props.post.postId))  ?
                         comments.map((comment) =>
-                            <div><img className="nav-user-image-main-news" src={comment.userImage} alt="" /><textarea className="comments" cols="50" rows="1">{comment.comments}</textarea></div>
+                            <div><img className="nav-user-image-main-news alignnnnleft" src={comment.userImage} alt="" /><textarea className="comments" cols="50" rows="1">{comment.comments}</textarea></div>
                         )
                         : <></>
                     }

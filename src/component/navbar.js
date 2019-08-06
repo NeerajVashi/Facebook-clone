@@ -8,6 +8,8 @@ import Friends from './friends/Friends'
 import { getFriends } from '../actions/friends'
 import { allUsers } from '../actions/userLogin'
 import Postnotification from './notification/postnotification';
+import io from 'socket.io-client'
+import Getonlineuser from '../component/getonlineuser';
 
 class Navigation extends React.Component {
     constructor(props) {
@@ -16,7 +18,15 @@ class Navigation extends React.Component {
             search: '',
             users: [],
         }
-
+        const socket = io('http://localhost:8000/')
+        console.log(socket);
+        socket.emit('useridsend', { my: this.props.user.user[0].id });
+        socket.on('userloggedin',(online,cuserid)=>{
+           this.props.dispatch({
+            type: 'getonlineuser',
+            payload: online
+        });
+        })
     }
     componentDidMount() {
         this.props.dispatch(allUsers());
@@ -47,6 +57,7 @@ class Navigation extends React.Component {
     render() {
         
         const user = this.props.user.user;
+        const onlineFriends = this.props.user.onlineuser;
         const friendRequest = this.props.user.friendRequest;
         console.log('friendRequest', friendRequest, 'length');
         return (
@@ -141,6 +152,7 @@ class Navigation extends React.Component {
                 </div>
 
 
+                <Getonlineuser users = {onlineFriends} />
             </div>
         );
     }
@@ -148,6 +160,7 @@ class Navigation extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        onlineusers:state.user.onlineuser,
         user: state.user,
     };
 }
