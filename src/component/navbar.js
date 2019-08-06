@@ -89,8 +89,32 @@ class Navigation extends React.Component {
                                 <a href="/dropdown"><p className="navtxt">Create </p></a>
                                 <p className="navtxt">|</p>
                             </div>
-                            <div ><Link to='login' > <i className="fab fa-facebook-messenger fa-lg"></i></Link> </div>
-                            <div > <i onClick = {this.notification} className="fas fa-bell fa-lg"></i> </div>
+                            <div className="drp"><i className="fas fa-bell fa-lg"></i>
+                                <div className="drp-content">
+                                        <div className = "notification-header">
+                                            <div className='notification-notification'>Notification</div>
+                                            <div className="see-all">See all</div>
+                                        </div>
+                                        <div className="new-activity">New Activity</div>
+                                    <table>
+                                        <tr className = "notification-border">
+                                            <td ><img src={this.props.user.user[0].Profile_pic} alt="Image of woman" className="notification-image" /></td>
+                                            <td className = "notification-content"><h4>Maria Anders </span>posted somthing</td>
+                                          
+                                        </tr>
+                                        <tr className = "notification-border">
+                                            <td ><img src={this.props.user.user[0].Profile_pic} alt="Image of woman" className="notification-image" /></td>
+                                            <td className = "notification-content">Maria Anders posted someting</td>
+                                          
+                                        </tr>
+                                    </table>
+
+                                    {/* <ul>
+                                  <li>first</li>
+                                  <li>second</li>
+                              </ul>      */}
+                                </div>
+                            </div>
                             <div ><Link to='addFriends' > <i className="fas fa-user-friends fa-lg"></i></Link> </div>
                             <div ><Link to='profile' > <i className="fab fa-facebook-messenger fa-lg"></i></Link> </div>
 
