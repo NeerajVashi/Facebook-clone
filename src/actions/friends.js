@@ -174,26 +174,46 @@ export function deleteRequest(friends) {
 //     }
 // }
 //--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
 
-export function deletePendingRequest(friendId, sender) {
+export function deletePendingRequest(userId) {
     return function (dispatch) {
-        console.log('inside getFunction', friendId, sender);
-        const loginRequest = `http://localhost:8003/request/delete/${friendId}`;
+        const loginRequest = `http://localhost:9000/deleteFriendRequest`;
         fetch(loginRequest, {
             headers: {
                 Accept: 'application/json',
                 'Content-type': 'application/json',
             },
-            method: 'put',
-            body: JSON.stringify(sender),
+            method: 'delete',
+            body: JSON.stringify(userId),
         })
             .then(response => response.json())
-            .then((user) => {
-                dispatch({ type: 'deletePendingRequest', payload: user })
+            .then((friendRequest) => {
+                dispatch({ type: 'deletePendingRequest', payload: friendRequest })
             })
 
     }
 }
+// export function deletePendingRequest(friendId, sender) {
+//     return function (dispatch) {
+//         console.log('inside getFunction', friendId, sender);
+//         const loginRequest = `http://localhost:8003/request/delete/${friendId}`;
+//         fetch(loginRequest, {
+//             headers: {
+//                 Accept: 'application/json',
+//                 'Content-type': 'application/json',
+//             },
+//             method: 'put',
+//             body: JSON.stringify(sender),
+//         })
+//             .then(response => response.json())
+//             .then((user) => {
+//                 dispatch({ type: 'deletePendingRequest', payload: user })
+//             })
+
+//     }
+// }
+//-----------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------
 export function getFriends(userId) {
     return function (dispatch) {

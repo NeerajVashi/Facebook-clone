@@ -4,8 +4,103 @@
     border-radius:50%; 
     margin-top:4px;
 }
+.nav-user-image-main-news {
+    height: 36px;
+    width:36px;
+    border-radius:50%;
+    margin-top:-35px;
+ }
+ .comments-main-news {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 13.5px;
+    border-radius: 16px;
+    resize: none;
+    border: 1px solid grey;
+    background-color: #f2f3f5
+ ;
+    font-family: inherit;
+    top: 10px;
+    display: inline-block;
+    border: 1px solid #ccd0d5
+ ;
+    width:500px;
+    height:37px;
+    padding-top: 7.5px;/* changed */
+    margin-left: 2%;
+ }
+ .nav-user-image-profile {
+    height: 36px;
+    width:36px;
+    border-radius:50%;
+    margin-top:-25px;
+ }
+ .comments-profile {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 13.5px;
+    border-radius: 16px;
+    resize: none;
+    border: 1px solid grey;
+    background-color: #f2f3f5
+ ;
+    font-family: inherit;
+    top: 10px;
+    display: inline-block;
+    border: 1px solid #ccd0d5
+ ;
+    width:280px;
+    height:33px;
+    padding-top: 7px;/* changed */
+    margin-left: 2%;
+ }
+ ._btnsize-profile {
+    margin-top: -25px;
+    margin-left: 3%;
+    background-color: #3b5998
+ ;
+    border: none;
+    size: 10px;
+ }
+ ._btnsize-news-feed {
+    margin-top: -28px;
+    margin-left: 1%;
+    background-color: #3b5998
+ ;
+    border: none;
+    size: 10px;
+ }
+ 
+ 
+ 
+.nav-user-image1{
+    height: 46px;
+    width:46px;
+    border-radius:50%; 
+    margin-top:-32px;
+}
+.fb-icon {
+    margin-left:-220px;
+}
 .post-and-image{
     display: flex;
+}
+.comments12 {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 13.5px;
+    border-radius: 16px;
+    resize: none;
+    border: 1px solid grey;
+    background-color: #f2f3f5;
+    font-family: inherit;
+    top: 10px;
+    display: inline-block;
+    border: 1px solid #ccd0d5;
+    width: 483px;
+    height: 41px;
+    padding-top: 7.5px;
+    margin-left: 6px;
 }
 .profile1 {
     margin-top: -2px;
@@ -220,8 +315,8 @@
     top: 10px;
     display: inline-block;
     border: 1px solid #ccd0d5;
-    width:350px;
-    height:40px;
+    width:520px;
+    height:41px;
     padding-top: 7.5px;/* changed */
 }
 .comments:focus {
@@ -229,6 +324,7 @@
 }
 .searchl {
     width: 350px;
+    margin-left:-175px;
 }
 .navtxt {
     padding:10px;
@@ -370,6 +466,28 @@ ul {
     line-height: 28px;
     margin-left: 35px;
 }
+.comments123 {
+    font-weight: 600;
+    font-size: 13.5px;
+    border-radius: 16px;
+    resize: none;
+    border: 1px solid grey;
+    background-color: #f2f3f5;
+    font-family: inherit;
+    top: 10px;
+    display: inline-block;
+    border: 1px solid #ccd0d5;
+    width: 309px;
+    height: 37px;
+    padding-top: 7.5px;
+    margin-left: 6px;
+}
+.nav-user-image123 {
+    height: 46px;
+    width:46px;
+    border-radius:50%; 
+    margin-top:-32px;
+}
 .createfooter {
     display: flex;
     margin-left: auto; 
@@ -439,7 +557,45 @@ ul {
     font-weight: 430;
     margin-top: 10px;
 }
-
+.searchfrnds {
+    border: 1px solid black;
+    width: 50%;
+    margin-left: 20%;
+    margin-top: 5%;
+ }
+ .frnds-round {
+    border-radius: 50%;
+    height: 65.5px;
+    width: 65.5px;
+    margin-top: 13px;
+    margin-left: 10px;
+ }
+ .searchfrndbtn {
+ float: right;
+ margin-top: -3.5%;
+ margin-right: 2%;
+ font-family: inherit;
+ font-size: 13px;
+ }
+ .srchtxt {
+ margin-left: 12%;
+ margin-top: 5%;
+ font-family: inherit;
+ font-size: 12px;
+ color: #90949c
+ ;
+ }
+ .srchtxt1 {
+    margin-left: 12%;
+    margin-top: 1%;
+    font-family: inherit;
+    font-size: 14px;
+ }
+ .txt {
+    margin-left: 13%;
+    margin-top: -8%;
+    color: blue;
+ }
 /* .navbtn {
     background-repeat: no-repeat;
     background-size: auto;

@@ -66,8 +66,11 @@ class NewsFeed extends Component {
         }
     }
     deletePost = () => {
-        console.log('inside delete', this.props.post)
-        this.props.onclick(this.props.post.postId)
+        const Id = {
+            userId:this.props.user.user[0].id,
+            postId:this.props.post.postId
+        }
+        this.props.onclick(Id)
     }
     render() {
         const image = this.props.post.image;
@@ -138,7 +141,7 @@ class NewsFeed extends Component {
                     } */}
                     <PostComments comments = {comments} toggle = {this.state.commentToggle} />
                     <div className="cmnts">
-                        <img className="nav-user-image"  src={this.props.user.user[0].Profile_pic} alt="" /><textarea className="comments" name="comments" value={ this.state.comments } placeholder="Write a comment..." rows="1" cols="50" onChange={e => this.change(e)} /><button className="btn btn-primary btn-xs _btnsize" onClick={e => this.commentPost(this.props.post.postId)}>Post</button>
+                        <img className="nav-user-image-profile"  src={this.props.user.user[0].Profile_pic} alt="" /><textarea className="comments-profile" name="comments" value={ this.state.comments } placeholder="Write a comment..." rows="1" cols="50" onChange={e => this.change(e)} /><button className="btn btn-primary btn-xs _btnsize" onClick={e => this.commentPost(this.props.post.postId)}>Post</button>
                     </div>
                 </div>
                 <br />

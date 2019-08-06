@@ -87,7 +87,7 @@ class Friend extends Component {
                     <p id="info"><b>{this.props.singleuser.firstName} {this.props.singleuser.surname}</b> <br /> <span>14 mutual friends</span></p>
                     </div>
                         <div id="button-block">
-                            <div onClick={this.addFriend} id="confirm">{this.props.singleuser.status}</div>
+                            <div onClick={this.addFriend} id="confirm">Add friend</div>
                             <div onClick={this.deleteRequest} id="delete">Delete Request</div>
                         </div>
                     </div>

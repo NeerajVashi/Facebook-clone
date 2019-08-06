@@ -40,11 +40,16 @@ confirm = (userId) => {
     //     this.props.dispatch(confirmRequest(id, sender))
     // }
 //---------------------------------------------------------------------------------
-    deletePendingRequest = (friendId, sender) => {
-        console.log('deleteRequest');
-        this.props.dispatch(deletePendingRequest(friendId,sender))
-    }
-    
+//----------------------------------------------------------------------------------- 
+// deletePendingRequest = (friendId, sender) => {
+//         console.log('deleteRequest');
+//         this.props.dispatch(deletePendingRequest(friendId,sender))
+//     }
+deletePendingRequest = (sender) => {
+    console.log('deleteRequest');
+    this.props.dispatch(deletePendingRequest(sender))
+}
+//-------------------------------------------------------------------------------------  
     render() {
         const friendRequest = this.props.friendRequest;
         const pendingRequest = this.props.user.pendingRequest;

@@ -52,14 +52,22 @@ class Navigation extends React.Component {
                 {/* navbar */}
                 <div className="navbar" sticky="top">
                     <div class="container">
-                        <Link to='/' ><div><i class="fab fa-facebook-square fa-2x"></i></div> </Link>
+                        <Link to='/' ><div className="fb-icon"><i class="fab fa-facebook-square fa-2x"></i></div> </Link>
                         <div className="inputText">
                             <input id='search' className="searchl" type="text" placeholder="Search" onChange={e => this.searchText(e)} />
-                            <i onClick={e => this.searching(e)} class="fas fa-search"></i>
+
+                            <Link to={{
+                                pathname: '/searchfrnd',
+                                state: {
+                                    searchData: this.state.users
+                                }
+                            }}><i class="fas fa-search"></i></Link>
+                            {/* <Link to='/searchfrnd'
+                            ><i class="fas fa-search"></i></Link> */}
                         </div>
 
                         <div className="navright">
-                        <div> <img src={this.props.user.user[0].Profile_pic}  alt="Image of woman" className="nav-user-image" /></div>
+                            <div> <img src={this.props.user.user[0].Profile_pic} alt="Image of woman" className="nav-user-image" /></div>
                             {/* <div ><i class="fas fa-user-circle fa-lg"></i></div> */}
                             <div className="color">
                                 <Link to='/profile' > <p className="navtxt">{user[0].firstName} {user[0].surName} </p> </Link>
@@ -82,7 +90,7 @@ class Navigation extends React.Component {
                                 <p className="navtxt">|</p>
                             </div>
                             <div ><Link to='login' > <i className="fab fa-facebook-messenger fa-lg"></i></Link> </div>
-                            <div ><Link to='notification' > <i className="fas fa-bell fa-lg"></i></Link> </div>
+                            <div > <i onClick = {this.notification} className="fas fa-bell fa-lg"></i> </div>
                             <div ><Link to='addFriends' > <i className="fas fa-user-friends fa-lg"></i></Link> </div>
                             <div ><Link to='profile' > <i className="fab fa-facebook-messenger fa-lg"></i></Link> </div>
 
@@ -92,11 +100,11 @@ class Navigation extends React.Component {
                     </div>
                 </div>      {/* navbar ends */}
                 <div>
-                    {
+                    {/* {
                         this.state.users.map((value) => (
-                            <ul><li>{value.firstName}</li></ul>
+                            <ul><li>{value.firstName}{value.surName}</li></ul>
                         ))
-                    }
+                    } */}
                     {/* {
                         this.state.users.map((value) => (
                         <ul class="list-group">

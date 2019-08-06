@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Post1 from  './Post1'
 import {connect} from 'react-redux'
-import {delPost, addComment, like} from '../../actions/postAction'
+import {delHomePost, addComment, like} from '../../actions/postAction'
 
 class NewsFeeds extends Component {
 
@@ -9,13 +9,12 @@ class NewsFeeds extends Component {
         this.props.dispatch(addComment(comment));
     }
 
-    deletePost = (id) => {
-        this.props.dispatch(delPost(id, this.props.user.user[0].id));
+    deletePost = (Id) => {
+        this.props.dispatch(delHomePost(Id));
     }
 
-    postLike = (postId, user) => {
-        console.log('like', postId, user);
-        this.props.dispatch(like(postId, user))
+    postLike = (post) => {
+        this.props.dispatch(like(post))
     }
 
     render() {

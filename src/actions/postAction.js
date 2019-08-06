@@ -1,3 +1,21 @@
+export function postNotification(id) {
+    return dispatch => {
+    fetch(`http://localhost:4000/postNotification/${id}`)
+        .then(function (res) {
+            return res.json()
+        })
+        .then((postdata) => {
+            dispatch({
+                type: 'postNotification',
+                payload: postdata
+            })
+        })
+    }
+}
+
+
+
+
 export function fetchPosts(id) {
     return dispatch => {
     fetch(`http://localhost:4000/allPosts/${id}`)
@@ -76,6 +94,7 @@ export function addPost(obj1, data) {
             })
             .then(res => res.json())
             .then((response) => {
+                console.log('response', response);
                 dispatch({
                     type: 'addPost',
                     payload: response
@@ -109,7 +128,44 @@ export function delPost(postId, userId) {
         })
     }
 }
-
+export function delHomePost(Id) {
+    return dispatch => {
+        fetch(`http://localhost:4000/deleteHomePost`, {          
+        method: 'delete',
+        body: JSON.stringify(Id),
+        headers: {
+          'Content-Type': 'application/json',
+        },},)
+        .then(function (res) {
+            return res.json()
+        })
+        .then((postdata) => {
+            dispatch({
+                type: 'deleteHomePost',
+                payload: postdata
+            })
+        })
+    }
+}
+export function delPersonalPost(Id) {
+    return dispatch => {
+        fetch(`http://localhost:4000/deletePersonalPost`, {          
+        method: 'delete',
+        body: JSON.stringify(Id),
+        headers: {
+          'Content-Type': 'application/json',
+        },},)
+        .then(function (res) {
+            return res.json()
+        })
+        .then((postdata) => {
+            dispatch({
+                type: 'deletePersonalPost',
+                payload: postdata
+            })
+        })
+    }
+}
 // export function comments(comment) {
 //     return dispatch => {
 //     console.log("inside comment action", comment);
@@ -159,18 +215,19 @@ export  function Comments(postId) {
  }
 }
 
-export  function like(postId,user) {
+export  function like(post) {
     return function(dispatch) {
-        const registerRequest = `http://localhost:4000/like/${postId}`;
+        const registerRequest = `http://localhost:4000/like`;
         fetch(registerRequest, {
-            body: JSON.stringify(user),
+            method: 'put',
+            body: JSON.stringify(post),
             headers: {
               'Content-Type': 'application/json',
             },
         })
         .then(response => response.json())
-            .then((comments) => {
-                dispatch({type:'like', payload:comments})
+            .then((like) => {
+                dispatch({type:'like', payload:like})
             })
  }
 }

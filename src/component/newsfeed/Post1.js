@@ -27,9 +27,10 @@ class Post1 extends Component {
             console.log('like', this.props.post.likes +1)
             const user = {
                 likes:this.props.post.likes + 1,
-                postId:this.props.post.postId
+                postId:this.props.post.postId,
+                userId:this.props.user.user[0].id
             }
-            this.props.likes(this.props.post.postId, user);
+            this.props.likes(user);
         } else {
             this.setState( {
                 likePost:this.props.post.likes
@@ -37,9 +38,10 @@ class Post1 extends Component {
             console.log('like', this.props.post.likes)
             const user = {
                 likes:this.props.post.likes - 1,
-                postId:this.props.post.postId
+                postId:this.props.post.postId,
+                userId:this.props.user.user[0].id
             }
-            this.props.likes(this.props.post.postId, user);
+            this.props.likes(user);
         }
       
     }
@@ -62,7 +64,11 @@ class Post1 extends Component {
 
     deletePost = () => {
         console.log('inside delete', this.props.post)
-        this.props.deletePost(this.props.post.postId)
+        const Id = {
+            userId:this.props.user.user[0].id,
+            postId:this.props.post.postId
+        }
+        this.props.deletePost(Id)
     }
 
     render() {
@@ -105,7 +111,7 @@ class Post1 extends Component {
                         : <></>
                     }
                     <div className="cmnts">
-                        <img className="nav-user-image" src={this.props.user.user[0].Profile_pic} alt="" /><textarea className="comments" name="comments" value={this.state.comments} placeholder="Write a comment..." rows="1" cols="50" onChange={e => this.change(e)} /><button className="btn btn-primary btn-xs _btnsize" onClick={e => this.commentPost(this.props.post.postId)}>Post</button>
+                        <img className="nav-user-image-main-news" src={this.props.user.user[0].Profile_pic} alt="" /><textarea className="comments-main-news" name="comments" value={this.state.comments} placeholder="Write a comment..." rows="1" cols="50" onChange={e => this.change(e)} /><button className="btn btn-primary btn-xs _btnsize" onClick={e => this.commentPost(this.props.post.postId)}>Post</button>
                     </div>
                 </div>
                 <br />

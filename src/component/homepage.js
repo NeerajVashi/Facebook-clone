@@ -9,18 +9,21 @@ import NewsFeeds from './newsfeed/NewsFeeds'
 
 // import NewsFeed from './newsfeed/NewsFeed'
 
-import propTypes from 'prop-types'
+import propTypes, { object } from 'prop-types'
 
 import { connect } from 'react-redux';
 
-import { fetchPosts, delPost,} from '../actions/postAction'
+import { fetchPosts, delPost, } from '../actions/postAction'
 
-import { addPost } from '../actions/postAction'
+import { addPost, postNotification } from '../actions/postAction'
 import { Link } from 'react-router-dom'
-import { addData} from '../actions/postAction';
+import { addData } from '../actions/postAction';
+import { pendingRequest } from '../actions/friends'
+import { getFriends } from '../actions/friends'
+import { allUsers } from '../actions/userLogin'
 
 class Homepage extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props)
         this.state = {
             userId: this.props.user.user[0].id,
@@ -28,18 +31,21 @@ class Homepage extends Component {
             likes: 0,
             img: '',
             status: 0,
-            firstName:this.props.user.user[0].firstName,
-            surName:this.props.user.user[0].surName,
+            firstName: this.props.user.user[0].firstName,
+            surName: this.props.user.user[0].surName,
             time: new Date(),
             userImage: this.props.user.user[0].Profile_pic
         }
-        
+        this.props.postNotification(this.props.user.user[0].id);
+        setInterval(this.props.fetchPosts(this.state.userId), 3000);
+        setInterval(this.props.pendingRequest(this.state.userId), 3000);
+        setInterval(this.props.getFriends(this.props.user.user[0].id), 3000)
     }
     componentWillMount() {
-        this.props.fetchPosts(this.state.userId);
+        this.props.allUsers();
 
     }
-    
+
     // state = {
     //     userId: 1,
     //     postData: '',
@@ -52,12 +58,12 @@ class Homepage extends Component {
             [e.target.name]: e.target.value
         })
     }
-    handleChange = (event)=>{
+    handleChange = (event) => {
         console.log('dasd')
         console.log(event.target.value)
         this.setState({
-            status:event.target.value   
-        })    
+            status: event.target.value
+        })
     }
     Imgsub = (e) => {
         this.setState({
@@ -66,10 +72,10 @@ class Homepage extends Component {
     }
     onSubmit = (e) => {
         const obj1 = {};
-        const data= new FormData();
+        const data = new FormData();
         console.log(this.state.postData);
-        data.append('userId',this.state.userId);
-        data.append('image',this.state.img);
+        data.append('userId', this.state.userId);
+        data.append('image', this.state.img);
         console.log('data', data);
         obj1.userId = this.state.userId;
         obj1.postData = this.state.postData;
@@ -85,33 +91,33 @@ class Homepage extends Component {
         e.preventDefault();
         const image = this.state.img;
         console.log('obj', obj1);
-        if(image.length === 0) {
+        if (image.length === 0) {
             this.props.addData(this.state);
         } else {
             this.props.addPost(obj1, data);
         }
-        
+
     }
-//-----------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------
     // add = (senderId, sender) => {
     //     console.log('inside add', sender, senderId);
     //     this.props.sendRequest(senderId, sender)
     // }
     add = (request) => {
-        console.log('inside add',request);
+        console.log('inside add', request);
         this.props.sendRequest(request);
     }
-//----------------------------------------------------
-    
+    //----------------------------------------------------
+
     delete = (friendId, userId) => {
         this.props.deleteRequest(friendId, userId)
     }
-    
+
     deletePost = (id) => {
         console.log('id---->', id);
         this.props.delPost(id);
     }
-    handleSubmit = (event) =>{
+    handleSubmit = (event) => {
         event.preventDefault();
         console.log(this.state)
     }
@@ -136,7 +142,7 @@ class Homepage extends Component {
                                 <> Watch</></li>
                         </ul>
                         <ul className="left-panel">
-                            <li><b>SonChange={this.handleChange}hortcuts</b></li>
+                            {/* <li><b>SonChange={this.handleChange}hortcuts</b></li> */}
                             <li><i class="fab fa-battle-net fa-lg" style={{ color: "red" }}></i>
                                 <> Battle Net</></li>
                         </ul>
@@ -162,37 +168,49 @@ class Homepage extends Component {
                             <div class="card">               {/* create post */}
                                 <div class="card-header">Create Post</div>
                                 <div className="post-and-image">
-                                <img src={this.props.user.user[0].Profile_pic} alt="" className="post-user-image"/>
+                                    <img src={this.props.user.user[0].Profile_pic} alt="" className="post-user-image" />
 
-                                <textarea data-toggle="modal" data-target="#textModal" className = "postdata" name="postData"
-                                placeholder = "Write something here..."
-                                 onChange = {e => this.change(e)}>
-                                </textarea></div>
+                                    <textarea data-toggle="modal" data-target="#textModal" className="postdata" name="postData"
+                                        placeholder="Write something here..."
+                                        onChange={e => this.change(e)}>
+                                    </textarea></div>
 
                                 <div class="card-footer">
-                                    <div className = "createfooter1">
-                                        <ul className = "post-footer" >
-                                            <li className = "li">
+                                    <div className="createfooter1">
+                                        <ul className="post-footer" >
+                                            <li className="li">
                                                 <div>
-                                                    <div className = "fk">
-                                                    <div className="space buttonwrapper1"><button className="addimg"><i class="fas fa-photo-video fa-lg" style={{color:'blue'}}></i> Photo</button> <input name="img" type="file" defaultValue={this.state.img} onChange={e => this.Imgsub(e)}/></div>
-                                                    <div className="space"><i class="fas fa-user-tag fa-lg" style={{color:'blue'}}></i><> Tag Friends</></div>
-                                                    <div className="space"><i class="far fa-grin fa-lg" style={{color:'orange'}}></i><> Feeling</></div>
-                                                    <div className="space _clr"><button onClick = {e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
+                                                    <div className="fk">
+                                                        <div className="space buttonwrapper1"><button className="addimg"><i class="fas fa-photo-video fa-lg" style={{ color: 'blue' }}></i> Photo</button> <input name="img" type="file" defaultValue={this.state.img} onChange={e => this.Imgsub(e)} /></div>
+                                                        <div className="space"><i class="fas fa-user-tag fa-lg" style={{ color: 'blue' }}></i><> Tag Friends</></div>
+                                                        <div className="space"><i class="far fa-grin fa-lg" style={{ color: 'orange' }}></i><> Feeling</></div>
+                                                        <div className="space _clr"><button onClick={e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
                                                     </div>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        Featured
+  </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Cras justo odio</li>
+                                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                                        <li class="list-group-item">Vestibulum at eros</li>
+                                    </ul>
+                                </div>
                             </div><br />                    {/* create post ends */}
-                            
+
                             {/* {postData.map((post) => 
                             <div key={post.postId}>                           
                             <NewsFeed  post={post} onclick={this.deletePost} comments = {comments} />
                             </div>
                             )}        */}
-                            <NewsFeeds posts = {postData} />
+                            <NewsFeeds posts={postData} />
+
 
                         </div>
                     </div>
@@ -211,9 +229,10 @@ class Homepage extends Component {
                                     </div>
                                     {
                                         friendRequest.map((friend, i) => (
-                                            <FriendCards singleuser={friend}  key ={i} onclick={this.add} onclickdelete={this.delete} />
+                                            <FriendCards singleuser={friend} key={i} onclick={this.add} onclickdelete={this.delete} />
                                         ))
                                     }
+
                                     {/* <div class="row">
                                         <div class="col-sm-3">
                                             <img className=" friends-images " src="./images/bean.jpg" alt="Card image cap" />
@@ -293,63 +312,63 @@ class Homepage extends Component {
                 </div>
 
                 <div id="textModal" class="modal fade" role="dialog">
-                        <div class="modal-dialog modal-dialog">
-                            <div class="modal-content">
-                                <form method="post" onSubmit={this.handleSubmit}>
+                    <div class="modal-dialog modal-dialog">
+                        <div class="modal-content">
+                            <form method="post" onSubmit={this.handleSubmit}>
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Create Post  </h4> 
+                                    <h4 class="modal-title">Create Post  </h4>
                                     <button type="button" className="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <div class="modal-body">
-                                <img src={this.props.user.user[0].Profile_pic} alt="" className="post-user-image"/>
-                                
-                                <div class="form-group">
-                                    <textarea  class="form-control" placeholder="Write something here ... "  name="postData" defaultValue={this.state.Address}  onChange={this.change}></textarea>
-                                </div>
+                                    <img src={this.props.user.user[0].Profile_pic} alt="" className="post-user-image" />
 
-                                <select class="form-control"  onChange={this.handleChange} value={this.state.value}>
-                                    <option value = "2" >Public</option>
-                                    <option value = "1" >Private</option>
-                                    <option value = "0">Friends</option>
-                                </select>
-                               
+                                    <div class="form-group">
+                                        <textarea class="form-control" placeholder="Write something here ... " name="postData" defaultValue={this.state.Address} onChange={this.change}></textarea>
+                                    </div>
+
+                                    <select class="form-control" onChange={this.handleChange} value={this.state.value}>
+                                        <option value="2" >Public</option>
+                                        <option value="1" >Private</option>
+                                        <option value="0">Friends</option>
+                                    </select>
+
                                 </div>
                                 <div class="modal-footer">
-                                <div class="card-footer">
-                                    <div className = "createfooter1">
-                                        <ul className = "post-footer" >
-                                            <li className = "li">
-                                                <div>
-                                                    <div className = "fk">
-                                                    <div className="space buttonwrapper1"><button className="addimg"><i class="fas fa-photo-video fa-lg" style={{color:'blue'}}></i> Photo</button> <input name="img" type="file" defaultValue={this.state.img} onChange={e => this.Imgsub(e)}/></div>
-                                                    <div className="space"><i class="fas fa-user-tag fa-lg" style={{color:'blue'}}></i><> Tag Friends</></div>
-                                                    <div className="space"><i class="far fa-grin fa-lg" style={{color:'orange'}}></i><> Feeling</></div>
-                                                    <div className="space _clr"><button onClick = {e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
+                                    <div class="card-footer">
+                                        <div className="createfooter1">
+                                            <ul className="post-footer" >
+                                                <li className="li">
+                                                    <div>
+                                                        <div className="fk">
+                                                            <div className="space buttonwrapper1"><button className="addimg"><i class="fas fa-photo-video fa-lg" style={{ color: 'blue' }}></i> Photo</button> <input name="img" type="file" defaultValue={this.state.img} onChange={e => this.Imgsub(e)} /></div>
+                                                            <div className="space"><i class="fas fa-user-tag fa-lg" style={{ color: 'blue' }}></i><> Tag Friends</></div>
+                                                            <div className="space"><i class="far fa-grin fa-lg" style={{ color: 'orange' }}></i><> Feeling</></div>
+                                                            <div className="space _clr"><button onClick={e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div></div>
-                                </form>
-                            </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div></div>
+                            </form>
                         </div>
                     </div>
+                </div>
 
             </div>
         )
     }
 }
 Homepage.propTypes = {
-postData: propTypes.array.isRequired,
-fetchPosts: propTypes.func.isRequired,
-addPost: propTypes.func.isRequired,
-addData: propTypes.func.isRequired
+    postData: propTypes.array.isRequired,
+    fetchPosts: propTypes.func.isRequired,
+    addPost: propTypes.func.isRequired,
+    addData: propTypes.func.isRequired
 }
 const mapStateToProps = state => ({
     postData: state.user.posts,
     image: state.user.img,
-    user:state.user,
+    user: state.user,
 })
-export default connect(mapStateToProps, { fetchPosts, addPost, sendRequest, deleteRequest, addData, delPost,})(Homepage);
+export default connect(mapStateToProps, { fetchPosts, addPost, sendRequest, deleteRequest, addData, delPost, pendingRequest, postNotification, getFriends, allUsers })(Homepage);
 

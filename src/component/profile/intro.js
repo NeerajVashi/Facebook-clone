@@ -10,7 +10,7 @@ class intro extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id:this.props.user.user[0].id
+            id:this.props.user.user[0].id,
         }
       }
       handleChange = (event)=>{
@@ -20,8 +20,31 @@ class intro extends Component {
     }
     handleSubmit = (event) =>{
         event.preventDefault();
-        this.props.editIntro(this.state);
+        const ob1 ={
+                id:this.props.user.user[0].id,
+                workedat:this.state.Workedat,
+                wentto:this.state.Wentto,
+                livesin:this.state.Livesin,
+                address:this.state.Address,
+                interestedin :this.state.interestedin,
+                language:this.state.language,
+                religion:this.state.religion,
+                professionalskil:this.state.professionalskil,
+                college:this.state.college,
+                highschool:this.state.highschool,
+        }
+        this.props.editIntro(ob1);
+    }
 
+    submitbio = (event) =>{
+        event.preventDefault();
+        const ob1 = {
+            id:this.props.user.user[0].id,
+            aboutyou:this.state.aboutyou,
+            quotes:this.state.quote,
+            lifeevents:this.state.lifeevent,
+        }
+        this.props.editIntro(ob1);
     }
     render() {
         const user = this.props.user.user;
@@ -78,6 +101,32 @@ class intro extends Component {
                                     <label >Lives in :</label>
                                     <input type="text" class="form-control" id="Livesin" placeholder="Enter lives in" onChange={this.handleChange} defaultValue={this.state.Livesin} name="Livesin"/>
                                 </div>
+
+                                <div class="form-group">
+                                    <label > Interested in:</label>
+                                    <input type="text" class="form-control" id="interestedin" placeholder="Interested in" onChange={this.handleChange} defaultValue={this.state.interestedin} name="interestedin"/>
+                                </div>
+                                <div class="form-group">
+                                    <label >Language :</label>
+                                    <input type="text" class="form-control" id="language" placeholder="Enter Language" onChange={this.handleChange} defaultValue={this.state.language} name="language"/>
+                                </div>
+                                <div class="form-group">
+                                    <label >Religion :</label>
+                                    <input type="text" class="form-control" id="religion" placeholder="Enter religion" onChange={this.handleChange} defaultValue={this.state.religion} name="religion"/>
+                                </div>
+                                <div class="form-group">
+                                    <label >Professional Skills :</label>
+                                    <input type="text" class="form-control" id="professionalskil" placeholder="Enter your skills" onChange={this.handleChange} defaultValue={this.state.professionalskil} name="professionalskil"/>
+                                </div>
+                                <div class="form-group">
+                                    <label >College :</label>
+                                    <input type="text" class="form-control" id="college" placeholder="Enter College" onChange={this.handleChange} defaultValue={this.state.college} name="college"/>
+                                </div>
+                                <div class="form-group">
+                                    <label >High School :</label>
+                                    <input type="text" class="form-control" id="highschool" placeholder="Enter highschool" onChange={this.handleChange} defaultValue={this.state.highschool} name="highschool"/>
+                                </div>
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -98,16 +147,23 @@ class intro extends Component {
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label >Bio :</label>
-                                        <textarea class="form-control" id="bio"  name="bio"></textarea>
+                                        <label >About You :</label>
+                                        <textarea class="form-control" id="aboutyou"  onChange={this.handleChange} defaultValue={this.state.aboutyou}name="aboutyou"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Favorite Quote :</label>
+                                        <textarea class="form-control" id="quote" onChange={this.handleChange} defaultValue={this.state.quote} name="quote"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Life Event :</label>
+                                        <textarea class="form-control" id="lifeevent"  onChange={this.handleChange} defaultValue={this.state.lifeevent} name="lifeevent"></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                     <button type="button" class="btn btn-primary">Save changes</button>
+                                     <button type="button" onClick={this.submitbio} class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
-
                         </div>
                     </div>
             </div>

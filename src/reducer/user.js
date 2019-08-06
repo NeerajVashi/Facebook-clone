@@ -1,4 +1,4 @@
-export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[],img:[] ,album:[], comments:[], friends:[], userPosts:[]}, action) {
+export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[],img:[] ,album:[], comments:[], friends:[], userPosts:[], postNotification:[]}, action) {
     switch(action.type) {
         case 'userPosts' : {
             return {
@@ -17,6 +17,24 @@ export default function user(state ={user:{}, token: false, status: '', newPost:
                 posts: action.payload.allPosts,
                 userPosts:action.payload.userPosts
         }
+
+        case 'deletePersonalPost' :
+            return {
+                ...state,
+                userPosts:action.payload
+        }
+        case 'deleteHomePost' :
+            return {
+                ...state,
+                posts: action.payload
+        }
+        case 'postNotification' :
+            console.log('postnotification', state.postNotification)
+            return {
+                ...state,
+                postNotification: action.payload
+        }
+
         case 'addPost' :
             console.log(action.payload);
             let newPost = JSON.parse(JSON.stringify(state.posts));            

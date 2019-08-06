@@ -1,23 +1,28 @@
 import React, { Component } from 'react'
-import './image.css'
 
-export default class Images extends Component {
+export default class Image extends Component {
     render() {
         return (
             <div>
-
-                <h2>Dropdown Image</h2>
-                <p>Move the mouse over the image below to open the dropdown content.</p>
-
-                <div class="dropdown">
-                    <img src="./images/bean.jpg" alt="Cinque Terre" width="100" height="50" />
-                    <div class="dropdown-content">
-                        <img src="./images/bean.jpg" alt="Cinque Terre" width="300" height="200" />
-                        <div class="desc">Beautiful Cinque Terre</div>
+                <ul id="nav">
+                    <li><a href="#">Link1</a></li>
+                    <li><a href="#">Link2</a></li>
+                    <li><a href="#">Link3</a></li>
+                    <li id="notification_li">
+                        <a href="#" id="notificationLink">Notifications</a>
+                    </li>
+                    <li><a href="#">Link4</a></li>
+                </ul>
+                <li id="notification_li">
+                    <span id="notification_count">3</span>
+                    <a href="#" id="notificationLink">Notifications</a>
+                    <div id="notificationContainer">
+                        <div id="notificationTitle">Notifications</div>
+                        <div id="notificationsBody" class="notifications"></div>
+                        <div id="notificationFooter"><a href="#">See All</a></div>
                     </div>
-                </div>
+                </li>
             </div>
-
         )
     }
 }

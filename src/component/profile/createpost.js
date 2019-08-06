@@ -6,7 +6,7 @@ import NewsFeed from '../newsfeed/NewsFeed'
 
 import { connect } from 'react-redux';
 
-import { addPost ,addData,fetchPosts, delPost ,userPosts} from '../../actions/postAction'
+import { addPost ,addData,fetchPosts, delPersonalPost ,userPosts} from '../../actions/postAction'
 
 
 class Homepage extends Component {
@@ -51,9 +51,9 @@ class Homepage extends Component {
         
     }
     
-    deletePost = (id) => {
-        console.log('id---->', id);
-        this.props.delPost(id, this.props.user.user[0].id);
+    deletePost = (Id) => {
+        console.log('id---->', Id);
+        this.props.delPersonalPost(Id);
     }
     render() {
         var clonedArray = JSON.parse(JSON.stringify(this.props.postData))
@@ -110,5 +110,5 @@ const mapStateToProps = state => ({
     image: state.user.img,
     user:state.user,
 })
-export default connect(mapStateToProps, { fetchPosts, addPost ,addData, delPost ,userPosts})(Homepage);
+export default connect(mapStateToProps, { fetchPosts, addPost ,addData, delPersonalPost ,userPosts})(Homepage);
 
