@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import Friends from './friends/Friends'
 import { getFriends } from '../actions/friends'
 import { allUsers } from '../actions/userLogin'
+import io from 'socket.io-client';
 
 class Navigation extends React.Component {
     constructor(props) {
@@ -15,7 +16,15 @@ class Navigation extends React.Component {
             search: '',
             users: [],
         }
-
+        const socket = io('http://localhost:8000/')
+        console.log(socket);
+        socket.emit('useridsend', { my: this.props.user.user[0].id });
+        socket.on('userloggedin',(online,cuserid)=>{
+           this.props.dispatch({
+            type: 'getonlineuser',
+            payload: online
+        });
+        })
     }
     componentDidMount() {
         this.props.dispatch(allUsers());
@@ -59,7 +68,7 @@ class Navigation extends React.Component {
                         </div>
 
                         <div className="navright">
-                        <div> <img src={this.props.user.user[0].Profile_pic}  alt="Image of woman" className="nav-user-image" /></div>
+                        <div> <img src={this.props.user.user[0].Profile_pic}  alt="" className="nav-user-image" /></div>
                             {/* <div ><i class="fas fa-user-circle fa-lg"></i></div> */}
                             <div className="color">
                                 <Link to='/profile' > <p className="navtxt">{user[0].firstName} {user[0].surName} </p> </Link>

@@ -1,6 +1,7 @@
 
 export function editIntro(data)
 {
+    console.log(data)
     return dispatch =>{
         return fetch(`http://localhost:8000/auth/signup/`, {
             method: 'PUT',
@@ -15,6 +16,8 @@ export function editIntro(data)
         )
     }   
 }
+
+
 
 export function updateCover(data){
     return dispatch =>{

@@ -17,8 +17,12 @@ import { fetchPosts, delPost } from '../actions/postAction'
 import { addPost } from '../actions/postAction'
 import { Link } from 'react-router-dom'
 import { addData } from '../actions/postAction';
+import Getonlineuser from './getonlineuser';
+
 
 class Homepage extends Component {
+    
+    
     componentWillMount() {
         this.props.fetchPosts();
     }
@@ -85,6 +89,7 @@ class Homepage extends Component {
         var clonedArray = JSON.parse(JSON.stringify(this.props.postData))
         const postData = clonedArray.reverse();
         const friendRequest = this.props.user.friendRequest;
+        const onlineFriends = this.props.user.onlineuser;
         console.log('in home friendRequest', friendRequest);
         return (
             <div>
@@ -297,7 +302,7 @@ class Homepage extends Component {
                             </div>
                         </div>
                     </div>
-
+                    <Getonlineuser users = {onlineFriends} />
             </div>
         )
     }
@@ -312,6 +317,7 @@ const mapStateToProps = state => ({
     postData: state.user.posts,
     image: state.user.img,
     user:state.user,
+    onlineusers:state.user.onlineuser
 })
 export default connect(mapStateToProps, { fetchPosts, addPost, sendRequest, deleteRequest, addData, delPost })(Homepage);
 

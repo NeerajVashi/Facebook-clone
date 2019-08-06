@@ -3,8 +3,10 @@ import React, { Component } from 'react'
 import { Login, Registration } from '../../actions/userLogin'
 import IsLogin from './Login.js'
 import Register from './Register';
-import {Link} from 'react-router-dom'
-import '../../css/authenticate.css'
+import {Link} from 'react-router-dom';
+
+import '../../css/authenticate.css';
+
 class Authenticate extends Component {
   constructor(props) {
     super(props)
@@ -21,10 +23,11 @@ class Authenticate extends Component {
       signUpPassword: '',
       isFormSubmit:false
     }
+    
     this.userAuthentication = this.userAuthentication.bind(this);
     this.login = this.login.bind(this);
   }
-
+  
   saveUser = e => {
     this.setState({
       [e.target.id]: e.target.value
@@ -64,6 +67,7 @@ class Authenticate extends Component {
   }
 
   login = e => {
+  
     e.preventDefault();
     const user = { 
       user:this.state.user,

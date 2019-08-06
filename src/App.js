@@ -5,10 +5,12 @@ import Navigation from './component/navbar'
 import Authenticate from './component/login/Authenticate';
 import Profile from './component/profile/profile';
 import Homepage from './component/homepage';
-import Image from './rough/Image'
 import Showalbum from './component/images/showalbum';
 
+
+import Chatbox from './component/chatbox';
 export default class App extends Component {
+   
     render() {
         const token = this.props.token;
         console.log('inroutes', token);
@@ -16,6 +18,7 @@ export default class App extends Component {
             return (
                 <Router history={history}>
                     <Navigation />
+                    <Chatbox/>
                     {/* <Homepage /> */}
                         <Switch>
                         <Route path='/' exact component={Homepage} />
@@ -36,6 +39,10 @@ export default class App extends Component {
 
     }
 }
+
+  
+
+  
 // const HomePage = () => (
 //     <div>
 //         <h1>You are in Home</h1>

@@ -1,4 +1,6 @@
-export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[],img:[] ,album:[]}, action) {
+
+
+export default function user(state ={user:{}, token: false, status: '', newPost:{}, friendRequest:[], pendingRequest:[], posts: [], images:[], allUsers:[],img:[] ,album:[],onlineuser:[]}, action) {
     switch(action.type) {
         case 'fetchPost' :
             return {
@@ -25,11 +27,21 @@ export default function user(state ={user:{}, token: false, status: '', newPost:
         }
         case 'isLogin': {
             const user = action.payload;
-            state = {...state , status:user}
+            let newState2 = JSON.parse(JSON.stringify(state)) 
             if (user.status) {
-            state = {...state , token:user.token}
-            state = {...state, user:action.payload.user}
+               
+
+            newState2={...newState2,status:user}
+            newState2={...newState2,token:user.token}
+            newState2={...newState2,user:action.payload.user}
+            
+            
             }
+            console.log(newState2);
+            return newState2;
+        }
+        case 'getonlineuser' :{
+            state= {...state, onlineuser:action.payload}
             break;
         }
         case 'newPost': {
