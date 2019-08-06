@@ -182,9 +182,9 @@ class Homepage extends Component {
                                                 <div>
                                                     <div className="fk">
                                                         <div className="space buttonwrapper1"><button className="addimg"><i class="fas fa-photo-video fa-lg" style={{ color: 'blue' }}></i> Photo</button> <input name="img" type="file" defaultValue={this.state.img} onChange={e => this.Imgsub(e)} /></div>
-                                                        <div className="space"><i class="fas fa-user-tag fa-lg" style={{ color: 'blue' }}></i><> Tag Friends</></div>
-                                                        <div className="space"><i class="far fa-grin fa-lg" style={{ color: 'orange' }}></i><> Feeling</></div>
-                                                        <div className="space _clr"><button onClick={e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
+                                                        <div className="space buttonwrapper1"><i class="fas fa-user-tag fa-lg" style={{ color: 'blue' }}></i>Tag Friends</div>
+                                                        <div className="space buttonwrapper1"><i class="far fa-grin fa-lg" style={{ color: 'orange' }}></i><> Feeling</></div>
+                                                        <div className="space _clr buttonwrapper1"><button onClick={e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
                                                     </div>
                                                 </div>
                                             </li>
@@ -322,8 +322,8 @@ class Homepage extends Component {
                                 <div class="modal-body">
                                     <img src={this.props.user.user[0].Profile_pic} alt="" className="post-user-image" />
 
-                                    <div class="form-group">
-                                        <textarea class="form-control" placeholder="Write something here ... " name="postData" defaultValue={this.state.Address} onChange={this.change}></textarea>
+                                    <div class="form-group aligning">
+                                        <textarea class="form-control alig" placeholder="Write something here ... " name="postData" defaultValue={this.state.Address} onChange={this.change}></textarea>
                                     </div>
 
                                     <select class="form-control" onChange={this.handleChange} value={this.state.value}>
@@ -334,22 +334,22 @@ class Homepage extends Component {
 
                                 </div>
                                 <div class="modal-footer">
-                                    <div class="card-footer">
-                                        <div className="createfooter1">
-                                            <ul className="post-footer" >
-                                                <li className="li">
-                                                    <div>
-                                                        <div className="fk">
-                                                            <div className="space buttonwrapper1"><button className="addimg"><i class="fas fa-photo-video fa-lg" style={{ color: 'blue' }}></i> Photo</button> <input name="img" type="file" defaultValue={this.state.img} onChange={e => this.Imgsub(e)} /></div>
-                                                            <div className="space"><i class="fas fa-user-tag fa-lg" style={{ color: 'blue' }}></i><> Tag Friends</></div>
-                                                            <div className="space"><i class="far fa-grin fa-lg" style={{ color: 'orange' }}></i><> Feeling</></div>
-                                                            <div className="space _clr"><button onClick={e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
-                                                        </div>
+                                <div class="card-footer">
+                                    <div className = "createfooter2">
+                                        <ul className = "post-footer" >
+                                            <li className = "li">
+                                                <div>
+                                                    <div className = "fk">
+                                                    <div className="space buttonwrapper1"><button className="addimg"><i class="fas fa-photo-video fa-lg" style={{color:'blue'}}></i> Photo</button> <input name="img" type="file" defaultValue={this.state.img} onChange={e => this.Imgsub(e)}/></div>
+                                                    <div className="space1 buttonwrapper1"><i class="fas fa-user-tag fa-lg" style={{color:'blue'}}></i><> Tag Friends</></div>
+                                                    <div className="space buttonwrapper1"><i class="far fa-grin fa-lg" style={{color:'orange'}}></i><> Feeling</></div>
+                                                    <div className="space _clr buttonwrapper1"><button onClick = {e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
                                                     </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div></div>
                             </form>
                         </div>
                     </div>

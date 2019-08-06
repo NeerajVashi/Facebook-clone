@@ -79,9 +79,9 @@ class Homepage extends Component {
                                                 <div>
                                                     <div className = "fk">
                                                     <div className="space buttonwrapper1"><button className="addimg"><i class="fas fa-photo-video fa-lg" style={{color:'blue'}}></i> Photo</button> <input name="img" type="file" defaultValue={this.state.img} onChange={e => this.Imgsub(e)}/></div>
-                                                    <div className="space1"><i class="fas fa-user-tag fa-lg" style={{color:'blue'}}></i><> Tag Friends</></div>
-                                                    <div className="space"><i class="far fa-grin fa-lg" style={{color:'orange'}}></i><> Feeling</></div>
-                                                    <div className="space _clr"><button onClick = {e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
+                                                    <div className="space1 buttonwrapper1"><i class="fas fa-user-tag fa-lg" style={{color:'blue'}}></i><> Tag Friends</></div>
+                                                    <div className="space buttonwrapper1"><i class="far fa-grin fa-lg" style={{color:'orange'}}></i><> Feeling</></div>
+                                                    <div className="space _clr buttonwrapper1"><button onClick = {e => this.onSubmit(e)} className="postbtn">Post</button><></></div>
                                                     </div>
                                                 </div>
                                             </li>

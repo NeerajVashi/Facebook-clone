@@ -37,7 +37,7 @@ section.profile .profile-body::after {
 }
 
 section.profile .profile-body aside.sidebar {
-  width: 326px;
+  width: 336px;
 }
 
 section.profile .profile-body aside.sidebar .section {
@@ -193,6 +193,6 @@ section.profile .profile-body aside.sidebar .section.main.footer .row {
 }
 
 .profile{
-  margin-top: 100px;
+  margin-top: 47px;
   margin-left:-400px ;
 }

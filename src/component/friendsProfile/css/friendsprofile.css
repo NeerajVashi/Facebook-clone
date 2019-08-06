@@ -58,10 +58,11 @@ img {
     grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   }
   .grid5 div {
-    padding-top: 30px;
-    padding-left: 5px;
+    padding-top: 7px;
+    padding-left: 18px;
     padding-right: 5px;
-  }
+    margin-bottom: 20px;
+}
   .grid5 div a {
       color: #385898;
   }

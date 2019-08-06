@@ -81,8 +81,8 @@ class Post1 extends Component {
                 <div class="card">
                     <div class="card-header">
                         <img className="post-user-image" src={this.props.post.userImage} alt="Avatar" />
-                        <div class="friends-name">{this.props.post.firstName} {this.props.post.surName}</div>
-                        <Button variant="light" onClick={this.deletePost} className="delbtn">Delete</Button>
+                        <div class="friends-name1">{this.props.post.firstName} {this.props.post.surName}</div>
+                        <Button variant="light" onClick={this.deletePost} className="delbtn1">Delete</Button>
                     </div>
                     {(image.length === 1) ?
                         <div className="card-body" >{this.props.post.postData}</div>
@@ -95,7 +95,7 @@ class Post1 extends Component {
                         ]
                     }
                     <div class="card-footer">
-                        <button className="likebtn"><i class="far fa-thumbs-up fa-lg" style={{ color: 'white' }}></i></button><> {this.props.post.likes}</>
+                        <button className="likebtn"><img className="likeimage" alt="" src="./images/facebooklike.png"/></button><> {this.props.post.likes}</>
                         <div className="createfooter">
                             <ul className="pst">
                                 <li><i class="far fa-thumbs-up"></i><button onClick={this.like} className="likebtn1"> Like</button></li>
@@ -106,7 +106,7 @@ class Post1 extends Component {
                     </div>
                     {((comments.length > 0) && (comments[0].postId === this.props.post.postId))  ?
                         comments.map((comment) =>
-                            <div><img className="round-img-cmnts" src={comment.userImage} alt="" /><textarea className="comments" cols="50" rows="1">{comment.comments}</textarea></div>
+                            <div><img className="nav-user-image-main-news alignnnnleft" src={comment.userImage} alt="" /><textarea className="comments" cols="50" rows="1">{comment.comments}</textarea></div>
                         )
                         : <></>
                     }

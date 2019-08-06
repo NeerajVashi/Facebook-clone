@@ -7,6 +7,8 @@ import { connect } from 'react-redux'
 import Friends from './friends/Friends'
 import { getFriends } from '../actions/friends'
 import { allUsers } from '../actions/userLogin'
+import io from 'socket.io-client'
+import Getonlineuser from '../component/getonlineuser';
 
 class Navigation extends React.Component {
     constructor(props) {
@@ -15,7 +17,15 @@ class Navigation extends React.Component {
             search: '',
             users: [],
         }
-
+        const socket = io('http://localhost:8000/')
+        console.log(socket);
+        socket.emit('useridsend', { my: this.props.user.user[0].id });
+        socket.on('userloggedin',(online,cuserid)=>{
+           this.props.dispatch({
+            type: 'getonlineuser',
+            payload: online
+        });
+        })
     }
     componentDidMount() {
         this.props.dispatch(allUsers());
@@ -45,6 +55,7 @@ class Navigation extends React.Component {
     }
     render() {
         const user = this.props.user.user;
+        const onlineFriends = this.props.user.onlineuser;
         const friendRequest = this.props.user.friendRequest;
         console.log('friendRequest', friendRequest, 'length');
         return (
@@ -67,12 +78,18 @@ class Navigation extends React.Component {
                         </div>
 
                         <div className="navright">
-                            <div> <img src={this.props.user.user[0].Profile_pic} alt="Image of woman" className="nav-user-image" /></div>
+                            <div> <img src={this.props.user.user[0].Profile_pic} alt="woman" className="nav-user-image" /></div>
                             {/* <div ><i class="fas fa-user-circle fa-lg"></i></div> */}
                             <div className="color">
                                 <Link to='/profile' > <p className="navtxt">{user[0].firstName} {user[0].surName} </p> </Link>
                                 <p className="navtxt">|</p>
-                                <div class="dropdown">
+                                
+                                <Link to='/' > <p className="navtxt">Home </p> </Link>
+                                <p className="navtxt">|</p>
+                                <a href="/dropdown"><p className="navtxt">Create </p></a>
+                                <p className="navtxt">|</p>
+                            </div>
+                            <div class="dropdown">
                                     <i onClick={this.myFunction} className="fas fa-user-friends fa-lg"></i>
                                     <div id="myDropdown" class="dropdown-content">
                                         <Friends friendRequest={friendRequest} />
@@ -84,39 +101,28 @@ class Navigation extends React.Component {
                                         </div> */}
                                     </div>
                                 </div>
-                                <Link to='/' > <p className="navtxt">Home </p> </Link>
-                                <p className="navtxt">|</p>
-                                <a href="/dropdown"><p className="navtxt">Create </p></a>
-                                <p className="navtxt">|</p>
-                            </div>
+                            <div > <i className="fab fa-facebook-messenger fa-lg"></i> </div>
+                           
                             <div className="drp"><i className="fas fa-bell fa-lg"></i>
-                                <div className="drp-content">
-                                        <div className = "notification-header">
-                                            <div className='notification-notification'>Notification</div>
-                                            <div className="see-all">See all</div>
-                                        </div>
-                                        <div className="new-activity">New Activity</div>
-                                    <table>
-                                        <tr className = "notification-border">
-                                            <td ><img src={this.props.user.user[0].Profile_pic} alt="Image of woman" className="notification-image" /></td>
-                                            <td className = "notification-content"><h4>Maria Anders </span>posted somthing</td>
-                                          
-                                        </tr>
-                                        <tr className = "notification-border">
-                                            <td ><img src={this.props.user.user[0].Profile_pic} alt="Image of woman" className="notification-image" /></td>
-                                            <td className = "notification-content">Maria Anders posted someting</td>
-                                          
-                                        </tr>
-                                    </table>
+                           <div className="drp-content">
+                           <div className = "notification-header">
+                                           <div className='notification-notification'>Notification</div>
+                                           <div className="see-all">See all</div>
+                                       </div>
+                                       <div className="new-activity">New Activity</div>
+                                   <table>
+                                       <tr className = "notification-border">
+                                           <td ><img src={this.props.user.user[0].Profile_pic} alt=" woman"  className="notification-image" /></td>
+                                           <td className = "notification-content"><h4>Maria Ander posted somthing </h4></td>                                        </tr>
+                                       <tr className = "notification-border">
+                                           <td ><img src={this.props.user.user[0].Profile_pic} alt=" woman" className="notification-image" /></td>
+                                           <td className = "notification-content">Maria Anders posted someting</td>                                        </tr>
+                                   </table>                               
+                           </div>
+                           </div>
 
-                                    {/* <ul>
-                                  <li>first</li>
-                                  <li>second</li>
-                              </ul>      */}
-                                </div>
-                            </div>
-                            <div ><Link to='addFriends' > <i className="fas fa-user-friends fa-lg"></i></Link> </div>
-                            <div ><Link to='profile' > <i className="fab fa-facebook-messenger fa-lg"></i></Link> </div>
+                           
+                          
 
                             <div ><i className="fas fa-question-circle fa-lg"></i></div>
                             <div > <i className="fas fa-caret-down fa-lg"></i></div>
@@ -139,6 +145,7 @@ class Navigation extends React.Component {
                 </div>
 
 
+                <Getonlineuser users = {onlineFriends} />
             </div>
         );
     }
@@ -146,6 +153,7 @@ class Navigation extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        onlineusers:state.user.onlineuser,
         user: state.user,
     };
 }
