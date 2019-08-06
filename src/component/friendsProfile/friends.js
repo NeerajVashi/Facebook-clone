@@ -11,7 +11,7 @@ class Friends extends Component {
                     {
                         (this.props.user.user[0].id == friend.senderId) ?
                             <div>                         <a class=" _8t lfloat _ohe" href=" " data-hovercard-prefer-more-content-show="1">
-                                <img class="img" alt="" src={friend.receiverProfile_pic} width="200px" height="200px" role="img" />
+                                <img class="img" alt="" src={friend.receiverProfile_pic} width="100px" height="100px" role="img" />
                             </a>
                                 <a href=" " >{friend.receiverFirstName} {friend.receiverSurName}</a><br />
                                 <a href=" "  >44 mutual friends</a>
@@ -25,7 +25,7 @@ class Friends extends Component {
                             <div>               
                                  <div>
                                 <a class=" _8t lfloat _ohe" href=" " data-hovercard-prefer-more-content-show="1">
-                                    <img class="img" alt="" src={friend.senderProfile_pic} width="200px" height="200px" role="img" />
+                                    <img class="img" alt="" src={friend.senderProfile_pic} width="100px" height="100px" role="img" />
                                 </a>
                                 <a href=" " >{friend.senderfirstName} {friend.senderSurname}</a><br />
                                 <a href=" "  >44 mutual friends</a>

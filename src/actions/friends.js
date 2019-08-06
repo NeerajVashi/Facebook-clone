@@ -20,7 +20,7 @@
 export function friends(userId) {
     return function (dispatch) {
         console.log('inside getFunction', userId);
-        const Request = `http://localhost:9000/friends/${userId}`;
+        const Request = `https://fb-friends-api.herokuapp.com/friends/${userId}`;
         fetch(Request)
             .then(response => response.json())
             .then((friends) => {
@@ -33,7 +33,7 @@ export function friends(userId) {
 //---------------------------------------------------------------------------------
 export function pendingRequest(ReceiverId) {
     return function (dispatch) {
-        const Request = `http://localhost:9000/receiveFriendRequest/${ReceiverId}`;
+        const Request = `https://fb-friends-api.herokuapp.com/receiveFriendRequest/${ReceiverId}`;
         fetch(Request)
             .then(response => response.json())
             .then((user) => {
@@ -77,7 +77,7 @@ export function pendingRequest(ReceiverId) {
 export function sendRequest(request) {
     return function (dispatch) {
         console.log('inside sendRequest', request);
-        const loginRequest = `http://localhost:9000/sendFriendRequest`;
+        const loginRequest = `https://fb-friends-api.herokuapp.com/sendFriendRequest`;
         fetch(loginRequest, {
             headers: {
                 Accept: 'application/json',
@@ -116,7 +116,7 @@ export function sendRequest(request) {
 export function confirmRequest(userId) {
     console.log('in confirm action', userId);
     return function (dispatch) {
-        const loginRequest = `http://localhost:9000/confirmFriendRequest`;
+        const loginRequest = `https://fb-friends-api.herokuapp.com/confirmFriendRequest`;
         fetch(loginRequest, {
             headers: {
                 Accept: 'application/json',
@@ -135,7 +135,7 @@ export function confirmRequest(userId) {
 //---------------------------------------------------------------------------------------------
 export function deleteRequest(friends) {
     return function (dispatch) {
-        const loginRequest = `http://localhost:9000/discard`;
+        const loginRequest = `https://fb-friends-api.herokuapp.com/discard`;
         fetch(loginRequest, {
             headers: {
                 Accept: 'application/json',
@@ -178,7 +178,7 @@ export function deleteRequest(friends) {
 
 export function deletePendingRequest(userId) {
     return function (dispatch) {
-        const loginRequest = `http://localhost:9000/deleteFriendRequest`;
+        const loginRequest = `https://fb-friends-api.herokuapp.com/deleteFriendRequest`;
         fetch(loginRequest, {
             headers: {
                 Accept: 'application/json',
@@ -218,7 +218,7 @@ export function deletePendingRequest(userId) {
 export function getFriends(userId) {
     return function (dispatch) {
         console.log('inside getFunction', userId);
-        const Request = `http://localhost:9000/${userId}`;
+        const Request = `https://fb-friends-api.herokuapp.com/${userId}`;
         fetch(Request)
             .then(response => response.json())
             .then((user) => {

@@ -4,10 +4,6 @@ import {connect} from 'react-redux'
 
 class SeachFriends extends Component {
     render() {
-        // const fil = this.props.user.friends.filter((friend) => {
-        //     return friend.id === this.props.friend.id
-        // })
-        // console.log('filer', fil, Object.keys(fil).length);
             return (
                 <div>
                     <div className="searchfrnds">

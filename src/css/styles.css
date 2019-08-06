@@ -1,9 +1,57 @@
+
 .nav-user-image{
     height: 26px;
     width:26px;
-    border-radius:50%; 
+    border-radius:50%;
     margin-top:4px;
-}
+ }
+ .notification-border {
+    border-top: 1px solid #dedede
+ ;
+ }
+ .notification-content {
+    padding:26px;
+ }
+ .new-activity {
+    border-top: 1px solid #dedede
+ ;
+    background-color: #f5f6f7
+ ;
+    border-bottom: 1px solid #dddfe2
+ ;
+    color: #90949c
+ ;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px 12px;
+ }
+ .notification-header {
+ background: #FFFFFF
+ ;
+ display: flex;
+ justify-content: space-between;
+ }
+ .notification-notification {
+    padding: 8px;
+    color: #616770
+ ;
+    /* padding: 20px 12px 0px; */
+    font-weight: 600;
+ }
+ .see-all {
+    float:right;
+    padding: 8px;
+    color: #4647b2
+ ;
+ }
+ .notification-image {
+    display: inline;
+    height: 61px;
+    width: 61px;
+    border-radius: 50%;
+    margin-top: 4px;
+ }
 .nav-user-image-main-news {
     height: 36px;
     width:36px;
@@ -62,6 +110,19 @@
     border: none;
     size: 10px;
  }
+ .drp-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 8px 0px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    margin-left:-140px;
+ }
+ .drp:hover .drp-content {
+    display: block;
+  }
  ._btnsize-news-feed {
     margin-top: -28px;
     margin-left: 1%;
@@ -103,7 +164,11 @@
     margin-left: 6px;
 }
 .profile1 {
-    margin-top: -2px;
+    margin-top: 7px;
+    padding-bottom: 20px;
+}
+.profile1 a{
+    size: 10px;
 }
 .left-user-image{
     height: 28px;
@@ -121,9 +186,8 @@
     height: 56px;
     width:56px;
     border-radius:50%;
-    margin-left:7px;
-    margin-top:4px;
-    
+    margin-left:11px;
+    margin-top:7px;    
 }
 .mutual-friend{
     color: #90949c
@@ -193,10 +257,27 @@
     background: #FFFFFF;
 }
 .friends-name{
-
      color: #385898;
      font : 17px Helvetica, Arial, sans-serif;
      font-weight: 600;
+}
+
+
+.friends-name2 {
+    margin-top: -37px;
+    color: #385898;
+    font: 17px Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    margin-left: 79px;
+}
+.friends-name1{
+
+    color: #385898;
+    font : 17px Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    margin-left:85px;
+    margin-right: 318px;
+    margin-top: -35px;
 }
 .status-button{
     margin-right:10px
@@ -275,11 +356,12 @@
     width: 50.5px;
 }
 .likebtn {
-    border-radius: 50%;
     /* width: 5%; */
-    height: 5%;
-    color: #3b5998;
+    border: none;
+    background-color: transparent;
 }
+
+
 .likebtn1 {
     font-weight: 600;
     background-color: transparent;
@@ -292,16 +374,11 @@
     margin-bottom: 10px;/* changed */
     margin-right: -9px;
 }
-.likebtn {
-    border-radius: 50%;
-    background-color: #3b5998;
-    color: white;
-    margin-left: 15px;
-}
 ._btnsize {
-    margin-top: -32px;
+    margin-top: -28px;
     background-color: #3b5998;
     border: none;
+    margin-left: 4px;
 }
 .comments {
     font-family: inherit;
@@ -350,6 +427,7 @@
     width: 94%;
 }
 .mainpage-container {
+    margin-top:16px;
     display: flex;
     background-color: #DCDCDC;
     padding:10px;
@@ -386,7 +464,7 @@ a:visited {
     height: 29px; 
     padding-top: 5px;
     padding-bottom: 0px;
-    padding-left: 10px;
+    padding-left: 20px;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
     border-bottom-right-radius: 18px;
@@ -412,7 +490,14 @@ a:visited {
 }
 .delbtn {
     float: right;
-    margin-top: -45px;
+    margin-top: -30px;
+    padding-bottom: 23px;
+}
+.delbtn1 {
+    float: right;
+    margin-top: -30px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
 }
 a:hover {
     text-decoration: none;
@@ -504,8 +589,8 @@ ul {
 }
 .buttonwrapper1 input[type=file] {
     position:absolute;
-    left: 0;
-    top: 0;
+    left: 152px;
+    top: -5px;
     opacity: 0;
 }
 .addimg {
@@ -516,6 +601,7 @@ ul {
     font-weight: 650;
     color: #4b4f56;
     font-size: 14px;
+    margin-top: -3px;
 }
 .buttonwrapper1{
     position: relative;
@@ -530,8 +616,9 @@ ul {
     background-color: transparent;
     border-color: transparent;
     color:#3b5998;
-    margin-left: 20px;
+    margin-left: 8px;
     font-size: 16px;
+    margin-top: -6px;
 }
 
 .dropdown {
@@ -672,3 +759,8 @@ ul {
     background-position: -248px;
     opacity: 0.7;
 }*/
+.likeimage{
+    width: 31px;
+    background-color: transparent;
+    margin-left: 20px;
+}

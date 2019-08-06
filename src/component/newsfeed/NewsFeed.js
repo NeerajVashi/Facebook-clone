@@ -89,7 +89,7 @@ class NewsFeed extends Component {
                 <div class="card">
                     <div class="card-header">
                         <img  className="post-user-image" src={this.props.user.user[0].Profile_pic} alt="Avatar" />
-                        <div  class="friends-name">{this.props.user.user[0].firstName} {this.props.user.user[0].surName}</div>
+                        <div  class="friends-name2">{this.props.user.user[0].firstName} {this.props.user.user[0].surName}</div>
                         <Button variant="light" onClick={this.deletePost} className="delbtn">Delete</Button>
                     </div>
                     {/* {(this.props.img.img.includes('JPEG') || (this.props.img.img.includes('jpeg')) || (this.props.img.img.includes('png')) || (this.props.img.img.includes('PNG')) || (this.props.img.img.includes('JPG')) || (this.props.img.img.includes('JPG')) ) ? 
@@ -124,7 +124,7 @@ class NewsFeed extends Component {
 
                     {/* <div class="card-body"><img className="pic" src={image} alt="img" /></div> */}
                     <div class="card-footer">
-                        <button className="likebtn"><i class="far fa-thumbs-up fa-lg" style={{ color: 'white' }}></i></button><> {this.state.counter}</>
+                    <button className="likebtn"><img className="likeimage" alt="" src="./images/facebooklike.png"/></button><> {this.state.counter}</>
                         <div className="createfooter">
                             <ul className="pst">
                                 <li><i class="far fa-thumbs-up"></i><button onClick={e => this.countIncrease(this.props.post.postId)} className="likebtn1"> Like</button></li>
