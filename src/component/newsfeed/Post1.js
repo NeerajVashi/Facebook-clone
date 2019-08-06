@@ -75,11 +75,11 @@ class Post1 extends Component {
         const image = this.props.post.image;
         const postdata = this.props.post.postData;
         const comments = this.props.comments;
-        console.log('----------->post--------------->', this.props.post)
         return (
             <div>
                 <div class="card">
                     <div class="card-header">
+    
                         <img className="post-user-image" src={this.props.post.userImage} alt="Avatar" />
                         <div class="friends-name1">{this.props.post.firstName} {this.props.post.surName}</div>
                         <Button variant="light" onClick={this.deletePost} className="delbtn1">Delete</Button>
@@ -106,7 +106,7 @@ class Post1 extends Component {
                     </div>
                     {((comments.length > 0) && (comments[0].postId === this.props.post.postId))  ?
                         comments.map((comment) =>
-                            <div><img className="round-img-cmnts" src={comment.userImage} alt="" /><textarea className="comments" cols="50" rows="1">{comment.comments}</textarea></div>
+                            <div><img className="nav-user-image-main-news" src={comment.userImage} alt="" /><textarea className="comments" cols="50" rows="1">{comment.comments}</textarea></div>
                         )
                         : <></>
                     }

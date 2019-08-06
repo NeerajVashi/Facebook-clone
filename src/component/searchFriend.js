@@ -2,14 +2,20 @@ import React, { Component } from 'react'
 import {  Tab,Tabs, TabList,TabPanel } from 'react-tabs';
 import '../css/styles.css'
 import Intro from './search/Intro';
+import {fetchImages} from '../actions/fetchimage'
+import {userPosts} from '../actions/postAction'
+import {connect} from 'react-redux'
 // import SeachFriends from './search/SeachFriends';
-export default class frndsTable extends Component {
+class frndsTable extends Component {
     constructor(props) {
         super(props)
         this.state = {
             friends: props.location.state.searchData
         }
+        this.props.dispatch(fetchImages(this.state.friends.id));
+        this.props.dispatch(userPosts(this.state.friends.id));
     }
+    
     render() {
         return (
             <div>
@@ -93,4 +99,12 @@ export default class frndsTable extends Component {
     }
 }
 
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.user,
+    };
+}
+
+export default connect(mapStateToProps)(frndsTable);
 

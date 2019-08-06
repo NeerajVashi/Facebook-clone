@@ -168,6 +168,7 @@ class Homepage extends Component {
                             <div class="card">               {/* create post */}
                                 <div class="card-header">Create Post</div>
                                 <div className="post-and-image">
+                                  
                                     <img src={this.props.user.user[0].Profile_pic} alt="" className="post-user-image" />
 
                                     <textarea data-toggle="modal" data-target="#textModal" className="postdata" name="postData"
@@ -192,16 +193,6 @@ class Homepage extends Component {
                                     </div>
                                 </div>
 
-                                <div class="card">
-                                    <div class="card-header">
-                                        Featured
-  </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Cras justo odio</li>
-                                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                                        <li class="list-group-item">Vestibulum at eros</li>
-                                    </ul>
-                                </div>
                             </div><br />                    {/* create post ends */}
 
                             {/* {postData.map((post) => 
@@ -229,7 +220,7 @@ class Homepage extends Component {
                                     </div>
                                     {
                                         friendRequest.map((friend, i) => (
-                                            <FriendCards singleuser={friend} key={i} onclick={this.add} onclickdelete={this.delete} />
+                                            <FriendCards singleuser={friend} key={i} value = {i} onclick={this.add} onclickdelete={this.delete} />
                                         ))
                                     }
 

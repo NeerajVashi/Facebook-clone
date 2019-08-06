@@ -2,25 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux';
 
 class FriendCards extends Component {
-//------------------------------------------------------------
-    // addFriend = () => {
-    //     console.log('add');
-    //     console.log('add', this.state);
-    //     console.log('this.props.user', this.props.user)
-    //     const user = this.props.user.user;
-    //     console.log('username', user[0].firstName, user[0].surName)
-        // const sender = {
-        //     status:'sent',
-        //     firstName:this.props.singleuser.firstName,
-        //     surName:this.props.singleuser.surname,
-        //     senderId:this.props.singleuser.userId,
-        //     senderFirstName:user[0].firstName,
-        //     senderSurName:user[0].surName,
-        //     senderImage:user[0].Profile_pic,
-        //     receiverImage:this.props.singleuser.Profile_pic
-        // }
-    //     this.props.onclick(this.props.singleuser.friendId, sender);
-    // }
+
     addFriend = () => {
         const request = {
             receiverId:this.props.user.user[0].id,
@@ -94,20 +76,29 @@ class FriendCards extends Component {
         //         </>
         //     )
         // }
-        return (
-            <div class="row">
-            <div class="col-sm-3">
-                <img className=" friends-images " src={user.Profile_pic} alt="Card image cap" />
+        console.log('this.props.key', this.props.key);
+        console.log('this.props.value', this.props.value);
+        if( this.props.value <= 4) {
+            return (
+                <div class="row">
+                <div class="col-sm-3">
+                    <img className=" friends-images " src={user.Profile_pic} alt="Card image cap" />
+                </div>
+                <div class="col-sm-9">
+                    <ul className="friend-card-container">
+                        <li><div class="friends-name">{user.firstName} {user.surname}</div></li>
+                        <li><div className="mutual-friend"></div></li>
+                        <li><div className="friends-request-response"><div onClick ={this.addFriend} className="add-button"><img className="add-button-icon" src="./images/addIcon.png" /> Add Friend</div><div onClick = {this.deleteRequest}  className="delete-button">Delete</div></div></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-sm-9">
-                <ul className="friend-card-container">
-                    <li><div class="friends-name">{user.firstName} {user.surname}</div></li>
-                    <li><div className="mutual-friend"></div></li>
-                    <li><div className="friends-request-response"><div onClick ={this.addFriend} className="add-button"><img className="add-button-icon" src="./images/addIcon.png" /> Add Friend</div><div onClick = {this.deleteRequest}  className="delete-button">Delete</div></div></li>
-                </ul>
-            </div>
-        </div>
-        )
+            )
+        } else {
+            return(
+                <></>
+            )
+        }
+
 
     }
 }

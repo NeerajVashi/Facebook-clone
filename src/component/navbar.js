@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import Friends from './friends/Friends'
 import { getFriends } from '../actions/friends'
 import { allUsers } from '../actions/userLogin'
+import Postnotification from './notification/postnotification';
 
 class Navigation extends React.Component {
     constructor(props) {
@@ -44,6 +45,7 @@ class Navigation extends React.Component {
         document.getElementById("myDropdown").classList.toggle("show");
     }
     render() {
+        
         const user = this.props.user.user;
         const friendRequest = this.props.user.friendRequest;
         console.log('friendRequest', friendRequest, 'length');
@@ -67,51 +69,56 @@ class Navigation extends React.Component {
                         </div>
 
                         <div className="navright">
-                            <div> <img src={this.props.user.user[0].Profile_pic} alt="Image of woman" className="nav-user-image" /></div>
+                            <div> <img src={this.props.user.user[0].Profile_pic} alt="" className="nav-user-image" /></div>
                             {/* <div ><i class="fas fa-user-circle fa-lg"></i></div> */}
                             <div className="color">
                                 <Link to='/profile' > <p className="navtxt">{user[0].firstName} {user[0].surName} </p> </Link>
                                 <p className="navtxt">|</p>
-                                
+
                                 <Link to='/' > <p className="navtxt">Home </p> </Link>
                                 <p className="navtxt">|</p>
                                 <a href="/dropdown"><p className="navtxt">Create </p></a>
                                 <p className="navtxt">|</p>
                             </div>
                             <div class="dropdown">
-                                    <i onClick={this.myFunction} className="fas fa-user-friends fa-lg"></i>
-                                    <div id="myDropdown" class="dropdown-content">
-                                        <Friends friendRequest={friendRequest} />
-                                        {/* <div>
+                                <i onClick={this.myFunction} className="fas fa-user-friends fa-lg"></i>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <Friends friendRequest={friendRequest} />
+                                    {/* <div>
                                             {(length > 0) ? (friendRequest.map((friend, i) => (
                                                 <Friends key={i} onclick={this.myFunction} />
                                             ))) : <div></div>
                                             }
                                         </div> */}
-                                    </div>
                                 </div>
+                            </div>
                             <div > <i className="fab fa-facebook-messenger fa-lg"></i> </div>
-                           
-                            <div className="drp"><i className="fas fa-bell fa-lg"></i>
-                           <div className="drp-content">
-                           <div className = "notification-header">
-                                           <div className='notification-notification'>Notification</div>
-                                           <div className="see-all">See all</div>
-                                       </div>
-                                       <div className="new-activity">New Activity</div>
-                                   <table>
-                                       <tr className = "notification-border">
-                                           <td ><img src={this.props.user.user[0].Profile_pic} alt="Image of woman" className="notification-image" /></td>
-                                           <td className = "notification-content"><h4>Maria Ander posted somthing </h4></td>                                        </tr>
-                                       <tr className = "notification-border">
-                                           <td ><img src={this.props.user.user[0].Profile_pic} alt="Image of woman" className="notification-image" /></td>
-                                           <td className = "notification-content">Maria Anders posted someting</td>                                        </tr>
-                                   </table>                               
-                           </div>
-                           </div>
 
-                           
-                          
+                            <div className="drp"><i className="fas fa-bell fa-lg"></i>
+                                <div className="drp-content">
+                                    <div className="notification-header">
+                                        <div className='notification-notification'>Notification</div>
+                                        <div className="see-all">See all</div>
+                                    </div>
+                                    <div className="new-activity">New Activity</div>
+                                    <table>
+                                        {
+                                            this.props.user.postNotification.map((notification, index) => 
+                                              <Postnotification notification = {notification} />
+                                              )
+                                        }
+                                        {/* <tr className="notification-border">
+                                            <td ><img src={this.props.user.user[0].Profile_pic} alt="Image of woman" className="notification-image" /></td>
+                                            <td className="notification-content"><h4>Maria Ander posted somthing </h4></td>                                        </tr>
+                                        <tr className="notification-border">
+                                            <td ><img src={this.props.user.user[0].Profile_pic} alt="Image of woman" className="notification-image" /></td>
+                                            <td className="notification-content">Maria Anders posted someting</td>                                        </tr> */}
+                                    </table>
+                                </div>
+                            </div>
+
+
+
 
                             <div ><i className="fas fa-question-circle fa-lg"></i></div>
                             <div > <i className="fas fa-caret-down fa-lg"></i></div>
